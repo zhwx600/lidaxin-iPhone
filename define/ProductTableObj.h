@@ -1,0 +1,20 @@
+//
+//  ProductTableObj.h
+//  LiDaXin-iPad
+//
+//  Created by apple on 12-9-18.
+//  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+@interface ProductTableObj : NSObject
+
+@property (nonatomic,retain) NSString* m_bulbId;
+@property (nonatomic,retain) NSString* m_bulbType;
+@property (nonatomic,retain) NSString* m_bulbParam;
+@property (nonatomic,retain) NSString* m_bulbImage;
+@property (nonatomic,retain) NSString* m_bulbVersionId;
+@property (nonatomic)int m_flag;//下在数据时 标记操作 类型 -1 删除，0修改，1添加
+
+@end
