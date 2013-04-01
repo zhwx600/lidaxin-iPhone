@@ -60,20 +60,20 @@
     // Do any additional setup after loading the view from its nib.
     [self.m_scrollView setContentSize:CGSizeMake(320, 416)];
     [self initInputView];
-    self.m_tableCellArr = [[NSMutableArray alloc] init];
+    m_tableCellArr = [[NSMutableArray alloc] init];
     [self.m_datePicker setTimeZone:[NSTimeZone localTimeZone]];
     [self.m_datePickerTime setTimeZone:[NSTimeZone localTimeZone]];
     [self.m_datePicker setDate:[NSDate date]];
     [self.m_datePickerTime setDate:[NSDate date]];
     
-    if (!self.m_alertCommitView) {
-        self.m_alertCommitView = [[UIAlertView alloc] initWithTitle:@"Upgrade tips" message:@"Data is being submitted, please do not exit the program.\r\n" delegate:self cancelButtonTitle:nil otherButtonTitles:nil, nil];
+    if (!m_alertCommitView) {
+        m_alertCommitView = [[UIAlertView alloc] initWithTitle:@"Upgrade tips" message:@"Data is being submitted, please do not exit the program.\r\n" delegate:self cancelButtonTitle:nil otherButtonTitles:nil, nil];
         
         UIActivityIndicatorView* actView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
         CGRect rect = [actView frame];
         rect.origin = CGPointMake(130, 108);
         actView.frame = rect;
-        [self.m_alertCommitView addSubview:actView];
+        [m_alertCommitView addSubview:actView];
         
         [actView startAnimating];
         
@@ -182,12 +182,13 @@
     
     if (self.m_datePicker.datePickerMode == UIDatePickerModeDate) {
         
-        UITableViewCell* temcell = [self.m_tableCellArr objectAtIndex:0];
+        UITableViewCell* temcell = [m_tableCellArr objectAtIndex:0];
         
         NSDateFormatter* dateForm = [[NSDateFormatter alloc] init];
         [dateForm setTimeZone:[NSTimeZone localTimeZone]];
         [dateForm setDateFormat:@"yyyy年MM月dd日"];
         NSString* str = [NSString stringWithFormat:@"%@",[dateForm stringFromDate:self.m_datePicker.date]];
+        [dateForm release];
         
         UILabel* label = [temcell viewWithTag:1];
         label.text = str;
@@ -195,13 +196,13 @@
         
     }else if(self.m_datePicker.datePickerMode == UIDatePickerModeTime){
         
-        UITableViewCell* temcell = [self.m_tableCellArr objectAtIndex:1];
+        UITableViewCell* temcell = [m_tableCellArr objectAtIndex:1];
         
         NSDateFormatter* dateForm = [[NSDateFormatter alloc] init];
         [dateForm setTimeZone:[NSTimeZone localTimeZone]];
         [dateForm setDateFormat:@"HH:mm"];
         NSString* str = [NSString stringWithFormat:@"%@",[dateForm stringFromDate:self.m_datePicker.date]];
-        
+        [dateForm release];
         
         UILabel* label = [temcell viewWithTag:1];
         label.text = str;
@@ -215,23 +216,23 @@
     [self closeIme:nil];
     [UIView beginAnimations:@"ResizeForKeyboard" context:nil];
 	[UIView setAnimationDuration:0.3f];
-	float width = self.m_dateView.frame.size.width;
-	float height = self.m_dateView.frame.size.height;
+	float width = m_dateView.frame.size.width;
+	float height = m_dateView.frame.size.height;
 	CGRect rect = CGRectMake(0.0f, 115.0, width, height);
-	self.m_dateView.frame = rect;
+	m_dateView.frame = rect;
 	[UIView commitAnimations];
 }
 
 - (IBAction)valueChangerTime:(id)sender 
 {
     
-    UITableViewCell* temcell = [self.m_tableCellArr objectAtIndex:1];
+    UITableViewCell* temcell = [m_tableCellArr objectAtIndex:1];
     
     NSDateFormatter* dateForm = [[NSDateFormatter alloc] init];
     [dateForm setTimeZone:[NSTimeZone localTimeZone]];
     [dateForm setDateFormat:@"HH:mm"];
     NSString* str = [NSString stringWithFormat:@"%@",[dateForm stringFromDate:self.m_datePickerTime.date]];
-    
+    [dateForm release];
     
     UILabel* label = [temcell viewWithTag:1];
     label.text = str;
@@ -284,7 +285,7 @@
 
 -(void) receiveYuYueData:(NSData*) data;
 {
-    [self.m_alertCommitView dismissWithClickedButtonIndex:0 animated:YES];
+    [m_alertCommitView dismissWithClickedButtonIndex:0 animated:YES];
     if (data) {
         
         UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Appointment successful!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -447,9 +448,10 @@
             label.text = str;
         }
         [cell addSubview:label];
+        [label release];
         
-        [self.m_tableCellArr addObject:cell];
-        
+        [m_tableCellArr addObject:cell];
+        [dateForm release];
     }
     
 	return cell;

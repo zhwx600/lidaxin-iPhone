@@ -1679,9 +1679,9 @@ bool xmlparser::Decode(const char *xml,S_Data *sData)
                 while (lmtTmp)
                 {
                     TTiXmlElement *lmtKey = lmtTmp->FirstChildElement("cjlistid");
-                    ZhanWeiInfoTableObj* imageObj = [[ZhanWeiInfoTableObj alloc] init];
+                    ChangJinTableObj* imageObj = [[ChangJinTableObj alloc] init];
                     
-                    imageObj.m_showInfoId = [[NSString alloc] initWithCString:lmtKey->GetText() encoding:NSUTF8StringEncoding];
+                    imageObj.m_changjinId = [[NSString alloc] initWithCString:lmtKey->GetText() encoding:NSUTF8StringEncoding];
                     imageObj.m_flag = -1;
                     [imageArr addObject:imageObj];
                     [imageObj release];

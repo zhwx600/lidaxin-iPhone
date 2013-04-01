@@ -36,10 +36,10 @@
     // Do any additional setup after loading the view from its nib.
     
     CGRect bounds = CGRectMake(0, 44, 320, 460-44);
-    self.m_tableView = [[UITableView alloc] initWithFrame:bounds];
-    self.m_tableView.dataSource = self;
-    self.m_tableView.delegate = self;
-    [self.view insertSubview:self.m_tableView atIndex:2];
+    m_tableView = [[UITableView alloc] initWithFrame:bounds];
+    m_tableView.dataSource = self;
+    m_tableView.delegate = self;
+    [self.view insertSubview:m_tableView atIndex:2];
     
    
 
@@ -74,12 +74,12 @@
 {
     [super viewWillAppear:animated];
     
-    if(self.m_tableArray){
-        [self.m_tableArray release];
+    if(m_tableArray){
+        [m_tableArray release];
         
     }
-    self.m_tableArray = [[NSMutableArray alloc] initWithArray:[DataBase getOneZhanWeiInfoByZhanweiId:self.m_zhanweiId]];
-    [self.m_tableView reloadData];
+    m_tableArray = [[NSMutableArray alloc] initWithArray:[DataBase getOneZhanWeiInfoByZhanweiId:self.m_zhanweiId]];
+    [m_tableView reloadData];
     
 }
 
@@ -107,8 +107,8 @@
     
     
     
-    [self.m_tableView tableViewDidFinishedLoading];
-    [self.m_tableView reloadData];
+    [m_tableView tableViewDidFinishedLoading];
+    [m_tableView reloadData];
     
     
 }
@@ -118,7 +118,7 @@
     UIButton* button = (UIButton*)sender;
     UITableViewCell* cell = (UITableViewCell*)[button superview];
     
-    NSIndexPath* index = [self.m_tableView indexPathForCell:cell];
+    NSIndexPath* index = [m_tableView indexPathForCell:cell];
     NSLog(@"index = %@, tag = %d",index,button.tag);
 }
 
@@ -132,7 +132,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.m_tableArray.count;
+    return m_tableArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -146,7 +146,7 @@
          cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         
         }
-    ZhanWeiInfoTableObj* zhanwei = [self.m_tableArray objectAtIndex:indexPath.row];
+    ZhanWeiInfoTableObj* zhanwei = [m_tableArray objectAtIndex:indexPath.row];
     cell.textLabel.text = zhanwei.m_showInfoId;
 
  
@@ -163,7 +163,7 @@
 //    [GGlobal getGlobalInstance].m_zhanweiListViewFresh = NO;
 //    ZhanWeiDetaiViewController* zhanwei = [[ZhanWeiDetaiViewController alloc] init];
 //    
-//    zhanwei.m_zhanweiInfo = [self.m_tableArray objectAtIndex:indexPath.row];
+//    zhanwei.m_zhanweiInfo = [m_tableArray objectAtIndex:indexPath.row];
 //    
 //    [self.navigationController pushViewController:zhanwei animated:YES];
 //    [zhanwei release];

@@ -407,13 +407,12 @@
     
     
     if (typeImage.m_typeProArray) {
-        [typeImage.m_typeProArray release];
         typeImage.m_typeProArray = nil;
     }
     typeImage.m_typeProArray = [[NSMutableArray alloc] init];
     
     
-    if (0 != [self.m_type compare:@"展品"]) {
+    if (0 != [m_type compare:@"展品"]) {
     
         for (int i=0; i<m_allProObj.count; i++) {
             

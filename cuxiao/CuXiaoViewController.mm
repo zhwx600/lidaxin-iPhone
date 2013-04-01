@@ -43,10 +43,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.m_tabBar = [[JSScrollableTabBar alloc] initWithFrame:CGRectMake(0, 302, 320, 44) style:JSScrollableTabBarStyleTransparent];
-	[self.m_tabBar setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
-	[self.m_tabBar setDelegate:self];
-	[self.view addSubview:self.m_tabBar];
+    m_tabBar = [[JSScrollableTabBar alloc] initWithFrame:CGRectMake(0, 302, 320, 44) style:JSScrollableTabBarStyleTransparent];
+	[m_tabBar setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
+	[m_tabBar setDelegate:self];
+	[self.view addSubview:m_tabBar];
 	
     
 	
@@ -79,7 +79,7 @@
 -(void) viewWillAppear:(BOOL)animated
 {
     
-    if (0 == [self.m_type compare:@"新品"]) {
+    if (0 == [m_type compare:@"新品"]) {
         self.m_titleLabel.text = @"New Product";
     }else{
         self.m_titleLabel.text = @"Hot Sales";
@@ -87,8 +87,8 @@
     
     
     
-    if (self.m_allProObj) {
-        [self.m_allProObj release];
+    if (m_allProObj) {
+        [m_allProObj release];
     }
     
 //    NSMutableArray* typearra = [[NSMutableArray alloc] initWithArray:[DataBase getSomeCanZhanReleaseTableObjByType:@"新品"]];
@@ -98,16 +98,16 @@
 //    
     
     
-    self.m_allProObj = [[NSMutableArray alloc] initWithArray:[DataBase getSomeCanZhanReleaseTableObjByType:self.m_type]];
+    m_allProObj = [[NSMutableArray alloc] initWithArray:[DataBase getSomeCanZhanReleaseTableObjByType:m_type]];
     
-    if (self.m_allProObj && self.m_allProObj.count<=0) {
+    if (m_allProObj && m_allProObj.count<=0) {
         return;
     }
     
     NSMutableArray* typeArr = [NSMutableArray array];
     //获取 类型shuzu
-    for (int i=0; i<self.m_allProObj.count; i++) {
-        CanZhanReleaseTableObj* proObj = [self.m_allProObj objectAtIndex:i];
+    for (int i=0; i<m_allProObj.count; i++) {
+        CanZhanReleaseTableObj* proObj = [m_allProObj objectAtIndex:i];
         
         NSString* imageid = proObj.m_imageId;
         ImageTableObj* imageObj = [DataBase getOneImageTableInfoImageid:imageid];
@@ -146,12 +146,12 @@
 		[item release];
         
 	}
-	[self.m_tabBar setTabItems:items];
+	[m_tabBar setTabItems:items];
     
     //初始化 选中一个 tab
     NSMutableArray* proArr = [NSMutableArray array];
-    for (int i=0; i<self.m_allProObj.count; i++) {
-        CanZhanReleaseTableObj* proObj = [self.m_allProObj objectAtIndex:i];
+    for (int i=0; i<m_allProObj.count; i++) {
+        CanZhanReleaseTableObj* proObj = [m_allProObj objectAtIndex:i];
         ImageTableObj* temimageobj = [DataBase getOneImageTableInfoImageid:proObj.m_imageId];
         
         if (0 == [temimageobj.m_imageType compare:((ImageTableObj*)[typeArr objectAtIndex:0]).m_imageType]) {
@@ -179,7 +179,7 @@
         [tembutton addTarget:self action:@selector(imageButtonSelect:) forControlEvents:UIControlEventTouchUpInside];
         tembutton.tag = i;
         
-        [self.m_proScrollView addSubview:tembutton];
+        [m_proScrollView addSubview:tembutton];
         [tembutton release];
         jiange += 120+2;
         
@@ -190,10 +190,10 @@
             
             [self initParamScrollView:temarr];            
             
-            if (self.m_selectProId) {
-                [self.m_selectProId release];
+            if (m_selectProId) {
+                [m_selectProId release];
             }
-            self.m_selectProId = [[NSString alloc] initWithString:proObj.m_productId];
+            m_selectProId = [[NSString alloc] initWithString:proObj.m_productId];
             
             self.m_imageView.image = image;
             
@@ -264,7 +264,7 @@
 
 - (IBAction)zixunButtonAct:(id)sender 
 {
-    if (self.m_selectProId && [self.m_selectProId length] > 0) {
+    if (m_selectProId && [m_selectProId length] > 0) {
         
     }else{
         UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Warning message" message:@"Please select a product!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -275,7 +275,7 @@
 
     
     ChanPinZiXunViewController* zixunview = [[ChanPinZiXunViewController alloc] init];
-    zixunview.m_chanPinId = self.m_selectProId;
+    zixunview.m_chanPinId = m_selectProId;
     [self.navigationController pushViewController:zixunview animated:YES];
     [zixunview release];
     
@@ -295,17 +295,17 @@
     }
     
     int jiange = 0;
-    for (int i=0; i<self.m_allProObj.count; i++) {
+    for (int i=0; i<m_allProObj.count; i++) {
         
-        CanZhanReleaseTableObj* proobj = [self.m_allProObj objectAtIndex:i];
+        CanZhanReleaseTableObj* proobj = [m_allProObj objectAtIndex:i];
         ImageTableObj* imageobj = [DataBase getOneImageTableInfoImageid:proobj.m_imageId];
         
         if (0 == [imageobj.m_imageType compare:typeName]) {
             
-            if (self.m_selectProId) {
-                [self.m_selectProId release];
+            if (m_selectProId) {
+                [m_selectProId release];
             }
-            self.m_selectProId = [[NSString alloc] initWithString:proobj.m_productId];
+            m_selectProId = [[NSString alloc] initWithString:proobj.m_productId];
             
             UIButton* tembutton = [[UIButton alloc] initWithFrame:CGRectMake(jiange + 2, 2, 120, 120)];
             tembutton.titleLabel.text = proobj.m_productId;
@@ -375,10 +375,10 @@
     UIButton* button = sender;
     NSString* proid = button.titleLabel.text;
     
-    if (self.m_selectProId) {
-        [self.m_selectProId release];
+    if (m_selectProId) {
+        [m_selectProId release];
     }
-    self.m_selectProId = [[NSString alloc] initWithString:proid];
+    m_selectProId = [[NSString alloc] initWithString:proid];
     
     CanZhanReleaseTableObj* proobjj = [DataBase getOneReleaseProTableInfoShowid:proid];
     

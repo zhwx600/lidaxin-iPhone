@@ -132,9 +132,9 @@
 
 -(void) setM_body:(NSData *)data
 {
-    if (self.m_body) {
-        [self.m_body release];
-        self.m_body = [[NSData alloc] initWithData:data];
+    if (m_body) {
+        [m_body release];
+        m_body = [[NSData alloc] initWithData:data];
     }
 }
 

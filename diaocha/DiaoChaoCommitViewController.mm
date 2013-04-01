@@ -526,7 +526,6 @@
 
     
     if (tempro.m_itemArray) {
-        [tempro.m_itemArray release];
         tempro.m_itemArray = nil;
     }
     tempro.m_itemArray = [[NSMutableArray alloc] initWithArray:[DataBase getSomeDiaoChaDetailTableObjById:tempro.m_diaochaItemId]];

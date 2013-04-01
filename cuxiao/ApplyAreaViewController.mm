@@ -53,6 +53,8 @@
     [m_desTextView release];
     [m_pageControl release];
     [m_scrollView release];
+    [viewArr release];
+    
     [super dealloc];
 }
 - (void)viewDidUnload {

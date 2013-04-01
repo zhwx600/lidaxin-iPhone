@@ -112,14 +112,14 @@ CATransform3D rotationTransform1[PHOTONUM];
 {
     [super viewWillAppear:animated];
     
-    if (!self.m_shengjiAlertView) {
-        self.m_shengjiAlertView = [[UIAlertView alloc] initWithTitle:@"Upgrade tips" message:@"Being updated product information, please do not exit the program.\r\n" delegate:self cancelButtonTitle:nil otherButtonTitles:nil, nil];
+    if (!m_shengjiAlertView) {
+        m_shengjiAlertView = [[UIAlertView alloc] initWithTitle:@"Upgrade tips" message:@"Being updated product information, please do not exit the program.\r\n" delegate:self cancelButtonTitle:nil otherButtonTitles:nil, nil];
         
         UIActivityIndicatorView* actView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
         CGRect rect = [actView frame];
         rect.origin = CGPointMake(130, 108);
         actView.frame = rect;
-        [self.m_shengjiAlertView addSubview:actView];
+        [m_shengjiAlertView addSubview:actView];
         
         [actView startAnimating];
         
@@ -156,7 +156,6 @@ CATransform3D rotationTransform1[PHOTONUM];
     //	int = currenttag - tag;
 	if(currenttag == tag)
 	{
-        AppDelegate* delegate = [[UIApplication sharedApplication] delegate];
         
         switch (currenttag-TAGSTART) {
             case 0:
@@ -256,7 +255,6 @@ CATransform3D rotationTransform1[PHOTONUM];
 	{
 		Scalenumber = 0.6;
 	}
-	UIImageView *imgview = (UIImageView*)[self.view viewWithTag:tag];
 	CABasicAnimation* animation = [CABasicAnimation animationWithKeyPath:@"transform"];
 	animation.duration = TIME;
 	animation.repeatCount =1;
@@ -365,8 +363,8 @@ CATransform3D rotationTransform1[PHOTONUM];
 
 - (IBAction)gongsi:(id)sender {
     
-    if (!self.m_gongsiView) {
-        self.m_gongsiView = [[GongSiViewController alloc] init];
+    if (!m_gongsiView) {
+        m_gongsiView = [[GongSiViewController alloc] init];
     }
     NSString* path = nil;
     @try {
@@ -386,9 +384,9 @@ CATransform3D rotationTransform1[PHOTONUM];
         return;
     }
     
-    self.m_gongsiView.m_path = path;
+    m_gongsiView.m_path = path;
     
-    [self.navigationController pushViewController:self.m_gongsiView animated:YES];
+    [self.navigationController pushViewController:m_gongsiView animated:YES];
     
     
     
@@ -401,36 +399,36 @@ CATransform3D rotationTransform1[PHOTONUM];
 //    [GGlobal getGlobalInstance].m_zhanweiViewFresh = YES;
 //    [self.navigationController pushViewController:self.m_zhanweiView animated:YES];
     
-    if (self.m_newFairsView) {
-        [self.m_newFairsView release];
-        self.m_newFairsView = nil;
+    if (m_newFairsView) {
+        [m_newFairsView release];
+        m_newFairsView = nil;
         
     }
-    self.m_newFairsView = [[NewFairsViewController alloc] init];
+    m_newFairsView = [[NewFairsViewController alloc] init];
 
-    [self.navigationController pushViewController:self.m_newFairsView animated:YES];
+    [self.navigationController pushViewController:m_newFairsView animated:YES];
     
 }
 
 - (IBAction)diaocha:(id)sender {
-    if (!self.m_diaochaView) {
-        self.m_diaochaView = [[DiaoChaViewController alloc] init];
+    if (!m_diaochaView) {
+        m_diaochaView = [[DiaoChaViewController alloc] init];
     }
     [GGlobal getGlobalInstance].m_diaochanViewFresh = YES;
-    [self.navigationController pushViewController:self.m_diaochaView animated:YES];
+    [self.navigationController pushViewController:m_diaochaView animated:YES];
 }
 
 - (IBAction)cuxiao:(id)sender {
     
-    if (self.m_newCuXiaoView) {
-        [self.m_newCuXiaoView release];
-        self.m_newCuXiaoView = nil;
+    if (m_newCuXiaoView) {
+        [m_newCuXiaoView release];
+        m_newCuXiaoView = nil;
         
     }
-    self.m_newCuXiaoView = [[NewCuxiaoViewController alloc] init];
-    self.m_newCuXiaoView.m_titleStr = @"Hot Product";
-    self.m_newCuXiaoView.m_type = @"促销";
-    [self.navigationController pushViewController:self.m_newCuXiaoView animated:YES];
+    m_newCuXiaoView = [[NewCuxiaoViewController alloc] init];
+    m_newCuXiaoView.m_titleStr = @"Hot Product";
+    m_newCuXiaoView.m_type = @"促销";
+    [self.navigationController pushViewController:m_newCuXiaoView animated:YES];
     
 //    if (!self.m_cuxiaoView) {
 //        self.m_cuxiaoView = [[CuXiaoViewController alloc] init];
@@ -441,15 +439,15 @@ CATransform3D rotationTransform1[PHOTONUM];
 
 - (IBAction)xinchanpin:(id)sender {
     
-    if (self.m_newCuXiaoView) {
-        [self.m_newCuXiaoView release];
-        self.m_newCuXiaoView = nil;
+    if (m_newCuXiaoView) {
+        [m_newCuXiaoView release];
+        m_newCuXiaoView = nil;
         
     }
-    self.m_newCuXiaoView = [[NewCuxiaoViewController alloc] init];
-    self.m_newCuXiaoView.m_type = @"新品";
-    self.m_newCuXiaoView.m_titleStr = @"New Product";
-    [self.navigationController pushViewController:self.m_newCuXiaoView animated:YES];
+    m_newCuXiaoView = [[NewCuxiaoViewController alloc] init];
+    m_newCuXiaoView.m_type = @"新品";
+    m_newCuXiaoView.m_titleStr = @"New Product";
+    [self.navigationController pushViewController:m_newCuXiaoView animated:YES];
     
 //    if (!self.m_cuxiaoView) {
 //        self.m_cuxiaoView = [[CuXiaoViewController alloc] init];
@@ -544,17 +542,17 @@ CATransform3D rotationTransform1[PHOTONUM];
 }
 -(void) receiveDataByCanZhanTable:(NSData*) data
 {
-    if (self.m_downCanZhanArr) {
-        [self.m_downCanZhanArr release];
-        self.m_downCanZhanArr = nil;
+    if (m_downCanZhanArr) {
+        [m_downCanZhanArr release];
+        m_downCanZhanArr = nil;
     }
     
     if (data) {
         NSString * str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         NSLog(@"m_downCanZhanArr := %@",str);
-        self.m_downCanZhanArr = [[NSMutableArray alloc] initWithArray:[MyXMLParser DecodeToObj:str]];
+        m_downCanZhanArr = [[NSMutableArray alloc] initWithArray:[MyXMLParser DecodeToObj:str]];
         [str release];
-        if (self.m_downCanZhanArr) {
+        if (m_downCanZhanArr) {
             NSLog(@"接收到 数据：m_downCanZhanArr 解析 成功"); 
             
         }else{
@@ -586,17 +584,17 @@ CATransform3D rotationTransform1[PHOTONUM];
 }
 -(void) receiveDataByCanZhanReleaseTable:(NSData*) data
 {
-    if (self.m_downCanZhanReleaseArr) {
-        [self.m_downCanZhanReleaseArr release];
-        self.m_downCanZhanReleaseArr = nil;
+    if (m_downCanZhanReleaseArr) {
+        [m_downCanZhanReleaseArr release];
+        m_downCanZhanReleaseArr = nil;
     }
     
     if (data) {
         NSString * str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         NSLog(@"m_downCanZhanReleaseArr := %@",str);
-        self.m_downCanZhanReleaseArr = [[NSMutableArray alloc] initWithArray:[MyXMLParser DecodeToObj:str]];
+        m_downCanZhanReleaseArr = [[NSMutableArray alloc] initWithArray:[MyXMLParser DecodeToObj:str]];
         [str release];
-        if (self.m_downCanZhanReleaseArr) {
+        if (m_downCanZhanReleaseArr) {
             NSLog(@"接收到 数据：m_downCanZhanReleaseArr 解析 成功"); 
             
         }else{
@@ -627,17 +625,17 @@ CATransform3D rotationTransform1[PHOTONUM];
 }
 -(void) receiveDataByProTypeTable:(NSData*) data
 {
-    if (self.m_downProTypeArr) {
-        [self.m_downProTypeArr release];
-        self.m_downProTypeArr = nil;
+    if (m_downProTypeArr) {
+        [m_downProTypeArr release];
+        m_downProTypeArr = nil;
     }
     
     if (data) {
         NSString * str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         NSLog(@"m_downProTypeArr := %@",str);
-        self.m_downProTypeArr = [[NSMutableArray alloc] initWithArray:[MyXMLParser DecodeToObj:str]];
+        m_downProTypeArr = [[NSMutableArray alloc] initWithArray:[MyXMLParser DecodeToObj:str]];
         [str release];
-        if (self.m_downProTypeArr) {
+        if (m_downProTypeArr) {
             NSLog(@"接收到 数据：m_downProTypeArr 解析 成功"); 
             
         }else{
@@ -668,17 +666,17 @@ CATransform3D rotationTransform1[PHOTONUM];
 }
 -(void) receiveDataByDiaoChaDetailTable:(NSData*) data
 {
-    if (self.m_downDiaoChaDetailArr) {
-        [self.m_downDiaoChaDetailArr release];
-        self.m_downDiaoChaDetailArr = nil;
+    if (m_downDiaoChaDetailArr) {
+        [m_downDiaoChaDetailArr release];
+        m_downDiaoChaDetailArr = nil;
     }
     
     if (data) {
         NSString * str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         NSLog(@"m_downDiaoChaDetailArr := %@",str);
-        self.m_downDiaoChaDetailArr = [[NSMutableArray alloc] initWithArray:[MyXMLParser DecodeToObj:str]];
+        m_downDiaoChaDetailArr = [[NSMutableArray alloc] initWithArray:[MyXMLParser DecodeToObj:str]];
         [str release];
-        if (self.m_downDiaoChaDetailArr) {
+        if (m_downDiaoChaDetailArr) {
             NSLog(@"接收到 数据：m_downDiaoChaDetailArr 解析 成功"); 
             
         }else{
@@ -709,17 +707,17 @@ CATransform3D rotationTransform1[PHOTONUM];
 }
 -(void) receiveDataByDiaoChaTable:(NSData*) data
 {
-    if (self.m_downDiaoChaArr) {
-        [self.m_downDiaoChaArr release];
-        self.m_downDiaoChaArr = nil;
+    if (m_downDiaoChaArr) {
+        [m_downDiaoChaArr release];
+        m_downDiaoChaArr = nil;
     }
     
     if (data) {
         NSString * str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         NSLog(@"m_downDiaoChaArr := %@",str);
-        self.m_downDiaoChaArr = [[NSMutableArray alloc] initWithArray:[MyXMLParser DecodeToObj:str]];
+        m_downDiaoChaArr = [[NSMutableArray alloc] initWithArray:[MyXMLParser DecodeToObj:str]];
         [str release];
-        if (self.m_downDiaoChaArr) {
+        if (m_downDiaoChaArr) {
             NSLog(@"接收到 数据：m_downDiaoChaArr 解析 成功"); 
             
         }else{
@@ -750,17 +748,17 @@ CATransform3D rotationTransform1[PHOTONUM];
 }
 -(void) receiveDataByGongSiTable:(NSData*) data
 {
-    if (self.m_downGongSiArr) {
-        [self.m_downGongSiArr release];
-        self.m_downGongSiArr = nil;
+    if (m_downGongSiArr) {
+        [m_downGongSiArr release];
+        m_downGongSiArr = nil;
     }
     
     if (data) {
         NSString * str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         NSLog(@"m_downGongSiArr := %@",str);
-        self.m_downGongSiArr = [[NSMutableArray alloc] initWithArray:[MyXMLParser DecodeToObj:str]];
+        m_downGongSiArr = [[NSMutableArray alloc] initWithArray:[MyXMLParser DecodeToObj:str]];
         [str release];
-        if (self.m_downGongSiArr) {
+        if (m_downGongSiArr) {
             NSLog(@"接收到 数据：m_downGongSiArr 解析 成功"); 
             
         }else{
@@ -791,17 +789,17 @@ CATransform3D rotationTransform1[PHOTONUM];
 }
 -(void) receiveDataByImageTable:(NSData*) data
 {
-    if (self.m_downImageArr) {
-        [self.m_downImageArr release];
-        self.m_downImageArr = nil;
+    if (m_downImageArr) {
+        [m_downImageArr release];
+        m_downImageArr = nil;
     }
     
     if (data) {
         NSString * str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         NSLog(@"m_downImageArr := %@",str);
-        self.m_downImageArr = [[NSMutableArray alloc] initWithArray:[MyXMLParser DecodeToObj:str]];
+        m_downImageArr = [[NSMutableArray alloc] initWithArray:[MyXMLParser DecodeToObj:str]];
         [str release];
-        if (self.m_downGongSiArr) {
+        if (m_downGongSiArr) {
             NSLog(@"接收到 数据：m_downImageArr 解析 成功"); 
             
         }else{
@@ -832,17 +830,17 @@ CATransform3D rotationTransform1[PHOTONUM];
 }
 -(void) receiveDataByZhanWeiProTable:(NSData*) data
 {
-    if (self.m_downZhanWeiProArr) {
-        [self.m_downZhanWeiProArr release];
-        self.m_downZhanWeiProArr = nil;
+    if (m_downZhanWeiProArr) {
+        [m_downZhanWeiProArr release];
+        m_downZhanWeiProArr = nil;
     }
     
     if (data) {
         NSString * str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         NSLog(@"m_downZhanWeiProArr := %@",str);
-        self.m_downZhanWeiProArr = [[NSMutableArray alloc] initWithArray:[MyXMLParser DecodeToObj:str]];
+        m_downZhanWeiProArr = [[NSMutableArray alloc] initWithArray:[MyXMLParser DecodeToObj:str]];
         [str release];
-        if (self.m_downZhanWeiProArr) {
+        if (m_downZhanWeiProArr) {
             NSLog(@"接收到 数据：m_downZhanWeiProArr 解析 成功"); 
             
         }else{
@@ -874,17 +872,17 @@ CATransform3D rotationTransform1[PHOTONUM];
 }
 -(void) receiveDataByDiaoChaItemInfoTable:(NSData*) data
 {
-    if (self.m_downDiaoChaItemInfoArr) {
-        [self.m_downDiaoChaItemInfoArr release];
-        self.m_downDiaoChaItemInfoArr = nil;
+    if (m_downDiaoChaItemInfoArr) {
+        [m_downDiaoChaItemInfoArr release];
+        m_downDiaoChaItemInfoArr = nil;
     }
     
     if (data) {
         NSString * str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         NSLog(@"m_downDiaoChaItemInfoArr := %@",str);
-        self.m_downDiaoChaItemInfoArr = [[NSMutableArray alloc] initWithArray:[MyXMLParser DecodeToObj:str]];
+        m_downDiaoChaItemInfoArr = [[NSMutableArray alloc] initWithArray:[MyXMLParser DecodeToObj:str]];
         [str release];
-        if (self.m_downDiaoChaItemInfoArr) {
+        if (m_downDiaoChaItemInfoArr) {
             NSLog(@"接收到 数据：m_downDiaoChaItemInfoArr 解析 成功");
             
         }else{
@@ -916,17 +914,17 @@ CATransform3D rotationTransform1[PHOTONUM];
 
 -(void) receiveDataByChangJingInfoTable:(NSData*) data
 {
-    if (self.m_downChangJingInfoArr) {
-        [self.m_downChangJingInfoArr release];
-        self.m_downChangJingInfoArr = nil;
+    if (m_downChangJingInfoArr) {
+        [m_downChangJingInfoArr release];
+        m_downChangJingInfoArr = nil;
     }
     
     if (data) {
         NSString * str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         NSLog(@"m_downChangJingInfoArr := %@",str);
-        self.m_downChangJingInfoArr = [[NSMutableArray alloc] initWithArray:[MyXMLParser DecodeToObj:str]];
+        m_downChangJingInfoArr = [[NSMutableArray alloc] initWithArray:[MyXMLParser DecodeToObj:str]];
         [str release];
-        if (self.m_downChangJingInfoArr) {
+        if (m_downChangJingInfoArr) {
             NSLog(@"接收到 数据：m_downChangJingInfoArr 解析 成功"); 
             
         }else{
@@ -960,17 +958,17 @@ CATransform3D rotationTransform1[PHOTONUM];
 
 -(void) receiveDataByZhanWeiInfoTable:(NSData*) data
 {
-    if (self.m_downZhanWeiInfoArr) {
-        [self.m_downZhanWeiInfoArr release];
-        self.m_downZhanWeiInfoArr = nil;
+    if (m_downZhanWeiInfoArr) {
+        [m_downZhanWeiInfoArr release];
+        m_downZhanWeiInfoArr = nil;
     }
     
     if (data) {
         NSString * str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         NSLog(@"m_downZhanWeiInfoArr := %@",str);
-        self.m_downZhanWeiInfoArr = [[NSMutableArray alloc] initWithArray:[MyXMLParser DecodeToObj:str]];
+        m_downZhanWeiInfoArr = [[NSMutableArray alloc] initWithArray:[MyXMLParser DecodeToObj:str]];
         [str release];
-        if (self.m_downZhanWeiInfoArr) {
+        if (m_downZhanWeiInfoArr) {
             NSLog(@"接收到 数据：m_downZhanWeiInfoArr 解析 成功"); 
             
         }else{
@@ -1018,19 +1016,19 @@ CATransform3D rotationTransform1[PHOTONUM];
 }
 -(void) receiveDataByVersionTable:(NSData*) data
 {
-    if (self.m_downVersionStr) {
-        [self.m_downVersionStr release];
-        self.m_downVersionStr = nil;
+    if (m_downVersionStr) {
+        [m_downVersionStr release];
+        m_downVersionStr = nil;
     }
     if (data) {
         NSString * str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         
-        self.m_downVersionStr = [[NSString alloc] initWithString:[MyXMLParser DecodeToObj:str]];
+        m_downVersionStr = [[NSString alloc] initWithString:[MyXMLParser DecodeToObj:str]];
         [str release];
-        if (self.m_downVersionStr) {
+        if (m_downVersionStr) {
             
             NSLog(@"接收到 数据：m_downVersionStr 解析 成功"); 
-            NSLog(@"version str = %@",self.m_downVersionStr);
+            NSLog(@"version str = %@",m_downVersionStr);
         }else{
             NSLog(@"接收到 数据：m_downVersionStr 解析 失败！！"); 
             m_bHaveError = YES;
@@ -1042,7 +1040,7 @@ CATransform3D rotationTransform1[PHOTONUM];
     }
     m_bVersionDownFlag = YES;
     
-    [self performSelectorOnMainThread:@selector(hideOrShowTishiImageView:) withObject:self.m_downVersionStr waitUntilDone:NO];
+    [self performSelectorOnMainThread:@selector(hideOrShowTishiImageView:) withObject:m_downVersionStr waitUntilDone:NO];
 
 }
 
@@ -1120,14 +1118,14 @@ CATransform3D rotationTransform1[PHOTONUM];
                 NSLog(@"写入数据库 或 下载 图片 文件，出现异常。版本升级未成功！！");
             }else{
                 
-                NSLog(@"down version str = %@",self.m_downVersionStr);
-                bool suc = [DataBase addVersionTableObj:self.m_downVersionStr];
+                NSLog(@"down version str = %@",m_downVersionStr);
+                bool suc = [DataBase addVersionTableObj:m_downVersionStr];
                 if (suc) {
                     m_bHaveError = NO;
                     NSLog(@"写入数据库 或 下载 图片 文件  版本升级成功！！");
                 }else{
                     m_bHaveError = YES;
-                    NSLog(@"写bool suc = [DataBase addVersionTableObj:self.m_downVersionStr]; 未成功！！");
+                    NSLog(@"写bool suc = [DataBase addVersionTableObj:m_downVersionStr]; 未成功！！");
                 }
             }
             
@@ -1152,11 +1150,11 @@ CATransform3D rotationTransform1[PHOTONUM];
 
 -(void) doCanZhanData
 {
-    if ( self.m_downCanZhanArr && self.m_downCanZhanArr.count>0) {
+    if ( m_downCanZhanArr && m_downCanZhanArr.count>0) {
         
-        for (int i=0; i<self.m_downCanZhanArr.count && !m_bCancleDown; i++) {
+        for (int i=0; i<m_downCanZhanArr.count && !m_bCancleDown; i++) {
             
-            CanZhanTableObj* posobj = [self.m_downCanZhanArr objectAtIndex:i];
+            CanZhanTableObj* posobj = [m_downCanZhanArr objectAtIndex:i];
             switch (posobj.m_flag) {
                 case 1:
                 {
@@ -1206,11 +1204,11 @@ CATransform3D rotationTransform1[PHOTONUM];
 }
 -(void) doCanZhanReleaseData
 {
-    if ( self.m_downCanZhanReleaseArr && self.m_downCanZhanReleaseArr.count>0) {
+    if ( m_downCanZhanReleaseArr && m_downCanZhanReleaseArr.count>0) {
         
-        for (int i=0; i<self.m_downCanZhanReleaseArr.count && !m_bCancleDown; i++) {
+        for (int i=0; i<m_downCanZhanReleaseArr.count && !m_bCancleDown; i++) {
             
-            CanZhanReleaseTableObj* posobj = [self.m_downCanZhanReleaseArr objectAtIndex:i];
+            CanZhanReleaseTableObj* posobj = [m_downCanZhanReleaseArr objectAtIndex:i];
             switch (posobj.m_flag) {
                 case 1:
                 {
@@ -1260,11 +1258,11 @@ CATransform3D rotationTransform1[PHOTONUM];
 }
 -(void) doProTypeData
 {
-    if ( self.m_downProTypeArr && self.m_downProTypeArr.count>0) {
+    if ( m_downProTypeArr && m_downProTypeArr.count>0) {
         
-        for (int i=0; i<self.m_downProTypeArr.count && !m_bCancleDown; i++) {
+        for (int i=0; i<m_downProTypeArr.count && !m_bCancleDown; i++) {
             
-            ProTypeTableObj* posobj = [self.m_downProTypeArr objectAtIndex:i];
+            ProTypeTableObj* posobj = [m_downProTypeArr objectAtIndex:i];
             switch (posobj.m_flag) {
                 case 1:
                 {
@@ -1314,11 +1312,11 @@ CATransform3D rotationTransform1[PHOTONUM];
 }
 -(void) doDiaoChaDetailData
 {
-    if ( self.m_downDiaoChaDetailArr && self.m_downDiaoChaDetailArr.count>0) {
+    if ( m_downDiaoChaDetailArr && m_downDiaoChaDetailArr.count>0) {
         
-        for (int i=0; i<self.m_downDiaoChaDetailArr.count && !m_bCancleDown; i++) {
+        for (int i=0; i<m_downDiaoChaDetailArr.count && !m_bCancleDown; i++) {
             
-            DiaoChanDetailTableObj* posobj = [self.m_downDiaoChaDetailArr objectAtIndex:i];
+            DiaoChanDetailTableObj* posobj = [m_downDiaoChaDetailArr objectAtIndex:i];
             switch (posobj.m_flag) {
                 case 1:
                 {
@@ -1368,11 +1366,11 @@ CATransform3D rotationTransform1[PHOTONUM];
 }
 -(void) doDiaoChaData
 {
-    if ( self.m_downDiaoChaArr && self.m_downDiaoChaArr.count>0) {
+    if ( m_downDiaoChaArr && m_downDiaoChaArr.count>0) {
         
-        for (int i=0; i<self.m_downDiaoChaArr.count && !m_bCancleDown; i++) {
+        for (int i=0; i<m_downDiaoChaArr.count && !m_bCancleDown; i++) {
             
-            DiaoChaTableObj* posobj = [self.m_downDiaoChaArr objectAtIndex:i];
+            DiaoChaTableObj* posobj = [m_downDiaoChaArr objectAtIndex:i];
             switch (posobj.m_flag) {
                 case 1:
                 {
@@ -1422,11 +1420,11 @@ CATransform3D rotationTransform1[PHOTONUM];
 }
 -(void) doGongSiData
 {
-    if ( self.m_downGongSiArr && self.m_downGongSiArr.count>0) {
+    if ( m_downGongSiArr && m_downGongSiArr.count>0) {
         
-        for (int i=0; i<self.m_downGongSiArr.count && !m_bCancleDown; i++) {
+        for (int i=0; i<m_downGongSiArr.count && !m_bCancleDown; i++) {
             
-            GongSiImageTableObj* posobj = [self.m_downGongSiArr objectAtIndex:i];
+            GongSiImageTableObj* posobj = [m_downGongSiArr objectAtIndex:i];
             switch (posobj.m_flag) {
                 case 1:
                 {
@@ -1477,11 +1475,11 @@ CATransform3D rotationTransform1[PHOTONUM];
 -(void) doImageData
 {
     
-    if ( self.m_downImageArr && self.m_downImageArr.count>0) {
+    if ( m_downImageArr && m_downImageArr.count>0) {
         
-        for (int i=0; i<self.m_downImageArr.count && !m_bCancleDown; i++) {
+        for (int i=0; i<m_downImageArr.count && !m_bCancleDown; i++) {
             
-            ImageTableObj* imageobj = [self.m_downImageArr objectAtIndex:i];
+            ImageTableObj* imageobj = [m_downImageArr objectAtIndex:i];
             switch (imageobj.m_flag) {
                 case 1:
                 {
@@ -1546,11 +1544,11 @@ CATransform3D rotationTransform1[PHOTONUM];
 }
 -(void) doZhanWeiProData
 {
-    if ( self.m_downZhanWeiProArr && self.m_downZhanWeiProArr.count>0) {
+    if ( m_downZhanWeiProArr && m_downZhanWeiProArr.count>0) {
         
-        for (int i=0; i<self.m_downZhanWeiProArr.count && !m_bCancleDown; i++) {
+        for (int i=0; i<m_downZhanWeiProArr.count && !m_bCancleDown; i++) {
             
-            ZhanWeiProTableObj* posobj = [self.m_downZhanWeiProArr objectAtIndex:i];
+            ZhanWeiProTableObj* posobj = [m_downZhanWeiProArr objectAtIndex:i];
             switch (posobj.m_flag) {
                 case 1:
                 {
@@ -1600,11 +1598,11 @@ CATransform3D rotationTransform1[PHOTONUM];
 }
 -(void) doZhanWeiInfoData
 {
-    if ( self.m_downZhanWeiInfoArr && self.m_downZhanWeiInfoArr.count>0) {
+    if ( m_downZhanWeiInfoArr && m_downZhanWeiInfoArr.count>0) {
         
-        for (int i=0; i<self.m_downZhanWeiInfoArr.count && !m_bCancleDown; i++) {
+        for (int i=0; i<m_downZhanWeiInfoArr.count && !m_bCancleDown; i++) {
             
-            ZhanWeiInfoTableObj* posobj = [self.m_downZhanWeiInfoArr objectAtIndex:i];
+            ZhanWeiInfoTableObj* posobj = [m_downZhanWeiInfoArr objectAtIndex:i];
             switch (posobj.m_flag) {
                 case 1:
                 {
@@ -1655,11 +1653,11 @@ CATransform3D rotationTransform1[PHOTONUM];
 
 -(void) doDiaoChaItemInfoData
 {
-    if ( self.m_downDiaoChaItemInfoArr && self.m_downDiaoChaItemInfoArr.count>0) {
+    if ( m_downDiaoChaItemInfoArr && m_downDiaoChaItemInfoArr.count>0) {
         
-        for (int i=0; i<self.m_downDiaoChaItemInfoArr.count && !m_bCancleDown; i++) {
+        for (int i=0; i<m_downDiaoChaItemInfoArr.count && !m_bCancleDown; i++) {
             
-            DiaoChaItemTableObj* posobj = [self.m_downDiaoChaItemInfoArr objectAtIndex:i];
+            DiaoChaItemTableObj* posobj = [m_downDiaoChaItemInfoArr objectAtIndex:i];
             switch (posobj.m_flag) {
                 case 1:
                 {
@@ -1710,11 +1708,11 @@ CATransform3D rotationTransform1[PHOTONUM];
 
 -(void) doChangJingInfoData
 {
-    if ( self.m_downChangJingInfoArr && self.m_downChangJingInfoArr.count>0) {
+    if ( m_downChangJingInfoArr && m_downChangJingInfoArr.count>0) {
         
-        for (int i=0; i<self.m_downChangJingInfoArr.count && !m_bCancleDown; i++) {
+        for (int i=0; i<m_downChangJingInfoArr.count && !m_bCancleDown; i++) {
             
-            ChangJinTableObj* posobj = [self.m_downChangJingInfoArr objectAtIndex:i];
+            ChangJinTableObj* posobj = [m_downChangJingInfoArr objectAtIndex:i];
             switch (posobj.m_flag) {
                 case 1:
                 {
@@ -1771,7 +1769,7 @@ CATransform3D rotationTransform1[PHOTONUM];
 
 -(void) callUpgradeSuccOnMainThread
 {
-    [self.m_shengjiAlertView dismissWithClickedButtonIndex:2 animated:YES];
+    [m_shengjiAlertView dismissWithClickedButtonIndex:2 animated:YES];
     UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Upgrade tips" message:@"Upgrade the product information successfully." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     [alertView show];
     [alertView release];
@@ -1779,14 +1777,14 @@ CATransform3D rotationTransform1[PHOTONUM];
 }
 -(void) callUpgradeFailureOnMainThread
 {
-    [self.m_shengjiAlertView dismissWithClickedButtonIndex:2 animated:YES];
+    [m_shengjiAlertView dismissWithClickedButtonIndex:2 animated:YES];
     UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Upgrade tips" message:@"Upgrade fails, try the upgrade again to ensure that the latest product information." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     [alertView show];
     [alertView release];
 }
 -(void) callUpgradeNoNetOnMainThread
 {
-    [self.m_shengjiAlertView dismissWithClickedButtonIndex:2 animated:YES];
+    [m_shengjiAlertView dismissWithClickedButtonIndex:2 animated:YES];
     UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Upgrade tips" message:@"Network connection fails, make sure the network is functioning properly." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     [alertView show];
     [alertView release];

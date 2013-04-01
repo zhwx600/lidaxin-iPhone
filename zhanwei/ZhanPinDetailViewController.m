@@ -45,10 +45,10 @@ NSString* paramSeparetedStr = @"$paramSeparate$";
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.m_tabBar = [[JSScrollableTabBar alloc] initWithFrame:CGRectMake(0, 302, 320, 44) style:JSScrollableTabBarStyleTransparent];
-	[self.m_tabBar setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
-	[self.m_tabBar setDelegate:self];
-	[self.view addSubview:self.m_tabBar];
+    m_tabBar = [[JSScrollableTabBar alloc] initWithFrame:CGRectMake(0, 302, 320, 44) style:JSScrollableTabBarStyleTransparent];
+	[m_tabBar setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
+	[m_tabBar setDelegate:self];
+	[self.view addSubview:m_tabBar];
 	
 
 	
@@ -81,21 +81,21 @@ NSString* paramSeparetedStr = @"$paramSeparate$";
 -(void) viewWillAppear:(BOOL)animated
 {
     
-    self.m_titleLabel.text = self.m_canzhanObj.m_canzhanName;
+    self.m_titleLabel.text = m_canzhanObj.m_canzhanName;
     
-    if (self.m_allProObj) {
-        [self.m_allProObj release];
+    if (m_allProObj) {
+        [m_allProObj release];
     }
-    self.m_allProObj = [[NSMutableArray alloc] initWithArray:[DataBase getSomeZhanWeiProTableInfoZWId:self.m_zhanweiid]];
+    m_allProObj = [[NSMutableArray alloc] initWithArray:[DataBase getSomeZhanWeiProTableInfoZWId:m_zhanweiid]];
     
-    if (self.m_allProObj && self.m_allProObj.count<=0) {
+    if (m_allProObj && m_allProObj.count<=0) {
         return;
     }
     
     NSMutableArray* typeArr = [NSMutableArray array];
     //获取 类型shuzu
-    for (int i=0; i<self.m_allProObj.count; i++) {
-        ZhanWeiProTableObj* proObj = [self.m_allProObj objectAtIndex:i];
+    for (int i=0; i<m_allProObj.count; i++) {
+        ZhanWeiProTableObj* proObj = [m_allProObj objectAtIndex:i];
         
         NSString* imageid = proObj.m_showProImageId;
         ImageTableObj* imageObj = [DataBase getOneImageTableInfoImageid:imageid];
@@ -134,12 +134,12 @@ NSString* paramSeparetedStr = @"$paramSeparate$";
 		[item release];
         
 	}
-	[self.m_tabBar setTabItems:items];
+	[m_tabBar setTabItems:items];
     
     //初始化 选中一个 tab
     NSMutableArray* proArr = [NSMutableArray array];
-    for (int i=0; i<self.m_allProObj.count; i++) {
-        ZhanWeiProTableObj* proObj = [self.m_allProObj objectAtIndex:i];
+    for (int i=0; i<m_allProObj.count; i++) {
+        ZhanWeiProTableObj* proObj = [m_allProObj objectAtIndex:i];
         ImageTableObj* temimageobj = [DataBase getOneImageTableInfoImageid:proObj.m_showProImageId];
         
         if (0 == [temimageobj.m_imageType compare:((ImageTableObj*)[typeArr objectAtIndex:0]).m_imageType]) {
@@ -175,10 +175,10 @@ NSString* paramSeparetedStr = @"$paramSeparate$";
         if (i == 0) {
             NSArray* temarr = [imageobj.m_imageDescription componentsSeparatedByString:paramSeparetedStr];
 
-            if (self.m_selectProId) {
-                [self.m_selectProId release];
+            if (m_selectProId) {
+                [m_selectProId release];
             }
-            self.m_selectProId = [[NSString alloc] initWithString:proObj.m_showProId];
+            m_selectProId = [[NSString alloc] initWithString:proObj.m_showProId];
             
             [self initParamScrollView:temarr];            
             
@@ -256,13 +256,13 @@ NSString* paramSeparetedStr = @"$paramSeparate$";
     
     NSString* typeName = selitem.title;
  
-    for (UIView* view in [self.m_proScrollView subviews]) {
+    for (UIView* view in [m_proScrollView subviews]) {
         [view removeFromSuperview];
     }
     int jiange = 0;
-    for (int i=0; i<self.m_allProObj.count; i++) {
+    for (int i=0; i<m_allProObj.count; i++) {
         
-        ZhanWeiProTableObj* proobj = [self.m_allProObj objectAtIndex:i];
+        ZhanWeiProTableObj* proobj = [m_allProObj objectAtIndex:i];
         ImageTableObj* imageobj = [DataBase getOneImageTableInfoImageid:proobj.m_showProImageId];
         
         if (0 == [imageobj.m_imageType compare:typeName]) {
@@ -290,10 +290,10 @@ NSString* paramSeparetedStr = @"$paramSeparate$";
             //chushihua 参数
             if (i == 0) {
                 NSArray* temarr = [imageobj.m_imageDescription componentsSeparatedByString:paramSeparetedStr];
-                if (self.m_selectProId) {
-                    [self.m_selectProId release];
+                if (m_selectProId) {
+                    [m_selectProId release];
                 }
-                self.m_selectProId = [[NSString alloc] initWithString:proobj.m_showProId];
+                m_selectProId = [[NSString alloc] initWithString:proobj.m_showProId];
 
                 [self initParamScrollView:temarr];            
                 
@@ -305,7 +305,7 @@ NSString* paramSeparetedStr = @"$paramSeparate$";
                         [self.m_imageView setFrame:CGRectMake(3, 60, 121, self.m_imageView.image.size.height/scale)];
                     }else {
                         float scale = self.m_imageView.image.size.height/206.0;
-                        [self.m_imageView setFrame:CGRectMake(3, 60, self.m_imageView.image.size.width/scale, 206)];
+                        [self.m_imageView setFrame:CGRectMake(3, 60, m_imageView.image.size.width/scale, 206)];
                     }
                     
                 }else {
@@ -340,10 +340,10 @@ NSString* paramSeparetedStr = @"$paramSeparate$";
     UIButton* button = sender;
     NSString* proid = button.titleLabel.text;
     
-    if (self.m_selectProId) {
-        [self.m_selectProId release];
+    if (m_selectProId) {
+        [m_selectProId release];
     }
-    self.m_selectProId = [[NSString alloc] initWithString:proid];
+    m_selectProId = [[NSString alloc] initWithString:proid];
 
     
     ZhanWeiProTableObj* proobjj = [DataBase getOneZhanWeiProTableInfoProId:proid];
@@ -388,7 +388,7 @@ NSString* paramSeparetedStr = @"$paramSeparate$";
 
 - (IBAction)proZiXunButtonAct:(id)sender 
 {
-    if (self.m_selectProId && [self.m_selectProId length] > 0) {
+    if (m_selectProId && [m_selectProId length] > 0) {
         
     }else{
         UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Warning message" message:@"Please select a product!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -399,7 +399,7 @@ NSString* paramSeparetedStr = @"$paramSeparate$";
 
     
     ChanPinZiXunViewController* zixunview = [[ChanPinZiXunViewController alloc] init];
-    zixunview.m_chanPinId = self.m_selectProId;
+    zixunview.m_chanPinId = m_selectProId;
     [self.navigationController pushViewController:zixunview animated:YES];
     [zixunview release];
     

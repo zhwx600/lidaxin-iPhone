@@ -47,19 +47,19 @@
     // Do any additional setup after loading the view from its nib.
     
     CGRect bounds = CGRectMake(0, 44, 320, 460-44);
-    self.m_tableView = [[UIFolderTableView alloc] initWithFrame:bounds];
-    self.m_tableView.dataSource = self;
-    self.m_tableView.delegate = self;
-    self.m_tableView.folderDelegate = self;
-    [self.view insertSubview:self.m_tableView atIndex:2];
+    m_tableView = [[UIFolderTableView alloc] initWithFrame:bounds];
+     m_tableView.dataSource = self;
+    m_tableView.delegate = self;
+    m_tableView.folderDelegate = self;
+    [self.view insertSubview:m_tableView atIndex:2];
     
-    self.m_tableView.rowHeight = 60.0f;
-    //self.m_tableArray = [[NSMutableArray alloc] init];
+    m_tableView.rowHeight = 60.0f;
+    //m_tableArray = [[NSMutableArray alloc] init];
 
     
-    //self.m_tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"tmall_bg_furley.png"]];
+    //m_tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"tmall_bg_furley.png"]];
     
-   // self.m_tableView.separatorColor = [UIColor redColor];
+   // m_tableView.separatorColor = [UIColor redColor];
     
 }
 
@@ -88,7 +88,7 @@
 {
     
     if ([GGlobal getGlobalInstance].m_zhanweiViewFresh) {
-        [self.m_tableView launchRefreshing];
+        [m_tableView launchRefreshing];
     }
 }
 
@@ -98,12 +98,12 @@
     
   //  [self performSelector:@selector(firstFresh) withObject:nil afterDelay:0.01f];
     
-    if(self.m_tableArray){
-        [self.m_tableArray release];
+    if(m_tableArray){
+        [m_tableArray release];
         
     }
-    self.m_tableArray = [[NSMutableArray alloc] initWithArray:[DataBase getAllCanZhanTableObj]];
-    [self.m_tableView reloadData];
+    m_tableArray = [[NSMutableArray alloc] initWithArray:[DataBase getAllCanZhanTableObj]];
+    [m_tableView reloadData];
     
     
 }
@@ -160,11 +160,12 @@
 -(void) receiveDataForZhanWeiInfo:(NSData*) data
 {
     
-    [self.m_tableView tableViewDidFinishedLoading];
-    [self.m_tableView reloadData];
+    [m_tableView tableViewDidFinishedLoading];
+    [m_tableView reloadData];
     if (data) {
         NSString * str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         NSLog(@"receiveDataForZhanWeiInfo := %@",str);
+        [str release];
         
     }else{
         NSLog(@"receiveDataForZhanWeiInfo 接收到 数据 异常");
@@ -186,7 +187,7 @@
     UIButton* button = (UIButton*)sender;
     UITableViewCell* cell = (UITableViewCell*)[button superview];
     
-    NSIndexPath* index = [self.m_tableView indexPathForCell:cell];
+    NSIndexPath* index = [m_tableView indexPathForCell:cell];
     NSLog(@"index = %@, tag = %d",index,button.tag);
     
     if (2 == button.tag) {
@@ -213,7 +214,7 @@
     [GGlobal getGlobalInstance].m_zhanweiViewFresh = NO;
     ZhanWeiListViewController* list = [[ZhanWeiListViewController alloc] init];
     [GGlobal getGlobalInstance].m_zhanweiListViewFresh = NO;
-    CanZhanTableObj* zhanwei = [self.m_tableArray objectAtIndex:((UIButton*)sender).tag];
+    CanZhanTableObj* zhanwei = [m_tableArray objectAtIndex:((UIButton*)sender).tag];
 
     list.m_zhanweiId = zhanwei.m_canzhanId;
     
@@ -224,7 +225,7 @@
 {
     [GGlobal getGlobalInstance].m_zhanweiViewFresh = NO;
     ZhanPinDetailViewController* list = [[ZhanPinDetailViewController alloc] init];
-    CanZhanTableObj* zhanwei = [self.m_tableArray objectAtIndex:((UIButton*)sender).tag];
+    CanZhanTableObj* zhanwei = [m_tableArray objectAtIndex:((UIButton*)sender).tag];
     list.m_canzhanObj = zhanwei;
     list.m_zhanweiid = zhanwei.m_canzhanId;
     [self.navigationController pushViewController:list animated:YES];
@@ -234,7 +235,7 @@
 {
     [GGlobal getGlobalInstance].m_zhanweiViewFresh = NO;
     YuYueViewController* list = [[YuYueViewController alloc] init];
-    CanZhanTableObj* zhanwei = [self.m_tableArray objectAtIndex:((UIButton*)sender).tag];
+    CanZhanTableObj* zhanwei = [m_tableArray objectAtIndex:((UIButton*)sender).tag];
     
     list.m_zhanweiid = zhanwei.m_canzhanId;
     [self.navigationController pushViewController:list animated:YES];
@@ -247,7 +248,7 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.m_tableArray.count;
+    return m_tableArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -318,7 +319,7 @@
     //        [subTitles addObject:[[subClass objectAtIndex:i] objectForKey:@"name"]];
     //    }
     
-    CanZhanTableObj* zhanwei = [self.m_tableArray objectAtIndex:indexPath.row];
+    CanZhanTableObj* zhanwei = [m_tableArray objectAtIndex:indexPath.row];
     cell.title.text = zhanwei.m_canzhanName;
     
 	return cell;
@@ -381,7 +382,7 @@
     temVIew.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"tmall_bg_furley.png"]];
     
     
-    self.m_tableView.scrollEnabled = NO;
+    m_tableView.scrollEnabled = NO;
     UIFolderTableView *folderTableView = (UIFolderTableView *)tableView;
     [folderTableView openFolderAtIndexPath:indexPath WithContentView:temVIew 
                                  openBlock:^(UIView *subClassView, CFTimeInterval duration, CAMediaTimingFunction *timingFunction){
@@ -392,7 +393,7 @@
                                 } 
                            completionBlock:^{
                                // completed actions
-                               self.m_tableView.scrollEnabled = YES;
+                               m_tableView.scrollEnabled = YES;
                            }];
     
     [temVIew release];

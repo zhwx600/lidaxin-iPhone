@@ -127,6 +127,8 @@
     [m_pageControl release];
     [m_scrollView release];
     [m_desTextView release];
+    [viewArr release];
+    
     [super dealloc];
 }
 - (IBAction)close:(id)sender {

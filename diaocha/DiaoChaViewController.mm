@@ -39,21 +39,21 @@
     // Do any additional setup after loading the view from its nib.
     
     CGRect bounds = CGRectMake(0, 44, 320, 460-44);
-    self.m_tableView = [[UITableView alloc] initWithFrame:bounds];
-    self.m_tableView.dataSource = self;
-    self.m_tableView.delegate = self;
-    self.m_tableView.backgroundColor = [UIColor clearColor];
-    self.m_tableView.separatorColor = [UIColor clearColor];
-    [self.view insertSubview:self.m_tableView atIndex:2];
+    m_tableView = [[UITableView alloc] initWithFrame:bounds];
+    m_tableView.dataSource = self;
+    m_tableView.delegate = self;
+    m_tableView.backgroundColor = [UIColor clearColor];
+    m_tableView.separatorColor = [UIColor clearColor];
+    [self.view insertSubview:m_tableView atIndex:2];
 
-    if(self.m_tableArray){
-        [self.m_tableArray release];
+    if(m_tableArray){
+        [m_tableArray release];
         
     }
-    self.m_tableArray = [[NSMutableArray alloc] initWithArray:[DataBase getAllDiaoChaTableObj]];
-    [self.m_tableView reloadData];
-//    [self.m_tableArray addObject:@"调查1"];
-//    [self.m_tableArray addObject:@"调查2"];
+    m_tableArray = [[NSMutableArray alloc] initWithArray:[DataBase getAllDiaoChaTableObj]];
+    [m_tableView reloadData];
+//    [m_tableArray addObject:@"调查1"];
+//    [m_tableArray addObject:@"调查2"];
 
     
 }
@@ -97,7 +97,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.m_tableArray.count;
+    return m_tableArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -123,7 +123,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleGray;
         
     }
-    DiaoChaTableObj* obj = [self.m_tableArray objectAtIndex:indexPath.row];
+    DiaoChaTableObj* obj = [m_tableArray objectAtIndex:indexPath.row];
     
     
 
@@ -144,7 +144,7 @@
     DiaoChaoCommitViewController* commit = [[DiaoChaoCommitViewController alloc] init];
 
 
-    DiaoChaTableObj* obj = [self.m_tableArray objectAtIndex:indexPath.row];
+    DiaoChaTableObj* obj = [m_tableArray objectAtIndex:indexPath.row];
     commit.m_diaochaId = obj.m_diaochaId;
     commit.m_diaochaObj = obj;
     [self.navigationController pushViewController:commit animated:YES];
