@@ -52,6 +52,8 @@
     NSString* path = [DataProcess getImageFilePathByUrl:selectimageobj.m_imageUrl];
     UIImage* image = [UIImage imageWithContentsOfFile:path];
     
+    NSLog(@"image.page w = %lf, h=%lf -------",image.size.width,image.size.height);
+    
     self.m_productImageView.image = image;
     
     NSArray* temarr = [selectimageobj.m_imageDescription componentsSeparatedByString:PARAM_SPARETESTR];
@@ -104,8 +106,13 @@
 {
     ApplyAreaViewController* temAppView = [[ApplyAreaViewController alloc] init];
     
-    temAppView.m_proObj = self.m_proObj;
-    
+    if (self.m_zhanweiproObj) {
+        temAppView.m_zhanweiproObj = self.m_zhanweiproObj;
+
+    }else{
+        temAppView.m_proObj = self.m_proObj;
+    }
+
     [self.navigationController pushViewController:temAppView animated:YES];
     [temAppView release];
     

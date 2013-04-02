@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[ViewController requestZhanWeiInfoTable]:ViewController.mm">
+         <PersistentStrings>
+            <PersistentString
+               value = "">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[ProductDetailViewController applyButtonAct:]:ProductDetailViewController.mm">
+      </ContextState>
+      <ContextState
+         contextName = "-[ApplyAreaViewController initImageView]:ApplyAreaViewController.mm">
+      </ContextState>
+      <ContextState
+         contextName = "-[ApplyAreaViewController viewWillAppear:]:ApplyAreaViewController.mm">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

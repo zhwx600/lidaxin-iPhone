@@ -612,7 +612,7 @@ bool xmlparser::Decode(const char *xml,S_Data *sData)
             
             ZhanWeiInfoTableObj* proobj = [temArr objectAtIndex:i];
             
-            [temStr appendFormat:@"%@=%@",proobj.m_showId,proobj.m_versionId];
+            [temStr appendFormat:@"%@=%@",proobj.m_showInfoId,proobj.m_versionId];
             if (i < temArr.count-1) {
                 [temStr appendString:@";"];
             }

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CanZhanReleaseTableObj.h"
+#import "ZhanWeiProTableObj.h"
 
 @interface ApplyAreaViewController : UIViewController<UIScrollViewDelegate>{
 
@@ -24,12 +25,13 @@
 @property (retain, nonatomic) IBOutlet UIPageControl *m_pageControl;
 @property (retain, nonatomic) IBOutlet UIScrollView *m_scrollView;
 @property (retain, nonatomic) CanZhanReleaseTableObj* m_proObj;
-
+@property (retain,nonatomic) ZhanWeiProTableObj* m_zhanweiproObj;
 
 - (IBAction)close:(id)sender;
 - (IBAction)moreButton:(id)sender;
 - (IBAction)pageChangeAct:(id)sender;
 
-
+-(void) initImageView;
+-(void) initImageViewForZhanwei;
 
 @end

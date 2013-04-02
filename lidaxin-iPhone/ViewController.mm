@@ -1467,10 +1467,33 @@ CATransform3D rotationTransform1[PHOTONUM];
             
         }
         
+    }else{
+
+//        NSArray* temArr = [DataBase getAllGongSiTableObj];
+//        if (temArr && temArr.count > 0) {
+//            
+//            for (int j=0; j<temArr.count; j++) {
+//                GongSiImageTableObj* gongsiobj = [temArr objectAtIndex:j];
+//                gongsiobj.m_companyDescription = posobj.m_companyDescription;
+//                
+//                bool suc = [DataBase addGongSiTableObj: posobj];
+//                if (!suc) {
+//                    NSLog(@"bool suc = [DataBase addGongSiTableObj: posobj]; 失败!!");
+//                    m_bHaveError = true;
+//                }
+//                
+//                continue;
+//                
+//                
+//            }
+//            
+//        }
+        
+
     }
     
     m_bGongSiDownFlag = NO;
-    m_bGongSiWriteDataBaseFlag = YES; 
+    m_bGongSiWriteDataBaseFlag = YES;
 }
 -(void) doImageData
 {

@@ -26,6 +26,7 @@
 @synthesize m_pageControl;
 @synthesize m_scrollView;
 @synthesize m_proObj;
+@synthesize m_zhanweiproObj;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -69,11 +70,17 @@
 {
     [super viewWillAppear:animated];
 
-    
-    self.m_desTextView.text = self.m_proObj.m_changjingDescription;
-    
-    [self initImageView];
-    
+    if (self.m_zhanweiproObj) {
+        self.m_desTextView.text = self.m_zhanweiproObj.m_changjingDescription;
+        
+        [self initImageViewForZhanwei];
+        
+    }else{
+        self.m_desTextView.text = self.m_proObj.m_changjingDescription;
+        
+        [self initImageView];
+    }
+
     
     
     // a page is the width of the scroll view
@@ -131,6 +138,49 @@
 
 }
 
+-(void) initImageViewForZhanwei
+{
+    viewArr = [[NSMutableArray alloc] init];
+    
+    @try {
+        NSArray* changjingArr = (NSArray*)[DataBase getOneZChangJingInfoByProductId: self.m_zhanweiproObj.m_showProId];
+        
+        imageCount = changjingArr.count;
+        
+        for (unsigned i = 0; i < imageCount; i++)
+        {
+            
+            ChangJinTableObj* changjingObj = [changjingArr objectAtIndex:i];
+            
+            ImageTableObj* imageobj = [DataBase getOneImageTableInfoImageid:changjingObj.m_imageId];
+            
+            NSString* path = [DataProcess getImageFilePathByUrl:imageobj.m_imageUrl];
+            UIImage* image = [UIImage imageWithContentsOfFile:path];
+            NSLog(@"path = %@",imageobj.m_imageUrl);
+            
+            NSLog(@"image.page w = %lf, h=%lf",image.size.width,image.size.height);
+            
+            UIImageView* wwView = [[UIImageView alloc] initWithImage:image];
+            [wwView setFrame:self.m_scrollView.frame];
+            wwView.tag = i;
+            [viewArr addObject:wwView];
+            [wwView release];
+            
+            // self.m_desTextView.text = imageobj.m_imageDescription;
+            
+        }
+        
+        
+    }
+    @catch (NSException *exception) {
+        imageCount = 0;
+        NSLog(@"加载 异常");
+    }
+    @finally {
+        
+    }
+
+}
 
 -(void) initImageView
 {
@@ -150,6 +200,9 @@
             
             NSString* path = [DataProcess getImageFilePathByUrl:imageobj.m_imageUrl];
             UIImage* image = [UIImage imageWithContentsOfFile:path];
+            NSLog(@"path = %@",imageobj.m_imageUrl);
+            
+            NSLog(@"image.page w = %lf, h=%lf",image.size.width,image.size.height);
             
             UIImageView* wwView = [[UIImageView alloc] initWithImage:image];
             [wwView setFrame:self.m_scrollView.frame];
@@ -165,6 +218,7 @@
     }
     @catch (NSException *exception) {
         imageCount = 0;
+        NSLog(@"加载 异常 发布");
     }
     @finally {
         
