@@ -4,42 +4,16 @@
    version = "1.0">
    <FileBreakpoints>
       <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "lidaxin-iPhone/ViewController.mm"
-         timestampString = "386567872.448138"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "760"
-         endingLineNumber = "760"
-         landmarkName = "-receiveDataByGongSiTable:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "lidaxin-iPhone/ViewController.mm"
-         timestampString = "386575818.24106"
+         timestampString = "387009416.021769"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "949"
-         endingLineNumber = "949"
-         landmarkName = "-requestZhanWeiInfoTable"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "lidaxin-iPhone/ViewController.mm"
-         timestampString = "386576631.873705"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "969"
-         endingLineNumber = "969"
-         landmarkName = "-receiveDataByZhanWeiInfoTable:"
+         startingLineNumber = "744"
+         endingLineNumber = "744"
+         landmarkName = "-requestGongSiTable"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

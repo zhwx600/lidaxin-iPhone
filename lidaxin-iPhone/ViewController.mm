@@ -799,7 +799,7 @@ CATransform3D rotationTransform1[PHOTONUM];
         NSLog(@"m_downImageArr := %@",str);
         m_downImageArr = [[NSMutableArray alloc] initWithArray:[MyXMLParser DecodeToObj:str]];
         [str release];
-        if (m_downGongSiArr) {
+        if (m_downImageArr) {
             NSLog(@"接收到 数据：m_downImageArr 解析 成功"); 
             
         }else{
@@ -1459,6 +1459,27 @@ CATransform3D rotationTransform1[PHOTONUM];
                     continue;
                 }
                     
+                    break;
+                    
+                case -3:
+                {
+                    NSArray* temArr = [DataBase getAllGongSiTableObj];
+                    if (temArr > 0 ) {
+                        for (int i=0; i<temArr.count; i++) {
+                            GongSiImageTableObj* temGongSi = (GongSiImageTableObj*)[temArr objectAtIndex:i];
+                            temGongSi.m_companyDescription = posobj.m_companyDescription;
+                            
+                            bool suc = [DataBase addGongSiTableObj: temGongSi];
+                            if (!suc) {
+                                NSLog(@"bool suc = [DataBase addGongSiTableObj: temGongSi]; 失败!!");
+                                m_bHaveError = true;
+                            }
+                        }
+                        
+                    }
+
+                    continue;
+                }
                     break;
                 default:
                     break;

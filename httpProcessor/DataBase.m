@@ -229,7 +229,10 @@ static NSString* dbFileName = @"data.sqlite3";
         //打开数据库
         database = [DataBase createDB];
         char* message;
-        NSString* updateSql =[[NSString alloc] initWithFormat:@"insert or replace into canzhantable values('%@','%@','%@','%@');",showobj.m_canzhanId,showobj.m_canzhanName,showobj.m_zhanhuiDescription,showobj.m_versionId];
+        
+        NSString* desStr = [showobj.m_zhanhuiDescription stringByReplacingOccurrencesOfString:@"'" withString:@"''"];
+        
+        NSString* updateSql =[[NSString alloc] initWithFormat:@"insert or replace into canzhantable values('%@','%@','%@','%@');",showobj.m_canzhanId,showobj.m_canzhanName,desStr,showobj.m_versionId];
         if (sqlite3_exec(database, [updateSql UTF8String],nil, nil, &message) != SQLITE_OK) {
             sqlite3_close(database);
             NSAssert1(0,@"addImagaddCanZhanTableObj:(CanZhanTableObj*)showobj表失败：%s",message);
@@ -282,7 +285,8 @@ static NSString* dbFileName = @"data.sqlite3";
         //打开数据库
         database = [DataBase createDB];
         char* message;
-        NSString* updateSql =[[NSString alloc] initWithFormat:@"insert or replace into canzhantable values('%@','%@','%@','%@');",showobj.m_canzhanId,showobj.m_canzhanName,showobj.m_zhanhuiDescription,showobj.m_versionId];
+        NSString* desStr = [showobj.m_zhanhuiDescription stringByReplacingOccurrencesOfString:@"'" withString:@"''"];
+        NSString* updateSql =[[NSString alloc] initWithFormat:@"insert or replace into canzhantable values('%@','%@','%@','%@');",showobj.m_canzhanId,showobj.m_canzhanName,desStr,showobj.m_versionId];
         if (sqlite3_exec(database, [updateSql UTF8String],nil, nil, &message) != SQLITE_OK) {
             sqlite3_close(database);
             NSAssert1(0,@"addImagaddCanZhanTableObj:(CanZhanTableObj*)showobj表失败：%s",message);
@@ -402,7 +406,8 @@ static NSString* dbFileName = @"data.sqlite3";
         //打开数据库
         database = [DataBase createDB];
         char* message;
-        NSString* updateSql =[[NSString alloc] initWithFormat:@"insert or replace into chanpinfabutable values('%@','%@','%@','%@','%@');",releaseobj.m_productId,releaseobj.m_productCls,releaseobj.m_imageId,releaseobj.m_changjingDescription,releaseobj.m_versionId];
+        NSString* desStr = [releaseobj.m_changjingDescription stringByReplacingOccurrencesOfString:@"'" withString:@"''"];
+        NSString* updateSql =[[NSString alloc] initWithFormat:@"insert or replace into chanpinfabutable values('%@','%@','%@','%@','%@');",releaseobj.m_productId,releaseobj.m_productCls,releaseobj.m_imageId,desStr,releaseobj.m_versionId];
         if (sqlite3_exec(database, [updateSql UTF8String],nil, nil, &message) != SQLITE_OK) {
             sqlite3_close(database);
             NSAssert1(0,@"ddCanZhanReleaseTableObj:(CanZhanRe 表失败：%s",message);
@@ -454,7 +459,8 @@ static NSString* dbFileName = @"data.sqlite3";
         //打开数据库
         database = [DataBase createDB];
         char* message;
-        NSString* updateSql =[[NSString alloc] initWithFormat:@"insert or replace into chanpinfabutable values('%@','%@','%@','%@','%@');",releaseobj.m_productId,releaseobj.m_productCls,releaseobj.m_imageId,releaseobj.m_changjingDescription,releaseobj.m_versionId];
+        NSString* desStr = [releaseobj.m_changjingDescription stringByReplacingOccurrencesOfString:@"'" withString:@"''"];
+        NSString* updateSql =[[NSString alloc] initWithFormat:@"insert or replace into chanpinfabutable values('%@','%@','%@','%@','%@');",releaseobj.m_productId,releaseobj.m_productCls,releaseobj.m_imageId,desStr,releaseobj.m_versionId];
         if (sqlite3_exec(database, [updateSql UTF8String],nil, nil, &message) != SQLITE_OK) {
             sqlite3_close(database);
             NSAssert1(0,@"ddCanZhanReleaseTableObj:(CanZhanRe 表失败：%s",message);
@@ -1170,7 +1176,8 @@ static NSString* dbFileName = @"data.sqlite3";
         //打开数据库
         database = [DataBase createDB];
         char* message;
-        NSString* updateSql =[[NSString alloc] initWithFormat:@"insert or replace into companyimagetable values('%@','%@','%@','%@');",gongsiobj.m_companyId,gongsiobj.m_companyDescription,gongsiobj.m_companyImageId,gongsiobj.m_versionId];
+        NSString* desStr = [gongsiobj.m_companyDescription stringByReplacingOccurrencesOfString:@"'" withString:@"''"];
+        NSString* updateSql =[[NSString alloc] initWithFormat:@"insert or replace into companyimagetable values('%@','%@','%@','%@');",gongsiobj.m_companyId,desStr,gongsiobj.m_companyImageId,gongsiobj.m_versionId];
         if (sqlite3_exec(database, [updateSql UTF8String],nil, nil, &message) != SQLITE_OK) {
             sqlite3_close(database);
             NSAssert1(0,@"addGongSiTableObj:(GongSiImageTableObj*) gongsiobj:companyimagetable表失败：%s",message);
@@ -1222,7 +1229,8 @@ static NSString* dbFileName = @"data.sqlite3";
         //打开数据库
         database = [DataBase createDB];
         char* message;
-        NSString* updateSql =[[NSString alloc] initWithFormat:@"insert or replace into companyimagetable values('%@','%@','%@','%@');",gongsiobj.m_companyId,gongsiobj.m_companyDescription,gongsiobj.m_companyImageId,gongsiobj.m_versionId];
+        NSString* desStr = [gongsiobj.m_companyDescription stringByReplacingOccurrencesOfString:@"'" withString:@"''"];
+        NSString* updateSql =[[NSString alloc] initWithFormat:@"insert or replace into companyimagetable values('%@','%@','%@','%@');",gongsiobj.m_companyId,desStr,gongsiobj.m_companyImageId,gongsiobj.m_versionId];
         if (sqlite3_exec(database, [updateSql UTF8String],nil, nil, &message) != SQLITE_OK) {
             sqlite3_close(database);
             NSAssert1(0,@"addGongSiTableObj:(GongSiImageTableObj*) gongsiobj:companyimagetable表失败：%s",message);
@@ -1340,7 +1348,8 @@ static NSString* dbFileName = @"data.sqlite3";
         //打开数据库
         database = [DataBase createDB];
         char* message;
-        NSString* updateSql =[[NSString alloc] initWithFormat:@"insert or replace into zhanweiprotable values('%@','%@','%@','%@','%@');",zhanweiproobj.m_showProId,zhanweiproobj.m_showId,zhanweiproobj.m_showProImageId,zhanweiproobj.m_changjingDescription,zhanweiproobj.m_versionId];
+        NSString* desStr = [zhanweiproobj.m_changjingDescription stringByReplacingOccurrencesOfString:@"'" withString:@"''"];
+        NSString* updateSql =[[NSString alloc] initWithFormat:@"insert or replace into zhanweiprotable values('%@','%@','%@','%@','%@');",zhanweiproobj.m_showProId,zhanweiproobj.m_showId,zhanweiproobj.m_showProImageId,desStr,zhanweiproobj.m_versionId];
         if (sqlite3_exec(database, [updateSql UTF8String],nil, nil, &message) != SQLITE_OK) {
             sqlite3_close(database);
             NSAssert1(0,@"addZhanWeiProTableObj: :zhanweiprotable表失败：%s",message);
@@ -1392,7 +1401,8 @@ static NSString* dbFileName = @"data.sqlite3";
         //打开数据库
         database = [DataBase createDB];
         char* message;
-        NSString* updateSql =[[NSString alloc] initWithFormat:@"insert or replace into zhanweiprotable values('%@','%@','%@','%@','%@');",zhanweiproobj.m_showProId,zhanweiproobj.m_showId,zhanweiproobj.m_showProImageId,zhanweiproobj.m_changjingDescription,zhanweiproobj.m_versionId];
+        NSString* desStr = [zhanweiproobj.m_changjingDescription stringByReplacingOccurrencesOfString:@"'" withString:@"''"];
+        NSString* updateSql =[[NSString alloc] initWithFormat:@"insert or replace into zhanweiprotable values('%@','%@','%@','%@','%@');",zhanweiproobj.m_showProId,zhanweiproobj.m_showId,zhanweiproobj.m_showProImageId,desStr,zhanweiproobj.m_versionId];
         if (sqlite3_exec(database, [updateSql UTF8String],nil, nil, &message) != SQLITE_OK) {
             sqlite3_close(database);
             NSAssert1(0,@"alterZhanWeiProTableObj: :zhanweiprotable表失败：%s",message);
@@ -1771,7 +1781,8 @@ static NSString* dbFileName = @"data.sqlite3";
         //打开数据库
         database = [DataBase createDB];
         char* message;
-        NSString* updateSql =[[NSString alloc] initWithFormat:@"insert or replace into imagerequesttable values('%@','%@','%@','%@','%@');",imageobj.m_imageId,imageobj.m_imageUrl,imageobj.m_imageType,imageobj.m_imageDescription,imageobj.m_versionId];
+        NSString* desStr = [imageobj.m_imageDescription stringByReplacingOccurrencesOfString:@"'" withString:@"''"];
+        NSString* updateSql =[[NSString alloc] initWithFormat:@"insert or replace into imagerequesttable values('%@','%@','%@','%@','%@');",imageobj.m_imageId,imageobj.m_imageUrl,imageobj.m_imageType,desStr,imageobj.m_versionId];
         if (sqlite3_exec(database, [updateSql UTF8String],nil, nil, &message) != SQLITE_OK) {
             sqlite3_close(database);
             NSAssert1(0,@"addImageTableObj :imagerequesttable表失败：%s",message);
@@ -1824,7 +1835,8 @@ static NSString* dbFileName = @"data.sqlite3";
         //打开数据库
         database = [DataBase createDB];
         char* message;
-        NSString* updateSql =[[NSString alloc] initWithFormat:@"insert or replace into imagerequesttable values('%@','%@','%@','%@','%@');",imageobj.m_imageId,imageobj.m_imageUrl,imageobj.m_imageType,imageobj.m_imageDescription,imageobj.m_versionId];
+        NSString* desStr = [imageobj.m_imageDescription stringByReplacingOccurrencesOfString:@"'" withString:@"''"];
+        NSString* updateSql =[[NSString alloc] initWithFormat:@"insert or replace into imagerequesttable values('%@','%@','%@','%@','%@');",imageobj.m_imageId,imageobj.m_imageUrl,imageobj.m_imageType,desStr,imageobj.m_versionId];
         if (sqlite3_exec(database, [updateSql UTF8String],nil, nil, &message) != SQLITE_OK) {
             sqlite3_close(database);
             NSAssert1(0,@"addImageTableObj :imagerequesttable表失败：%s",message);

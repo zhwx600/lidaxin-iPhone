@@ -1288,6 +1288,17 @@ bool xmlparser::Decode(const char *xml,S_Data *sData)
                 
             }
             
+            if (imageArr.count <= 0) {
+                
+                GongSiImageTableObj* imageObj = [[GongSiImageTableObj alloc] init];
+                
+                imageObj.m_companyDescription = [[NSString alloc] initWithCString:lmtParamBody->GetText() encoding:NSUTF8StringEncoding];
+                NSLog(@"ima = %@",imageObj.m_companyDescription);
+                imageObj.m_flag = -3;
+                [imageArr addObject:imageObj];
+                [imageObj release];
+            }
+            
             
             [_mutexDe unlock];
             return imageArr;
