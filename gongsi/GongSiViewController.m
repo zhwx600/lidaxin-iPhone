@@ -39,18 +39,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    NSArray* temarr = [DataBase getAllGongSiTableObj];
-    if (temarr && temarr.count>0) {
-        GongSiImageTableObj* gongsiobj = [temarr objectAtIndex:0];
-        
-        self.m_desTextView.text = gongsiobj.m_companyDescription;
-        
-        NSLog(@"des:%@",self.m_desTextView.text);
-        
-        //self.m_desTextView.text = @"des:Tel: 86-592-3699963 Fax: 86-592-3988108 Web: http://www.leedarson.com/";
-    }
-
-    
     
 }
 
@@ -82,6 +70,16 @@
     UIImage* image = [UIImage imageWithContentsOfFile:self.m_path];
     self.m_imageView.image = image;
 
+    NSArray* temarr = [DataBase getAllGongSiTableObj];
+    if (temarr && temarr.count>0) {
+        GongSiImageTableObj* gongsiobj = [temarr objectAtIndex:0];
+        
+        self.m_desTextView.text = gongsiobj.m_companyDescription;
+        
+        NSLog(@"des:%@",self.m_desTextView.text);
+        
+        //self.m_desTextView.text = @"des:Tel: 86-592-3699963 Fax: 86-592-3988108 Web: http://www.leedarson.com/";
+    }
     
     [self initImageView];
     
