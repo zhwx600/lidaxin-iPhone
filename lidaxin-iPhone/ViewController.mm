@@ -411,9 +411,11 @@ CATransform3D rotationTransform1[PHOTONUM];
 }
 
 - (IBAction)diaocha:(id)sender {
-    if (!m_diaochaView) {
-        m_diaochaView = [[DiaoChaViewController alloc] init];
+    if (m_diaochaView) {
+        [m_diaochaView release];
     }
+    m_diaochaView = nil;
+    m_diaochaView = [[DiaoChaViewController alloc] init];
     [GGlobal getGlobalInstance].m_diaochanViewFresh = YES;
     [self.navigationController pushViewController:m_diaochaView animated:YES];
 }

@@ -8,12 +8,25 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "lidaxin-iPhone/ViewController.mm"
-         timestampString = "387356129.832587"
+         timestampString = "387361637.58686"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "1423"
-         endingLineNumber = "1423"
-         landmarkName = "-doGongSiData"
+         startingLineNumber = "679"
+         endingLineNumber = "679"
+         landmarkName = "-receiveDataByDiaoChaDetailTable:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "lidaxin-iPhone/ViewController.mm"
+         timestampString = "387361637.58686"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "664"
+         endingLineNumber = "664"
+         landmarkName = "-requestDiaoChaDetailTable"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
