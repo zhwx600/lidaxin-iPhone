@@ -14,7 +14,7 @@
 #import "CanZhanTableObj.h"
 #import "CanZhanReleaseTableObj.h"
 #import "GGlobal.h"
-
+#import "xmlCommand.h"
 
 @interface ApplyAreaViewController ()
 
@@ -56,6 +56,7 @@
     [m_scrollView release];
     [viewArr release];
     
+    [_m_bigScrollView release];
     [super dealloc];
 }
 - (void)viewDidUnload {
@@ -63,6 +64,7 @@
     [self setM_desTextView:nil];
     [self setM_pageControl:nil];
     [self setM_scrollView:nil];
+    [self setM_bigScrollView:nil];
     [super viewDidUnload];
 }
 
@@ -147,9 +149,16 @@
         
         imageCount = changjingArr.count;
         
+        if (imageCount > 0) {
+            self.m_desTextView.text = self.m_zhanweiproObj.m_changjingDescription;
+            NSArray* temarr = [m_zhanweiproObj.m_changjingDescription componentsSeparatedByString:PARAM_SPARETESTR];
+            [self initParamScrollView:temarr];
+        }
+        
+        
+        
         for (unsigned i = 0; i < imageCount; i++)
         {
-            self.m_desTextView.text = self.m_zhanweiproObj.m_changjingDescription;
             
             ChangJinTableObj* changjingObj = [changjingArr objectAtIndex:i];
             
@@ -192,9 +201,15 @@
         
         imageCount = changjingArr.count;
 
+        if (imageCount > 0) {
+            self.m_desTextView.text = self.m_proObj.m_changjingDescription;
+            NSArray* temarr = [self.m_proObj.m_changjingDescription componentsSeparatedByString:PARAM_SPARETESTR];
+            [self initParamScrollView:temarr];
+        }
+        
         for (unsigned i = 0; i < imageCount; i++)
         {
-            self.m_desTextView.text = self.m_proObj.m_changjingDescription;
+
             ChangJinTableObj* changjingObj = [changjingArr objectAtIndex:i];
 
             ImageTableObj* imageobj = [DataBase getOneImageTableInfoImageid:changjingObj.m_imageId];
@@ -290,6 +305,37 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     pageControlUsed = NO;
+}
+
+-(void) initParamScrollView:(NSArray*) arr
+{
+    
+    int startVerOff = 220;
+    
+    for (int i=0; i<arr.count; i++) {
+        
+        NSString* textstr = [arr objectAtIndex:i];
+        UIFont *font =  [UIFont fontWithName:@"Helvetica" size:15.0f];;
+        CGSize size = [textstr sizeWithFont:font constrainedToSize:CGSizeMake(278, MAXFLOAT) lineBreakMode:UILineBreakModeWordWrap];
+        
+        UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(21, startVerOff, size.width, size.height)];
+        label.backgroundColor = [UIColor clearColor];
+        label.textAlignment = UITextAlignmentLeft;
+        label.font = [UIFont fontWithName:@"Helvetica" size:15.0f];;
+        label.textColor = [UIColor whiteColor];
+        [label setNumberOfLines:0];
+        [label setLineBreakMode:UILineBreakModeWordWrap];
+        
+        label.text = textstr;
+        [self.m_bigScrollView addSubview:label];
+        [label release];
+        
+        startVerOff += size.height + 9;
+        
+        NSLog(@"nitParamScrollView: %@",[arr objectAtIndex:i]);
+    }
+    [self.m_bigScrollView setContentSize:CGSizeMake(0, startVerOff)];
+    
 }
 
 

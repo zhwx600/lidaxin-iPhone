@@ -16,7 +16,7 @@
 @property (nonatomic) bool m_zhanweiViewFresh;
 @property (nonatomic) bool m_diaochanViewFresh;
 @property (nonatomic) bool m_zhanweiListViewFresh;
-@property (nonatomic) NSString* m_productType;
+@property (nonatomic,retain) NSString* m_productType;
 
 +(GGlobal*)getGlobalInstance;
 

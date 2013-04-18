@@ -24,6 +24,7 @@
 @property (retain, nonatomic) IBOutlet UITextView *m_desTextView;
 @property (retain, nonatomic) IBOutlet UIPageControl *m_pageControl;
 @property (retain, nonatomic) IBOutlet UIScrollView *m_scrollView;
+@property (retain, nonatomic) IBOutlet UIScrollView *m_bigScrollView;
 @property (retain, nonatomic) CanZhanReleaseTableObj* m_proObj;
 @property (retain,nonatomic) ZhanWeiProTableObj* m_zhanweiproObj;
 

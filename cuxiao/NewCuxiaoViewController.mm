@@ -286,8 +286,8 @@
             ImageTableObj* selectimageobj = [DataBase getOneImageTableInfoImageid:tempro.m_showProImageId];
             NSString* path = [DataProcess getImageFilePathByUrl:selectimageobj.m_imageUrl];
             UIImage* image = [UIImage imageWithContentsOfFile:path];
-            
-            cell.m_cellImageView.image = image;
+            UIImage* teimage = [image imageByScalingProportionallyToSize:cell.m_cellImageView.frame.size];
+            cell.m_cellImageView.image = teimage;
             //cell.titleLabel.text = tempro.m_changjingDescription;
             
             @try {
