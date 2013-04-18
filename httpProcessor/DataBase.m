@@ -2225,13 +2225,13 @@ static NSString* dbFileName = @"data.sqlite3";
 
 
 //获取某 zhanweixin  信息
-+(NSArray*) getOneZChangJingInfoByProductId:(NSString*) productid
++(NSArray*) getOneZChangJingInfoByProductId:(NSString*) productid Type:(NSString*) typeName
 {
     sqlite3* database = nil;
     @try {
         //打开数据库
         database  = [DataBase createDB];
-        NSString* sql = [NSString stringWithFormat:@"select * from changjingtable where productid='%@';",productid];
+        NSString* sql = [NSString stringWithFormat:@"select * from changjingtable where productid='%@' and changjingtype='%@';",productid,typeName];
         //  @"select db_recordbusnum from recordbusnum";
         sqlite3_stmt *statement;
         if (sqlite3_prepare_v2(database, [sql UTF8String], -1, &statement, nil) == SQLITE_OK) {

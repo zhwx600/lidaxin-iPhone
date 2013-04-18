@@ -14,6 +14,7 @@
 @synthesize m_zhanweiViewFresh;
 @synthesize m_diaochanViewFresh;
 @synthesize m_zhanweiListViewFresh;
+@synthesize m_productType;
 
 +(GGlobal*) getGlobalInstance
 {
@@ -41,6 +42,7 @@
 
 -(void) dealloc
 {
+    [m_productType release];
     [super dealloc];
 }
 

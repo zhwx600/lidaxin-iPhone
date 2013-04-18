@@ -398,7 +398,7 @@ CATransform3D rotationTransform1[PHOTONUM];
 //    }
 //    [GGlobal getGlobalInstance].m_zhanweiViewFresh = YES;
 //    [self.navigationController pushViewController:self.m_zhanweiView animated:YES];
-    
+    [GGlobal getGlobalInstance].m_productType = ZHANPIN_PRODUCT_TYPE_NAME;
     if (m_newFairsView) {
         [m_newFairsView release];
         m_newFairsView = nil;
@@ -422,6 +422,8 @@ CATransform3D rotationTransform1[PHOTONUM];
 
 - (IBAction)cuxiao:(id)sender {
     
+    [GGlobal getGlobalInstance].m_productType = CUXIAO_PRODUCT_TYPE_NAME;
+    
     if (m_newCuXiaoView) {
         [m_newCuXiaoView release];
         m_newCuXiaoView = nil;
@@ -441,6 +443,7 @@ CATransform3D rotationTransform1[PHOTONUM];
 
 - (IBAction)xinchanpin:(id)sender {
     
+    [GGlobal getGlobalInstance].m_productType = XINPIN_PRODUCT_TYPE_NAME;
     if (m_newCuXiaoView) {
         [m_newCuXiaoView release];
         m_newCuXiaoView = nil;

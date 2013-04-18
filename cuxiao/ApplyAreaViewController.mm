@@ -13,7 +13,7 @@
 #import "CanZhanTableObj.h"
 #import "CanZhanTableObj.h"
 #import "CanZhanReleaseTableObj.h"
-
+#import "GGlobal.h"
 
 
 @interface ApplyAreaViewController ()
@@ -71,12 +71,12 @@
     [super viewWillAppear:animated];
 
     if (self.m_zhanweiproObj) {
-        self.m_desTextView.text = self.m_zhanweiproObj.m_changjingDescription;
+        
         
         [self initImageViewForZhanwei];
         
     }else{
-        self.m_desTextView.text = self.m_proObj.m_changjingDescription;
+        
         
         [self initImageView];
     }
@@ -143,12 +143,13 @@
     viewArr = [[NSMutableArray alloc] init];
     
     @try {
-        NSArray* changjingArr = (NSArray*)[DataBase getOneZChangJingInfoByProductId: self.m_zhanweiproObj.m_showProId];
+        NSArray* changjingArr = (NSArray*)[DataBase getOneZChangJingInfoByProductId: self.m_zhanweiproObj.m_showProId Type:[GGlobal getGlobalInstance].m_productType];
         
         imageCount = changjingArr.count;
         
         for (unsigned i = 0; i < imageCount; i++)
         {
+            self.m_desTextView.text = self.m_zhanweiproObj.m_changjingDescription;
             
             ChangJinTableObj* changjingObj = [changjingArr objectAtIndex:i];
             
@@ -187,13 +188,13 @@
     viewArr = [[NSMutableArray alloc] init];
     
     @try {
-        NSArray* changjingArr = (NSArray*)[DataBase getOneZChangJingInfoByProductId:self.m_proObj.m_productId];
+        NSArray* changjingArr = (NSArray*)[DataBase getOneZChangJingInfoByProductId:self.m_proObj.m_productId Type:[GGlobal getGlobalInstance].m_productType];
         
         imageCount = changjingArr.count;
 
         for (unsigned i = 0; i < imageCount; i++)
         {
-            
+            self.m_desTextView.text = self.m_proObj.m_changjingDescription;
             ChangJinTableObj* changjingObj = [changjingArr objectAtIndex:i];
 
             ImageTableObj* imageobj = [DataBase getOneImageTableInfoImageid:changjingObj.m_imageId];

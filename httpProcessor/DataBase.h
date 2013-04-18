@@ -145,7 +145,7 @@
 //获取某 图片的 信息
 +(ChangJinTableObj*) getOneChangJingTableInfoChangJingId:(NSString*) changjingId;
 //获取某 zhanweixin  信息
-+(NSArray*) getOneZChangJingInfoByProductId:(NSString*) productid;
++(NSArray*) getOneZChangJingInfoByProductId:(NSString*) productid Type:(NSString*) typeName;
 
 
 //-------------------------调查选项------------------------------
