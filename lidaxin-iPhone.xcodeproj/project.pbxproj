@@ -33,6 +33,7 @@
 		189584861645175900A6151F /* ZhanPinDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189584841645175900A6151F /* ZhanPinDetailViewController.xib */; };
 		1895848A1645177D00A6151F /* YuYueViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 189584881645177D00A6151F /* YuYueViewController.mm */; };
 		1895848B1645177D00A6151F /* YuYueViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189584891645177D00A6151F /* YuYueViewController.xib */; };
+		1895ACEE1732AB29007EDC8D /* 箭头.png in Resources */ = {isa = PBXBuildFile; fileRef = 1895ACED1732AB29007EDC8D /* 箭头.png */; };
 		189B233F16573D14007CF51B /* GGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = 189B233E16573D14007CF51B /* GGlobal.m */; };
 		189E931D1664569900EB6606 /* ZiXunYuYueRequestObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 189E931C1664569900EB6606 /* ZiXunYuYueRequestObj.m */; };
 		18C4659316EF4E230050393E /* ChangJinTableObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C4659216EF4E230050393E /* ChangJinTableObj.m */; };
@@ -204,6 +205,7 @@
 		189584871645177D00A6151F /* YuYueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YuYueViewController.h; sourceTree = "<group>"; };
 		189584881645177D00A6151F /* YuYueViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = YuYueViewController.mm; sourceTree = "<group>"; };
 		189584891645177D00A6151F /* YuYueViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YuYueViewController.xib; sourceTree = "<group>"; };
+		1895ACED1732AB29007EDC8D /* 箭头.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "箭头.png"; sourceTree = "<group>"; };
 		189B233D16573D13007CF51B /* GGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GGlobal.h; path = "lidaxin-iPhone/GGlobal.h"; sourceTree = SOURCE_ROOT; };
 		189B233E16573D14007CF51B /* GGlobal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GGlobal.m; path = "lidaxin-iPhone/GGlobal.m"; sourceTree = SOURCE_ROOT; };
 		189E931B1664569900EB6606 /* ZiXunYuYueRequestObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZiXunYuYueRequestObj.h; sourceTree = "<group>"; };
@@ -719,6 +721,7 @@
 		55B4C1E316395DCB00AF74B6 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				1895ACED1732AB29007EDC8D /* 箭头.png */,
 				18DADC6616F8841A00EFFC5A /* 315image */,
 				180886FF16F1FF640022684B /* selectItem.png */,
 				18D0F6DF16F0BC3800552170 /* zhanhuiyuyue.jpg */,
@@ -964,6 +967,7 @@
 				18DADC7C16F8841A00EFFC5A /* 横条1.png in Resources */,
 				18DADC7D16F8841A00EFFC5A /* 横条2.png in Resources */,
 				18DADC7E16F8841A00EFFC5A /* 背景底1.png in Resources */,
+				1895ACEE1732AB29007EDC8D /* 箭头.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
