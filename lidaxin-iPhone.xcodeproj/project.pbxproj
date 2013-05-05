@@ -1102,11 +1102,13 @@
 		18F36F15163153E400EA6DF6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Leedarson Lighting(Zhangzhou) Co., Ltd";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "lidaxin-iPhone/lidaxin-iPhone-Prefix.pch";
 				INFOPLIST_FILE = "lidaxin-iPhone/lidaxin-iPhone-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = LEEDARSON;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "123522BB-CD7C-436A-9714-ED75AB235AC9";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
