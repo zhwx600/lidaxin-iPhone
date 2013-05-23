@@ -71,7 +71,7 @@
 		18F36F0B163153E400EA6DF6 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 18F36F0A163153E400EA6DF6 /* AppDelegate.mm */; };
 		18F36F0E163153E400EA6DF6 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 18F36F0D163153E400EA6DF6 /* ViewController.mm */; };
 		18F36F11163153E400EA6DF6 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F36F0F163153E400EA6DF6 /* ViewController.xib */; };
-		18F36F1F1631573200EA6DF6 /* GongSiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F36F1D1631573200EA6DF6 /* GongSiViewController.m */; };
+		18F36F1F1631573200EA6DF6 /* GongSiViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 18F36F1D1631573200EA6DF6 /* GongSiViewController.mm */; };
 		18F36F201631573200EA6DF6 /* GongSiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F36F1E1631573200EA6DF6 /* GongSiViewController.xib */; };
 		18F36F241631574B00EA6DF6 /* CuXiaoViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 18F36F221631574B00EA6DF6 /* CuXiaoViewController.mm */; };
 		18F36F251631574B00EA6DF6 /* CuXiaoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F36F231631574B00EA6DF6 /* CuXiaoViewController.xib */; };
@@ -257,7 +257,7 @@
 		18F36F0D163153E400EA6DF6 /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		18F36F10163153E400EA6DF6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
 		18F36F1C1631573200EA6DF6 /* GongSiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GongSiViewController.h; sourceTree = "<group>"; };
-		18F36F1D1631573200EA6DF6 /* GongSiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GongSiViewController.m; sourceTree = "<group>"; };
+		18F36F1D1631573200EA6DF6 /* GongSiViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GongSiViewController.mm; sourceTree = "<group>"; };
 		18F36F1E1631573200EA6DF6 /* GongSiViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GongSiViewController.xib; sourceTree = "<group>"; };
 		18F36F211631574B00EA6DF6 /* CuXiaoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CuXiaoViewController.h; sourceTree = "<group>"; };
 		18F36F221631574B00EA6DF6 /* CuXiaoViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CuXiaoViewController.mm; sourceTree = "<group>"; };
@@ -608,7 +608,7 @@
 			isa = PBXGroup;
 			children = (
 				18F36F1C1631573200EA6DF6 /* GongSiViewController.h */,
-				18F36F1D1631573200EA6DF6 /* GongSiViewController.m */,
+				18F36F1D1631573200EA6DF6 /* GongSiViewController.mm */,
 				18F36F1E1631573200EA6DF6 /* GongSiViewController.xib */,
 			);
 			path = gongsi;
@@ -981,7 +981,7 @@
 				18F36F07163153E400EA6DF6 /* main.m in Sources */,
 				18F36F0B163153E400EA6DF6 /* AppDelegate.mm in Sources */,
 				18F36F0E163153E400EA6DF6 /* ViewController.mm in Sources */,
-				18F36F1F1631573200EA6DF6 /* GongSiViewController.m in Sources */,
+				18F36F1F1631573200EA6DF6 /* GongSiViewController.mm in Sources */,
 				18F36F241631574B00EA6DF6 /* CuXiaoViewController.mm in Sources */,
 				18F36F291631575F00EA6DF6 /* DiaoChaViewController.mm in Sources */,
 				18F36F2E1631577900EA6DF6 /* XinChanPinViewController.m in Sources */,

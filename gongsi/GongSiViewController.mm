@@ -10,6 +10,7 @@
 #import "GongSiImageTableObj.h"
 #import "ImageTableObj.h"
 #import "DataBase.h"
+#import "xmlCommand.h"
 
 @interface GongSiViewController ()
 
@@ -74,7 +75,9 @@
     if (temarr && temarr.count>0) {
         GongSiImageTableObj* gongsiobj = [temarr objectAtIndex:0];
         
-        self.m_desTextView.text = gongsiobj.m_companyDescription;
+        NSString* src = gongsiobj.m_companyDescription;
+
+        self.m_desTextView.text = [src stringByReplacingOccurrencesOfString:PARAM_SPARETESTR withString:@"\n"];;
         
         NSLog(@"des:%@",self.m_desTextView.text);
         
