@@ -75,9 +75,15 @@
     if (temarr && temarr.count>0) {
         GongSiImageTableObj* gongsiobj = [temarr objectAtIndex:0];
         
+<<<<<<< HEAD:gongsi/GongSiViewController.mm
         
         
         self.m_desTextView.text = [[gongsiobj.m_companyDescription stringByReplacingOccurrencesOfString:PARAM_SPARETESTR withString:@"\n"] stringByReplacingOccurrencesOfString:PARAM_KONGGE withString:@" "];
+=======
+        NSString* src = gongsiobj.m_companyDescription;
+
+        self.m_desTextView.text = [src stringByReplacingOccurrencesOfString:PARAM_SPARETESTR withString:@"\n"];;
+>>>>>>> 01b937d7faa250081cb65b8e82a2f0cb1a0044b9:gongsi/GongSiViewController.mm
         
         NSLog(@"des:%@",self.m_desTextView.text);
         
