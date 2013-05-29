@@ -50,5 +50,5 @@
 
 +(BOOL) copyDatabaseSqliteFileToDownImage;
 
-
++(BOOL) copyDatabaseSqliteFileToDocument;
 @end

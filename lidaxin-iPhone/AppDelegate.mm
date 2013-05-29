@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "DataProcess.h"
 #import "ViewController.h"
 
 @implementation AppDelegate
@@ -35,6 +35,9 @@
     [self.window addSubview:m_nav.view];
     //self.window.rootViewController = self.m_nav;
     [self.window makeKeyAndVisible];
+    
+    [DataProcess copyDatabaseSqliteFileToDocument];
+    
     return YES;
 }
 

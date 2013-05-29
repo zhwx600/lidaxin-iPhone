@@ -20,7 +20,7 @@ static NSString* dbFileName = @"data.sqlite3";
     sqlite3* database = nil;
     
     NSString* path = [[DataProcess getDocumentsPath] stringByAppendingPathComponent:dbFileName];
-    
+    //NSString* path = [[DataProcess getDocumentsPath] stringByAppendingPathComponent:dbFileName];
     @try {
 //        
 //        NSError* error = nil;

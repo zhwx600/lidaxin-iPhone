@@ -136,21 +136,21 @@ NSString* g_sperateStr = @"/iphone/";
 
 +(NSString*) getImageFilePath
 {
-    NSArray* path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-	NSString* str = [path objectAtIndex:0];
-    
-    
-    NSString* docpath = [str stringByAppendingPathComponent:@"Downimage"];
-    if ([[NSFileManager defaultManager] fileExistsAtPath:docpath]) {
-        return docpath;
-    }
-    
-    NSError* error;
-    if ([[NSFileManager defaultManager] createDirectoryAtPath:docpath withIntermediateDirectories:YES attributes:nil error:&error]) {
-        return docpath;
-    }
-    return  nil;
-  //  return [DataProcess getMainPath];
+//    NSArray* path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//	NSString* str = [path objectAtIndex:0];
+//    
+//    
+//    NSString* docpath = [str stringByAppendingPathComponent:@"Downimage"];
+//    if ([[NSFileManager defaultManager] fileExistsAtPath:docpath]) {
+//        return docpath;
+//    }
+//    
+//    NSError* error;
+//    if ([[NSFileManager defaultManager] createDirectoryAtPath:docpath withIntermediateDirectories:YES attributes:nil error:&error]) {
+//        return docpath;
+//    }
+//    return  nil;
+    return [DataProcess getMainPath];
 
 }
 
@@ -227,9 +227,42 @@ NSString* g_sperateStr = @"/iphone/";
     
     NSData* data = [NSData dataWithContentsOfFile:filepath2];
     
+    NSError* error = nil;
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:filepath1]) {
+        NSLog(@"data.sqlite3 文件 已经 在 DownImage");
+        [[NSFileManager defaultManager] removeItemAtPath:filepath1 error:&error];
+    }
+    if (error) {
+        
+        NSLog(@"拷贝sqlite  文件 失败");
+        return NO;
+    }
+
+    
     return [[NSFileManager defaultManager] createFileAtPath:filepath1 contents:data attributes:nil];
 }
 
 
++(BOOL) copyDatabaseSqliteFileToDocument
+{
+    NSString* filepath1 = [[DataProcess getDocumentsPath] stringByAppendingPathComponent:@"data.sqlite3"];
+    NSString* filepath2 = [[DataProcess getMainPath] stringByAppendingPathComponent:@"data.sqlite3"];
+    
+    NSData* data = [NSData dataWithContentsOfFile:filepath2];
+    
+    NSError* error = nil;
 
+    if ([[NSFileManager defaultManager] fileExistsAtPath:filepath1]) {
+        NSLog(@"data.sqlite3 文件 已经 在 document");
+        [[NSFileManager defaultManager] removeItemAtPath:filepath1 error:&error];
+    }
+    if (error) {
+        
+        NSLog(@"拷贝sqlite  文件 失败");
+        return NO;
+    }
+    
+    return [[NSFileManager defaultManager] createFileAtPath:filepath1 contents:data attributes:nil];
+}
 @end

@@ -1,25 +1,28 @@
 //
-//  ZhanWeiDetaiViewController.m
+//  GongSiViewController.m
 //  lidaxin-iPhone
 //
-//  Created by zheng wanxiang on 12-11-5.
+//  Created by apple on 12-10-19.
 //  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
 //
 
-#import "ZhanWeiDetaiViewController.h"
-#import "GGlobal.h"
-
-#import "ZhanWeiInfoTableObj.h"
-#import "DataBase.h"
+#import "GongSiViewController.h"
+#import "GongSiImageTableObj.h"
 #import "ImageTableObj.h"
+#import "DataBase.h"
+#import "xmlCommand.h"
 
+@interface GongSiViewController ()
 
-@implementation ZhanWeiDetaiViewController
+@end
+
+@implementation GongSiViewController
+@synthesize m_imageView;
 @synthesize m_titleLabel;
-@synthesize m_desTextView;
 @synthesize m_pageControl;
 @synthesize m_scrollView;
-@synthesize m_proObj;
+@synthesize m_desTextView;
+@synthesize m_path;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,6 +30,8 @@
     if (self) {
         // Custom initialization
     }
+    
+    
     return self;
 }
 
@@ -34,37 +39,50 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (void)dealloc {
-    [m_titleLabel release];
-    [m_desTextView release];
-    [m_pageControl release];
     
-    [m_scrollView release];
-    [viewArr release];
-    [super dealloc];
+    
 }
-- (void)viewDidUnload {
+
+- (void)viewDidUnload
+{
     [self setM_titleLabel:nil];
-    [self setM_desTextView:nil];
+    [self setM_imageView:nil];
     [self setM_pageControl:nil];
     [self setM_scrollView:nil];
+    [self setM_desTextView:nil];
     [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
 }
+
+
+-(void) tapInView
+{
+
+    UIApplication *application = [UIApplication sharedApplication];  
+    [application openURL:[NSURL URLWithString:@"http://www.leedarson.com"]]; 
+}
+
 
 -(void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
-    
-    self.m_desTextView.text = self.m_proObj.m_zhanhuiDescription;
+    UIImage* image = [UIImage imageWithContentsOfFile:self.m_path];
+    self.m_imageView.image = image;
+
+    NSArray* temarr = [DataBase getAllGongSiTableObj];
+    if (temarr && temarr.count>0) {
+        GongSiImageTableObj* gongsiobj = [temarr objectAtIndex:0];
+        
+        
+        
+        self.m_desTextView.text = [[gongsiobj.m_companyDescription stringByReplacingOccurrencesOfString:PARAM_SPARETESTR withString:@"\n"] stringByReplacingOccurrencesOfString:PARAM_KONGGE withString:@" "];
+        
+        NSLog(@"des:%@",self.m_desTextView.text);
+        
+        //self.m_desTextView.text = @"des:Tel: 86-592-3699963 Fax: 86-592-3988108 Web: http://www.leedarson.com/";
+    }
     
     [self initImageView];
     
@@ -77,6 +95,10 @@
     self.m_scrollView.showsVerticalScrollIndicator = NO;
     self.m_scrollView.scrollsToTop = NO;
     self.m_scrollView.delegate = self;
+    UITapGestureRecognizer* gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapInView)];
+    
+    [self.m_scrollView addGestureRecognizer:gesture];
+    [gesture release];
     
     self.m_pageControl.numberOfPages = imageCount;
     self.m_pageControl.currentPage = 0;
@@ -95,18 +117,74 @@
 }
 
 
-
-
-- (IBAction)close:(id)sender
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void)dealloc {
+    [m_titleLabel release];
+    [m_imageView release];
+    [m_pageControl release];
+    [m_scrollView release];
+    [m_desTextView release];
+    [viewArr release];
+    
+    [super dealloc];
+}
+- (IBAction)close:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (IBAction)moreButton:(id)sender {
+
+
+-(void) initImageView
+{
+    viewArr = [[NSMutableArray alloc] init];
+    NSString* imageStr = nil;
+    
+    imageStr = @"videoModel_%d.png";
+    
+    @try {
+        NSArray* imageArr = [DataBase getAllGongSiTableObj];
+        imageCount = imageArr.count;
+        
+        
+        
+        
+        for (unsigned i = 0; i < imageCount; i++)
+        {
+            
+            GongSiImageTableObj* gongsiobj = [imageArr objectAtIndex:i];
+            ImageTableObj* imageobj = [DataBase getOneImageTableInfoImageid:gongsiobj.m_companyImageId];
+
+            NSString* path = [DataProcess getImageFilePathByUrl:imageobj.m_imageUrl];
+            UIImage* image = [UIImage imageWithContentsOfFile:path];
+            
+            UIImageView* wwView = [[UIImageView alloc] initWithImage:image];
+            [wwView setFrame:self.m_scrollView.frame];
+            wwView.tag = i;
+            [viewArr addObject:wwView];
+            [wwView release];
+            
+           // self.m_desTextView.text = imageobj.m_imageDescription;
+            
+        }
+
+        
+    }
+    @catch (NSException *exception) {
+        imageCount = 0;
+    }
+    @finally {
+        
+    }
+    
 }
 
-- (IBAction)pageChangeAct:(id)sender {
-    
+
+- (IBAction)changePage:(id)sender 
+{
     int page = self.m_pageControl.currentPage;
 	
     // load the visible page and the page on either side of it (to avoid flashes when the user starts scrolling)
@@ -126,45 +204,6 @@
 }
 
 
--(void) initImageView
-{
-    viewArr = [[NSMutableArray alloc] init];
-    
-    @try {
-        NSArray* changjingArr = (NSArray*)[DataBase getOneZhanWeiInfoByZhanweiId:self.m_proObj.m_canzhanId];
-        
-        imageCount = changjingArr.count;
-        
-        for (unsigned i = 0; i < imageCount; i++)
-        {
-            
-            ZhanWeiInfoTableObj* changjingObj = [changjingArr objectAtIndex:i];
-            
-            ImageTableObj* imageobj = [DataBase getOneImageTableInfoImageid:changjingObj.m_showInfoImageId];
-            
-            NSString* path = [DataProcess getImageFilePathByUrl:imageobj.m_imageUrl];
-            UIImage* image = [UIImage imageWithContentsOfFile:path];
-            
-            UIImageView* wwView = [[UIImageView alloc] initWithImage:image];
-            [wwView setFrame:self.m_scrollView.frame];
-            wwView.tag = i;
-            [viewArr addObject:wwView];
-            [wwView release];
-            
-            // self.m_desTextView.text = imageobj.m_imageDescription;
-            
-        }
-        
-        
-    }
-    @catch (NSException *exception) {
-        imageCount = 0;
-    }
-    @finally {
-        
-    }
-    
-}
 
 
 
@@ -230,6 +269,8 @@
 {
     pageControlUsed = NO;
 }
+
+
 
 
 @end

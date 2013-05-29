@@ -11,7 +11,7 @@ using namespace std;
 
 
 #define PARAM_SPARETESTR @"$paramSeparate$"
-
+#define PARAM_KONGGE @"&nbsp"
 
 struct S_Data
 {

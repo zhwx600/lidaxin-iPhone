@@ -326,7 +326,7 @@
         [label setNumberOfLines:0];
         [label setLineBreakMode:UILineBreakModeWordWrap];
         
-        label.text = textstr;
+        label.text = [textstr stringByReplacingOccurrencesOfString:PARAM_KONGGE withString:@" "];
         [self.m_bigScrollView addSubview:label];
         [label release];
         
