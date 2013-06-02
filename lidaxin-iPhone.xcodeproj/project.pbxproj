@@ -31,6 +31,7 @@
 		1847340416EF5EA600AEE9E3 /* DiaoChaItemTableObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 1847340316EF5EA600AEE9E3 /* DiaoChaItemTableObj.m */; };
 		187DED7A16FC3EDA00115A93 /* UIImage-Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 187DED7916FC3EDA00115A93 /* UIImage-Extensions.m */; };
 		1890D5B6168934680078DB02 /* weiboimage.png in Resources */ = {isa = PBXBuildFile; fileRef = 1890D5B5168934680078DB02 /* weiboimage.png */; };
+		1891B2EB175B9B7000295DF4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1891B2ED175B9B7000295DF4 /* InfoPlist.strings */; };
 		1894279B16561A85006B8E9C /* FolderCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1894278E16561A85006B8E9C /* FolderCoverView.m */; };
 		1894279D16561A85006B8E9C /* UIView+screenshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 1894279216561A85006B8E9C /* UIView+screenshot.m */; };
 		1894279E16561A85006B8E9C /* CateTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1894279516561A85006B8E9C /* CateTableCell.m */; };
@@ -605,20 +606,20 @@
 
 /* Begin PBXFileReference section */
 		180886FF16F1FF640022684B /* selectItem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selectItem.png; sourceTree = "<group>"; };
-		1819D4F61757AACE00A0998C /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/NewFairsViewController.xib; sourceTree = "<group>"; };
-		1819D4F91757AAF700A0998C /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/ZhanWeiDetaiViewController.xib; sourceTree = "<group>"; };
-		1819D4FC1757AB0100A0998C /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/YuYueViewController.xib; sourceTree = "<group>"; };
-		1819D4FF1757AB0700A0998C /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/ZhanPinDetailViewController.xib; sourceTree = "<group>"; };
-		1819D5021757AB0C00A0998C /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/ZhanWeiListViewController.xib; sourceTree = "<group>"; };
-		1819D5051757AB1000A0998C /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/ZhanWeiViewController.xib; sourceTree = "<group>"; };
-		1819D5081757AB1900A0998C /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/XinChanPinViewController.xib; sourceTree = "<group>"; };
-		1819D50B1757AB2100A0998C /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/DiaoChaoCommitViewController.xib; sourceTree = "<group>"; };
-		1819D50E1757AB2500A0998C /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/DiaoChaViewController.xib; sourceTree = "<group>"; };
-		1819D5111757AB2C00A0998C /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/ApplyAreaViewController.xib; sourceTree = "<group>"; };
-		1819D5141757AB3000A0998C /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/ProductDetailViewController.xib; sourceTree = "<group>"; };
-		1819D5171757AB3400A0998C /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/NewCuxiaoViewController.xib; sourceTree = "<group>"; };
-		1819D51A1757AB3900A0998C /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/ChanPinZiXunViewController.xib; sourceTree = "<group>"; };
-		1819D51D1757AB3E00A0998C /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/CuXiaoViewController.xib; sourceTree = "<group>"; };
+		1819D4F61757AACE00A0998C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/NewFairsViewController.xib; sourceTree = "<group>"; };
+		1819D4F91757AAF700A0998C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ZhanWeiDetaiViewController.xib; sourceTree = "<group>"; };
+		1819D4FC1757AB0100A0998C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/YuYueViewController.xib; sourceTree = "<group>"; };
+		1819D4FF1757AB0700A0998C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ZhanPinDetailViewController.xib; sourceTree = "<group>"; };
+		1819D5021757AB0C00A0998C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ZhanWeiListViewController.xib; sourceTree = "<group>"; };
+		1819D5051757AB1000A0998C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ZhanWeiViewController.xib; sourceTree = "<group>"; };
+		1819D5081757AB1900A0998C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/XinChanPinViewController.xib; sourceTree = "<group>"; };
+		1819D50B1757AB2100A0998C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DiaoChaoCommitViewController.xib; sourceTree = "<group>"; };
+		1819D50E1757AB2500A0998C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DiaoChaViewController.xib; sourceTree = "<group>"; };
+		1819D5111757AB2C00A0998C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ApplyAreaViewController.xib; sourceTree = "<group>"; };
+		1819D5141757AB3000A0998C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ProductDetailViewController.xib; sourceTree = "<group>"; };
+		1819D5171757AB3400A0998C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/NewCuxiaoViewController.xib; sourceTree = "<group>"; };
+		1819D51A1757AB3900A0998C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ChanPinZiXunViewController.xib; sourceTree = "<group>"; };
+		1819D51D1757AB3E00A0998C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CuXiaoViewController.xib; sourceTree = "<group>"; };
 		181C24221648AD5D00C13CB4 /* images.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = images.bundle; sourceTree = "<group>"; };
 		181C24231648AD5D00C13CB4 /* JSScrollableTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSScrollableTabBar.h; sourceTree = "<group>"; };
 		181C24241648AD5D00C13CB4 /* JSScrollableTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSScrollableTabBar.m; sourceTree = "<group>"; };
@@ -635,6 +636,23 @@
 		187DED7816FC3EDA00115A93 /* UIImage-Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage-Extensions.h"; sourceTree = "<group>"; };
 		187DED7916FC3EDA00115A93 /* UIImage-Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage-Extensions.m"; sourceTree = "<group>"; };
 		1890D5B5168934680078DB02 /* weiboimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weiboimage.png; sourceTree = "<group>"; };
+		1891B2DA175B92EC00295DF4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/CuXiaoViewController.xib"; sourceTree = "<group>"; };
+		1891B2DB175B92EC00295DF4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/ChanPinZiXunViewController.xib"; sourceTree = "<group>"; };
+		1891B2DC175B92EC00295DF4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/NewCuxiaoViewController.xib"; sourceTree = "<group>"; };
+		1891B2DD175B92EC00295DF4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/ProductDetailViewController.xib"; sourceTree = "<group>"; };
+		1891B2DE175B92EC00295DF4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/ApplyAreaViewController.xib"; sourceTree = "<group>"; };
+		1891B2DF175B92EC00295DF4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/DiaoChaViewController.xib"; sourceTree = "<group>"; };
+		1891B2E0175B92ED00295DF4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/DiaoChaoCommitViewController.xib"; sourceTree = "<group>"; };
+		1891B2E1175B92ED00295DF4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/XinChanPinViewController.xib"; sourceTree = "<group>"; };
+		1891B2E2175B92ED00295DF4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/ZhanWeiViewController.xib"; sourceTree = "<group>"; };
+		1891B2E3175B92ED00295DF4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/ZhanWeiListViewController.xib"; sourceTree = "<group>"; };
+		1891B2E4175B92EE00295DF4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/ZhanPinDetailViewController.xib"; sourceTree = "<group>"; };
+		1891B2E5175B92EE00295DF4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/YuYueViewController.xib"; sourceTree = "<group>"; };
+		1891B2E6175B92EE00295DF4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/ZhanWeiDetaiViewController.xib"; sourceTree = "<group>"; };
+		1891B2E7175B92EF00295DF4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/NewFairsViewController.xib"; sourceTree = "<group>"; };
+		1891B2E8175B92F000295DF4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/ViewController.xib"; sourceTree = "<group>"; };
+		1891B2EC175B9B7000295DF4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1891B2EE175B9B7200295DF4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		1894278D16561A85006B8E9C /* FolderCoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FolderCoverView.h; sourceTree = "<group>"; };
 		1894278E16561A85006B8E9C /* FolderCoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FolderCoverView.m; sourceTree = "<group>"; };
 		1894279116561A85006B8E9C /* UIView+screenshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+screenshot.h"; sourceTree = "<group>"; };
@@ -1909,6 +1927,7 @@
 				18F36F02163153E400EA6DF6 /* lidaxin-iPhone-Info.plist */,
 				18F36F06163153E400EA6DF6 /* main.m */,
 				18F36F08163153E400EA6DF6 /* lidaxin-iPhone-Prefix.pch */,
+				1891B2ED175B9B7000295DF4 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -2201,6 +2220,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				"zh-Hans",
 			);
 			mainGroup = 18F36EEB163153E400EA6DF6;
 			productRefGroup = 18F36EF7163153E400EA6DF6 /* Products */;
@@ -2752,6 +2772,7 @@
 				18E95251175640F9003D6A86 /* 20130516141756.jpg in Resources */,
 				18E95252175640F9003D6A86 /* 20130516142609.jpg in Resources */,
 				18E95253175640F9003D6A86 /* 20130520084653.jpg in Resources */,
+				1891B2EB175B9B7000295DF4 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2825,6 +2846,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				1819D4F61757AACE00A0998C /* en */,
+				1891B2E7175B92EF00295DF4 /* zh-Hans */,
 			);
 			name = NewFairsViewController.xib;
 			sourceTree = "<group>";
@@ -2833,6 +2855,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				1819D4F91757AAF700A0998C /* en */,
+				1891B2E6175B92EE00295DF4 /* zh-Hans */,
 			);
 			name = ZhanWeiDetaiViewController.xib;
 			sourceTree = "<group>";
@@ -2841,6 +2864,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				1819D4FC1757AB0100A0998C /* en */,
+				1891B2E5175B92EE00295DF4 /* zh-Hans */,
 			);
 			name = YuYueViewController.xib;
 			sourceTree = "<group>";
@@ -2849,6 +2873,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				1819D4FF1757AB0700A0998C /* en */,
+				1891B2E4175B92EE00295DF4 /* zh-Hans */,
 			);
 			name = ZhanPinDetailViewController.xib;
 			sourceTree = "<group>";
@@ -2857,6 +2882,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				1819D5021757AB0C00A0998C /* en */,
+				1891B2E3175B92ED00295DF4 /* zh-Hans */,
 			);
 			name = ZhanWeiListViewController.xib;
 			sourceTree = "<group>";
@@ -2865,6 +2891,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				1819D5051757AB1000A0998C /* en */,
+				1891B2E2175B92ED00295DF4 /* zh-Hans */,
 			);
 			name = ZhanWeiViewController.xib;
 			sourceTree = "<group>";
@@ -2873,6 +2900,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				1819D5081757AB1900A0998C /* en */,
+				1891B2E1175B92ED00295DF4 /* zh-Hans */,
 			);
 			name = XinChanPinViewController.xib;
 			sourceTree = "<group>";
@@ -2881,6 +2909,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				1819D50B1757AB2100A0998C /* en */,
+				1891B2E0175B92ED00295DF4 /* zh-Hans */,
 			);
 			name = DiaoChaoCommitViewController.xib;
 			sourceTree = "<group>";
@@ -2889,6 +2918,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				1819D50E1757AB2500A0998C /* en */,
+				1891B2DF175B92EC00295DF4 /* zh-Hans */,
 			);
 			name = DiaoChaViewController.xib;
 			sourceTree = "<group>";
@@ -2897,6 +2927,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				1819D5111757AB2C00A0998C /* en */,
+				1891B2DE175B92EC00295DF4 /* zh-Hans */,
 			);
 			name = ApplyAreaViewController.xib;
 			sourceTree = "<group>";
@@ -2905,6 +2936,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				1819D5141757AB3000A0998C /* en */,
+				1891B2DD175B92EC00295DF4 /* zh-Hans */,
 			);
 			name = ProductDetailViewController.xib;
 			sourceTree = "<group>";
@@ -2913,6 +2945,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				1819D5171757AB3400A0998C /* en */,
+				1891B2DC175B92EC00295DF4 /* zh-Hans */,
 			);
 			name = NewCuxiaoViewController.xib;
 			sourceTree = "<group>";
@@ -2921,6 +2954,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				1819D51A1757AB3900A0998C /* en */,
+				1891B2DB175B92EC00295DF4 /* zh-Hans */,
 			);
 			name = ChanPinZiXunViewController.xib;
 			sourceTree = "<group>";
@@ -2929,14 +2963,25 @@
 			isa = PBXVariantGroup;
 			children = (
 				1819D51D1757AB3E00A0998C /* en */,
+				1891B2DA175B92EC00295DF4 /* zh-Hans */,
 			);
 			name = CuXiaoViewController.xib;
+			sourceTree = "<group>";
+		};
+		1891B2ED175B9B7000295DF4 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1891B2EC175B9B7000295DF4 /* en */,
+				1891B2EE175B9B7200295DF4 /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 		18F36F0F163153E400EA6DF6 /* ViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				18F36F10163153E400EA6DF6 /* en */,
+				1891B2E8175B92F000295DF4 /* zh-Hans */,
 			);
 			name = ViewController.xib;
 			sourceTree = "<group>";
@@ -2949,7 +2994,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -2991,13 +3036,13 @@
 		18F36F15163153E400EA6DF6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Leedarson Lighting(Zhangzhou) Co., Ltd";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "lidaxin-iPhone/lidaxin-iPhone-Prefix.pch";
 				INFOPLIST_FILE = "lidaxin-iPhone/lidaxin-iPhone-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = LEEDARSON;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "123522BB-CD7C-436A-9714-ED75AB235AC9";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
