@@ -45,6 +45,7 @@
 		1895848A1645177D00A6151F /* YuYueViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 189584881645177D00A6151F /* YuYueViewController.mm */; };
 		1895ACEE1732AB29007EDC8D /* 箭头.png in Resources */ = {isa = PBXBuildFile; fileRef = 1895ACED1732AB29007EDC8D /* 箭头.png */; };
 		189B233F16573D14007CF51B /* GGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = 189B233E16573D14007CF51B /* GGlobal.m */; };
+		189E22C1175E2C5A0000DC3A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 189E22C3175E2C5A0000DC3A /* Localizable.strings */; };
 		189E931D1664569900EB6606 /* ZiXunYuYueRequestObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 189E931C1664569900EB6606 /* ZiXunYuYueRequestObj.m */; };
 		18C4659316EF4E230050393E /* ChangJinTableObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C4659216EF4E230050393E /* ChangJinTableObj.m */; };
 		18D0F6D716F0ADFF00552170 /* NewFairsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 18D0F6D516F0ADFF00552170 /* NewFairsViewController.mm */; };
@@ -675,6 +676,8 @@
 		1895ACED1732AB29007EDC8D /* 箭头.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "箭头.png"; sourceTree = "<group>"; };
 		189B233D16573D13007CF51B /* GGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GGlobal.h; path = "lidaxin-iPhone/GGlobal.h"; sourceTree = SOURCE_ROOT; };
 		189B233E16573D14007CF51B /* GGlobal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GGlobal.m; path = "lidaxin-iPhone/GGlobal.m"; sourceTree = SOURCE_ROOT; };
+		189E22C2175E2C5A0000DC3A /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		189E22C4175E2C5D0000DC3A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		189E931B1664569900EB6606 /* ZiXunYuYueRequestObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZiXunYuYueRequestObj.h; sourceTree = "<group>"; };
 		189E931C1664569900EB6606 /* ZiXunYuYueRequestObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZiXunYuYueRequestObj.m; sourceTree = "<group>"; };
 		18C4659116EF4E230050393E /* ChangJinTableObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangJinTableObj.h; sourceTree = "<group>"; };
@@ -1928,6 +1931,7 @@
 				18F36F06163153E400EA6DF6 /* main.m */,
 				18F36F08163153E400EA6DF6 /* lidaxin-iPhone-Prefix.pch */,
 				1891B2ED175B9B7000295DF4 /* InfoPlist.strings */,
+				189E22C3175E2C5A0000DC3A /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -2773,6 +2777,7 @@
 				18E95252175640F9003D6A86 /* 20130516142609.jpg in Resources */,
 				18E95253175640F9003D6A86 /* 20130520084653.jpg in Resources */,
 				1891B2EB175B9B7000295DF4 /* InfoPlist.strings in Resources */,
+				189E22C1175E2C5A0000DC3A /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2977,6 +2982,15 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
+		189E22C3175E2C5A0000DC3A /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				189E22C2175E2C5A0000DC3A /* en */,
+				189E22C4175E2C5D0000DC3A /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		18F36F0F163153E400EA6DF6 /* ViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -3036,13 +3050,13 @@
 		18F36F15163153E400EA6DF6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Leedarson Lighting(Zhangzhou) Co., Ltd";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "lidaxin-iPhone/lidaxin-iPhone-Prefix.pch";
 				INFOPLIST_FILE = "lidaxin-iPhone/lidaxin-iPhone-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = LEEDARSON;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "123522BB-CD7C-436A-9714-ED75AB235AC9";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
