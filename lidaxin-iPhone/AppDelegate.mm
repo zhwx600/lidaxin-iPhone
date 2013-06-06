@@ -30,7 +30,14 @@
     
     
     // Override point for customization after application launch.
-    self.viewController = [[[ViewController alloc] initWithNibName:@"ViewController" bundle:nil] autorelease];
+    
+    if (IS_IPHONE5) {
+        self.viewController = [[[ViewController alloc] initWithNibName:@"ViewController5" bundle:nil] autorelease];
+    }else{
+        self.viewController = [[[ViewController alloc] initWithNibName:@"ViewController" bundle:nil] autorelease];
+    }
+    
+
     m_nav = [[UINavigationController alloc] initWithRootViewController:self.viewController];
     [self.window addSubview:m_nav.view];
     //self.window.rootViewController = self.m_nav;

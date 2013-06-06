@@ -27,6 +27,7 @@
 		181C242D1648AD5D00C13CB4 /* JSTabButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 181C24261648AD5D00C13CB4 /* JSTabButton.m */; };
 		181C242E1648AD5D00C13CB4 /* JSTabItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 181C24281648AD5D00C13CB4 /* JSTabItem.m */; };
 		181C242F1648AD5D00C13CB4 /* UIImage+JSRetinaAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 181C242A1648AD5D00C13CB4 /* UIImage+JSRetinaAdditions.m */; };
+		183CEB761760E49400A710DB /* ViewController5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183CEB741760E49400A710DB /* ViewController5.xib */; };
 		184733FB16EF474300AEE9E3 /* ApplyAreaViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 184733F916EF474300AEE9E3 /* ApplyAreaViewController.mm */; };
 		1847340416EF5EA600AEE9E3 /* DiaoChaItemTableObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 1847340316EF5EA600AEE9E3 /* DiaoChaItemTableObj.m */; };
 		187DED7A16FC3EDA00115A93 /* UIImage-Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 187DED7916FC3EDA00115A93 /* UIImage-Extensions.m */; };
@@ -630,6 +631,7 @@
 		181C24281648AD5D00C13CB4 /* JSTabItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSTabItem.m; sourceTree = "<group>"; };
 		181C24291648AD5D00C13CB4 /* UIImage+JSRetinaAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+JSRetinaAdditions.h"; sourceTree = "<group>"; };
 		181C242A1648AD5D00C13CB4 /* UIImage+JSRetinaAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JSRetinaAdditions.m"; sourceTree = "<group>"; };
+		183CEB751760E49400A710DB /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/ViewController5.xib"; sourceTree = "<group>"; };
 		184733F816EF474300AEE9E3 /* ApplyAreaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyAreaViewController.h; sourceTree = "<group>"; };
 		184733F916EF474300AEE9E3 /* ApplyAreaViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ApplyAreaViewController.mm; sourceTree = "<group>"; };
 		1847340216EF5EA600AEE9E3 /* DiaoChaItemTableObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiaoChaItemTableObj.h; sourceTree = "<group>"; };
@@ -1917,6 +1919,7 @@
 				18F36F0A163153E400EA6DF6 /* AppDelegate.mm */,
 				18F36F0C163153E400EA6DF6 /* ViewController.h */,
 				18F36F0D163153E400EA6DF6 /* ViewController.mm */,
+				183CEB741760E49400A710DB /* ViewController5.xib */,
 				18F36F0F163153E400EA6DF6 /* ViewController.xib */,
 				18F36F01163153E400EA6DF6 /* Supporting Files */,
 			);
@@ -2778,6 +2781,7 @@
 				18E95253175640F9003D6A86 /* 20130520084653.jpg in Resources */,
 				1891B2EB175B9B7000295DF4 /* InfoPlist.strings in Resources */,
 				189E22C1175E2C5A0000DC3A /* Localizable.strings in Resources */,
+				183CEB761760E49400A710DB /* ViewController5.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2971,6 +2975,14 @@
 				1891B2DA175B92EC00295DF4 /* zh-Hans */,
 			);
 			name = CuXiaoViewController.xib;
+			sourceTree = "<group>";
+		};
+		183CEB741760E49400A710DB /* ViewController5.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				183CEB751760E49400A710DB /* zh-Hans */,
+			);
+			name = ViewController5.xib;
 			sourceTree = "<group>";
 		};
 		1891B2ED175B9B7000295DF4 /* InfoPlist.strings */ = {
