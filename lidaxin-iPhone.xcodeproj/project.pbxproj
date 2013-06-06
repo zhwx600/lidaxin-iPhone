@@ -27,7 +27,6 @@
 		181C242D1648AD5D00C13CB4 /* JSTabButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 181C24261648AD5D00C13CB4 /* JSTabButton.m */; };
 		181C242E1648AD5D00C13CB4 /* JSTabItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 181C24281648AD5D00C13CB4 /* JSTabItem.m */; };
 		181C242F1648AD5D00C13CB4 /* UIImage+JSRetinaAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 181C242A1648AD5D00C13CB4 /* UIImage+JSRetinaAdditions.m */; };
-		183CEB761760E49400A710DB /* ViewController5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183CEB741760E49400A710DB /* ViewController5.xib */; };
 		184733FB16EF474300AEE9E3 /* ApplyAreaViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 184733F916EF474300AEE9E3 /* ApplyAreaViewController.mm */; };
 		1847340416EF5EA600AEE9E3 /* DiaoChaItemTableObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 1847340316EF5EA600AEE9E3 /* DiaoChaItemTableObj.m */; };
 		187DED7A16FC3EDA00115A93 /* UIImage-Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 187DED7916FC3EDA00115A93 /* UIImage-Extensions.m */; };
@@ -631,7 +630,6 @@
 		181C24281648AD5D00C13CB4 /* JSTabItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSTabItem.m; sourceTree = "<group>"; };
 		181C24291648AD5D00C13CB4 /* UIImage+JSRetinaAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+JSRetinaAdditions.h"; sourceTree = "<group>"; };
 		181C242A1648AD5D00C13CB4 /* UIImage+JSRetinaAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JSRetinaAdditions.m"; sourceTree = "<group>"; };
-		183CEB751760E49400A710DB /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/ViewController5.xib"; sourceTree = "<group>"; };
 		184733F816EF474300AEE9E3 /* ApplyAreaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyAreaViewController.h; sourceTree = "<group>"; };
 		184733F916EF474300AEE9E3 /* ApplyAreaViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ApplyAreaViewController.mm; sourceTree = "<group>"; };
 		1847340216EF5EA600AEE9E3 /* DiaoChaItemTableObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiaoChaItemTableObj.h; sourceTree = "<group>"; };
@@ -639,23 +637,7 @@
 		187DED7816FC3EDA00115A93 /* UIImage-Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage-Extensions.h"; sourceTree = "<group>"; };
 		187DED7916FC3EDA00115A93 /* UIImage-Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage-Extensions.m"; sourceTree = "<group>"; };
 		1890D5B5168934680078DB02 /* weiboimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weiboimage.png; sourceTree = "<group>"; };
-		1891B2DA175B92EC00295DF4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/CuXiaoViewController.xib"; sourceTree = "<group>"; };
-		1891B2DB175B92EC00295DF4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/ChanPinZiXunViewController.xib"; sourceTree = "<group>"; };
-		1891B2DC175B92EC00295DF4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/NewCuxiaoViewController.xib"; sourceTree = "<group>"; };
-		1891B2DD175B92EC00295DF4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/ProductDetailViewController.xib"; sourceTree = "<group>"; };
-		1891B2DE175B92EC00295DF4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/ApplyAreaViewController.xib"; sourceTree = "<group>"; };
-		1891B2DF175B92EC00295DF4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/DiaoChaViewController.xib"; sourceTree = "<group>"; };
-		1891B2E0175B92ED00295DF4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/DiaoChaoCommitViewController.xib"; sourceTree = "<group>"; };
-		1891B2E1175B92ED00295DF4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/XinChanPinViewController.xib"; sourceTree = "<group>"; };
-		1891B2E2175B92ED00295DF4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/ZhanWeiViewController.xib"; sourceTree = "<group>"; };
-		1891B2E3175B92ED00295DF4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/ZhanWeiListViewController.xib"; sourceTree = "<group>"; };
-		1891B2E4175B92EE00295DF4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/ZhanPinDetailViewController.xib"; sourceTree = "<group>"; };
-		1891B2E5175B92EE00295DF4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/YuYueViewController.xib"; sourceTree = "<group>"; };
-		1891B2E6175B92EE00295DF4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/ZhanWeiDetaiViewController.xib"; sourceTree = "<group>"; };
-		1891B2E7175B92EF00295DF4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/NewFairsViewController.xib"; sourceTree = "<group>"; };
-		1891B2E8175B92F000295DF4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/ViewController.xib"; sourceTree = "<group>"; };
 		1891B2EC175B9B7000295DF4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		1891B2EE175B9B7200295DF4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		1894278D16561A85006B8E9C /* FolderCoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FolderCoverView.h; sourceTree = "<group>"; };
 		1894278E16561A85006B8E9C /* FolderCoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FolderCoverView.m; sourceTree = "<group>"; };
 		1894279116561A85006B8E9C /* UIView+screenshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+screenshot.h"; sourceTree = "<group>"; };
@@ -679,7 +661,6 @@
 		189B233D16573D13007CF51B /* GGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GGlobal.h; path = "lidaxin-iPhone/GGlobal.h"; sourceTree = SOURCE_ROOT; };
 		189B233E16573D14007CF51B /* GGlobal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GGlobal.m; path = "lidaxin-iPhone/GGlobal.m"; sourceTree = SOURCE_ROOT; };
 		189E22C2175E2C5A0000DC3A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		189E22C4175E2C5D0000DC3A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		189E931B1664569900EB6606 /* ZiXunYuYueRequestObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZiXunYuYueRequestObj.h; sourceTree = "<group>"; };
 		189E931C1664569900EB6606 /* ZiXunYuYueRequestObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZiXunYuYueRequestObj.m; sourceTree = "<group>"; };
 		18C4659116EF4E230050393E /* ChangJinTableObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangJinTableObj.h; sourceTree = "<group>"; };
@@ -1919,7 +1900,6 @@
 				18F36F0A163153E400EA6DF6 /* AppDelegate.mm */,
 				18F36F0C163153E400EA6DF6 /* ViewController.h */,
 				18F36F0D163153E400EA6DF6 /* ViewController.mm */,
-				183CEB741760E49400A710DB /* ViewController5.xib */,
 				18F36F0F163153E400EA6DF6 /* ViewController.xib */,
 				18F36F01163153E400EA6DF6 /* Supporting Files */,
 			);
@@ -2781,7 +2761,6 @@
 				18E95253175640F9003D6A86 /* 20130520084653.jpg in Resources */,
 				1891B2EB175B9B7000295DF4 /* InfoPlist.strings in Resources */,
 				189E22C1175E2C5A0000DC3A /* Localizable.strings in Resources */,
-				183CEB761760E49400A710DB /* ViewController5.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2855,7 +2834,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				1819D4F61757AACE00A0998C /* en */,
-				1891B2E7175B92EF00295DF4 /* zh-Hans */,
 			);
 			name = NewFairsViewController.xib;
 			sourceTree = "<group>";
@@ -2864,7 +2842,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				1819D4F91757AAF700A0998C /* en */,
-				1891B2E6175B92EE00295DF4 /* zh-Hans */,
 			);
 			name = ZhanWeiDetaiViewController.xib;
 			sourceTree = "<group>";
@@ -2873,7 +2850,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				1819D4FC1757AB0100A0998C /* en */,
-				1891B2E5175B92EE00295DF4 /* zh-Hans */,
 			);
 			name = YuYueViewController.xib;
 			sourceTree = "<group>";
@@ -2882,7 +2858,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				1819D4FF1757AB0700A0998C /* en */,
-				1891B2E4175B92EE00295DF4 /* zh-Hans */,
 			);
 			name = ZhanPinDetailViewController.xib;
 			sourceTree = "<group>";
@@ -2891,7 +2866,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				1819D5021757AB0C00A0998C /* en */,
-				1891B2E3175B92ED00295DF4 /* zh-Hans */,
 			);
 			name = ZhanWeiListViewController.xib;
 			sourceTree = "<group>";
@@ -2900,7 +2874,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				1819D5051757AB1000A0998C /* en */,
-				1891B2E2175B92ED00295DF4 /* zh-Hans */,
 			);
 			name = ZhanWeiViewController.xib;
 			sourceTree = "<group>";
@@ -2909,7 +2882,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				1819D5081757AB1900A0998C /* en */,
-				1891B2E1175B92ED00295DF4 /* zh-Hans */,
 			);
 			name = XinChanPinViewController.xib;
 			sourceTree = "<group>";
@@ -2918,7 +2890,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				1819D50B1757AB2100A0998C /* en */,
-				1891B2E0175B92ED00295DF4 /* zh-Hans */,
 			);
 			name = DiaoChaoCommitViewController.xib;
 			sourceTree = "<group>";
@@ -2927,7 +2898,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				1819D50E1757AB2500A0998C /* en */,
-				1891B2DF175B92EC00295DF4 /* zh-Hans */,
 			);
 			name = DiaoChaViewController.xib;
 			sourceTree = "<group>";
@@ -2936,7 +2906,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				1819D5111757AB2C00A0998C /* en */,
-				1891B2DE175B92EC00295DF4 /* zh-Hans */,
 			);
 			name = ApplyAreaViewController.xib;
 			sourceTree = "<group>";
@@ -2945,7 +2914,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				1819D5141757AB3000A0998C /* en */,
-				1891B2DD175B92EC00295DF4 /* zh-Hans */,
 			);
 			name = ProductDetailViewController.xib;
 			sourceTree = "<group>";
@@ -2954,7 +2922,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				1819D5171757AB3400A0998C /* en */,
-				1891B2DC175B92EC00295DF4 /* zh-Hans */,
 			);
 			name = NewCuxiaoViewController.xib;
 			sourceTree = "<group>";
@@ -2963,7 +2930,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				1819D51A1757AB3900A0998C /* en */,
-				1891B2DB175B92EC00295DF4 /* zh-Hans */,
 			);
 			name = ChanPinZiXunViewController.xib;
 			sourceTree = "<group>";
@@ -2972,24 +2938,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				1819D51D1757AB3E00A0998C /* en */,
-				1891B2DA175B92EC00295DF4 /* zh-Hans */,
 			);
 			name = CuXiaoViewController.xib;
-			sourceTree = "<group>";
-		};
-		183CEB741760E49400A710DB /* ViewController5.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				183CEB751760E49400A710DB /* zh-Hans */,
-			);
-			name = ViewController5.xib;
 			sourceTree = "<group>";
 		};
 		1891B2ED175B9B7000295DF4 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				1891B2EC175B9B7000295DF4 /* en */,
-				1891B2EE175B9B7200295DF4 /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -2998,7 +2954,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				189E22C2175E2C5A0000DC3A /* en */,
-				189E22C4175E2C5D0000DC3A /* zh-Hans */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -3007,7 +2962,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				18F36F10163153E400EA6DF6 /* en */,
-				1891B2E8175B92F000295DF4 /* zh-Hans */,
 			);
 			name = ViewController.xib;
 			sourceTree = "<group>";
