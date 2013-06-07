@@ -22,6 +22,7 @@
 #import "CanZhanTableObj.h"
 
 #import "ProductDetailViewController.h"
+#include "ZhwxDefine.h"
 
 @implementation NewCuxiaoViewController
 @synthesize m_viewTitle;
@@ -55,6 +56,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+
+    //[self.expansionTableView setFrame:CGRectMake(0, 44, 320, DEV_FULLSCREEN_FRAME.size.height-44-20)];
     self.expansionTableView.backgroundColor = [UIColor clearColor];
     self.expansionTableView.separatorColor = [UIColor clearColor];
     self.expansionTableView.sectionFooterHeight = 0;

@@ -29,6 +29,7 @@
 		181C242F1648AD5D00C13CB4 /* UIImage+JSRetinaAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 181C242A1648AD5D00C13CB4 /* UIImage+JSRetinaAdditions.m */; };
 		184733FB16EF474300AEE9E3 /* ApplyAreaViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 184733F916EF474300AEE9E3 /* ApplyAreaViewController.mm */; };
 		1847340416EF5EA600AEE9E3 /* DiaoChaItemTableObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 1847340316EF5EA600AEE9E3 /* DiaoChaItemTableObj.m */; };
+		18608CFF176166FA009B0CE7 /* ViewController5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18608CFD176166FA009B0CE7 /* ViewController5.xib */; };
 		187DED7A16FC3EDA00115A93 /* UIImage-Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 187DED7916FC3EDA00115A93 /* UIImage-Extensions.m */; };
 		1890D5B6168934680078DB02 /* weiboimage.png in Resources */ = {isa = PBXBuildFile; fileRef = 1890D5B5168934680078DB02 /* weiboimage.png */; };
 		1891B2EB175B9B7000295DF4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1891B2ED175B9B7000295DF4 /* InfoPlist.strings */; };
@@ -634,6 +635,8 @@
 		184733F916EF474300AEE9E3 /* ApplyAreaViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ApplyAreaViewController.mm; sourceTree = "<group>"; };
 		1847340216EF5EA600AEE9E3 /* DiaoChaItemTableObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiaoChaItemTableObj.h; sourceTree = "<group>"; };
 		1847340316EF5EA600AEE9E3 /* DiaoChaItemTableObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiaoChaItemTableObj.m; sourceTree = "<group>"; };
+		18608CFE176166FA009B0CE7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController5.xib; sourceTree = "<group>"; };
+		18608D061761A050009B0CE7 /* ZhwxDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZhwxDefine.h; sourceTree = "<group>"; };
 		187DED7816FC3EDA00115A93 /* UIImage-Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage-Extensions.h"; sourceTree = "<group>"; };
 		187DED7916FC3EDA00115A93 /* UIImage-Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage-Extensions.m"; sourceTree = "<group>"; };
 		1890D5B5168934680078DB02 /* weiboimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weiboimage.png; sourceTree = "<group>"; };
@@ -1896,10 +1899,12 @@
 				189B233D16573D13007CF51B /* GGlobal.h */,
 				189B233E16573D14007CF51B /* GGlobal.m */,
 				55B4C1B916395B3F00AF74B6 /* xmlCommand.h */,
+				18608D061761A050009B0CE7 /* ZhwxDefine.h */,
 				18F36F09163153E400EA6DF6 /* AppDelegate.h */,
 				18F36F0A163153E400EA6DF6 /* AppDelegate.mm */,
 				18F36F0C163153E400EA6DF6 /* ViewController.h */,
 				18F36F0D163153E400EA6DF6 /* ViewController.mm */,
+				18608CFD176166FA009B0CE7 /* ViewController5.xib */,
 				18F36F0F163153E400EA6DF6 /* ViewController.xib */,
 				18F36F01163153E400EA6DF6 /* Supporting Files */,
 			);
@@ -2761,6 +2766,7 @@
 				18E95253175640F9003D6A86 /* 20130520084653.jpg in Resources */,
 				1891B2EB175B9B7000295DF4 /* InfoPlist.strings in Resources */,
 				189E22C1175E2C5A0000DC3A /* Localizable.strings in Resources */,
+				18608CFF176166FA009B0CE7 /* ViewController5.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2942,6 +2948,14 @@
 			name = CuXiaoViewController.xib;
 			sourceTree = "<group>";
 		};
+		18608CFD176166FA009B0CE7 /* ViewController5.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				18608CFE176166FA009B0CE7 /* en */,
+			);
+			name = ViewController5.xib;
+			sourceTree = "<group>";
+		};
 		1891B2ED175B9B7000295DF4 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -3016,13 +3030,13 @@
 		18F36F15163153E400EA6DF6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Leedarson Lighting(Zhangzhou) Co., Ltd";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "lidaxin-iPhone/lidaxin-iPhone-Prefix.pch";
 				INFOPLIST_FILE = "lidaxin-iPhone/lidaxin-iPhone-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = LEEDARSON;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "123522BB-CD7C-436A-9714-ED75AB235AC9";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
