@@ -12,6 +12,7 @@
 #import "DataBase.h"
 #import "DiaoChaTableObj.h"
 #import "DiaoChanDetailTableObj.h"
+#include "ZhwxDefine.h"
 
 
 @interface DiaoChaViewController ()
@@ -38,7 +39,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    CGRect bounds = CGRectMake(0, 44, 320, 460-44);
+    CGRect bounds = DEV_HAVE_NAV_VIEW_FRAME;
     m_tableView = [[UITableView alloc] initWithFrame:bounds];
     m_tableView.dataSource = self;
     m_tableView.delegate = self;

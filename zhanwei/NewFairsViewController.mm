@@ -242,10 +242,19 @@ return (interfaceOrientation == UIInterfaceOrientationPortrait);
             
         }else if (indexPath.row == 3){
             CanZhanTableObj* tempro = [m_typeDataArray objectAtIndex:indexPath.section];
-            YuYueViewController* list = [[YuYueViewController alloc] init];
-            list.m_zhanweiid = tempro.m_canzhanId;
-            [self.navigationController pushViewController:list animated:YES];
-            [list release];
+            if (IS_IPHONE5) {
+                YuYueViewController* list = [[YuYueViewController alloc] initWithNibName:@"YuYueViewController5" bundle:nil];
+                list.m_zhanweiid = tempro.m_canzhanId;
+                [self.navigationController pushViewController:list animated:YES];
+                [list release];
+            }else{
+                YuYueViewController* list = [[YuYueViewController alloc] initWithNibName:@"YuYueViewController" bundle:nil];
+                list.m_zhanweiid = tempro.m_canzhanId;
+                [self.navigationController pushViewController:list animated:YES];
+                [list release];
+            }
+            
+            
         }
         
     

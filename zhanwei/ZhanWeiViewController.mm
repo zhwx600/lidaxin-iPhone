@@ -203,6 +203,18 @@
         YuYueViewController* list = [[YuYueViewController alloc] init];
         [self.navigationController pushViewController:list animated:YES];
         [list release];
+        
+        if (IS_IPHONE5) {
+            YuYueViewController* list = [[YuYueViewController alloc] initWithNibName:@"YuYueViewController5" bundle:nil];
+            [self.navigationController pushViewController:list animated:YES];
+            [list release];
+        }else{
+            YuYueViewController* list = [[YuYueViewController alloc] initWithNibName:@"YuYueViewController" bundle:nil];
+            [self.navigationController pushViewController:list animated:YES];
+            [list release];
+        }
+
+        
     }
     
     
@@ -234,12 +246,24 @@
 -(IBAction)YuYueButton:(id)sender
 {
     [GGlobal getGlobalInstance].m_zhanweiViewFresh = NO;
-    YuYueViewController* list = [[YuYueViewController alloc] init];
-    CanZhanTableObj* zhanwei = [m_tableArray objectAtIndex:((UIButton*)sender).tag];
     
-    list.m_zhanweiid = zhanwei.m_canzhanId;
-    [self.navigationController pushViewController:list animated:YES];
-    [list release];
+    
+    if (IS_IPHONE5) {
+        YuYueViewController* list = [[YuYueViewController alloc] initWithNibName:@"YuYueViewController5" bundle:nil];
+        CanZhanTableObj* zhanwei = [m_tableArray objectAtIndex:((UIButton*)sender).tag];
+        
+        list.m_zhanweiid = zhanwei.m_canzhanId;
+        [self.navigationController pushViewController:list animated:YES];
+        [list release];
+    }else{
+        YuYueViewController* list = [[YuYueViewController alloc] initWithNibName:@"YuYueViewController" bundle:nil];
+        CanZhanTableObj* zhanwei = [m_tableArray objectAtIndex:((UIButton*)sender).tag];
+        
+        list.m_zhanweiid = zhanwei.m_canzhanId;
+        [self.navigationController pushViewController:list animated:YES];
+        [list release];
+    }
+    
 }
 
 

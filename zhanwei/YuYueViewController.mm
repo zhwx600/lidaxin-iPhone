@@ -20,6 +20,7 @@
 #import "xmlparser.h"
 
 #import "ZiXunYuYueRequestObj.h"
+#import "ZhwxDefine.h"
 
 
 @interface YuYueViewController ()
@@ -58,7 +59,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self.m_scrollView setContentSize:CGSizeMake(320, 416)];
+    [self.m_scrollView setContentSize:CGSizeMake(320, DEV_FULLSCREEN_FRAME.size.height-44-20)];
     [self initInputView];
     m_tableCellArr = [[NSMutableArray alloc] init];
     [self.m_datePicker setTimeZone:[NSTimeZone localTimeZone]];
@@ -115,8 +116,8 @@
     [self closeDate:nil];
     if (textField == self.m_timeField) 
         [UIView animateWithDuration:0.3 animations:^{
-            if (self.m_scrollView.frame.size.height >= 460-44) {
-                self.m_scrollView.frame = CGRectMake(0, 44, 320, 460-44-246);
+            if (self.m_scrollView.frame.size.height >= DEV_FULLSCREEN_FRAME.size.height-44-20) {
+                self.m_scrollView.frame = CGRectMake(0, 44, 320, DEV_FULLSCREEN_FRAME.size.height-44-20-246);
             }
             [self.m_scrollView setContentOffset:CGPointMake(0, 120) animated:YES];        
         } completion:^(BOOL finished) {
@@ -129,8 +130,8 @@
 {
     [self closeDate:nil];
     [UIView animateWithDuration:0.3 animations:^{
-        if (self.m_scrollView.frame.size.height >= 460-44) {
-            self.m_scrollView.frame = CGRectMake(0, 44, 320, 460-44-246);
+        if (self.m_scrollView.frame.size.height >= DEV_FULLSCREEN_FRAME.size.height-44-20) {
+            self.m_scrollView.frame = CGRectMake(0, 44, 320, DEV_FULLSCREEN_FRAME.size.height-44-20-246);
         }
         [self.m_scrollView setContentOffset:CGPointMake(0, 180) animated:YES];        
     } completion:^(BOOL finished) {
@@ -144,9 +145,9 @@
 {
     [UIView beginAnimations:@"ResizeForKeyboard" context:nil];
 	[UIView setAnimationDuration:0.3f];
-	float width = self.view.frame.size.width;
-	float height = self.view.frame.size.height;
-	CGRect rect = CGRectMake(0.0f, 460.0f, width, height);
+	float width = self.m_dateView.frame.size.width;
+	float height = self.m_dateView.frame.size.height;
+	CGRect rect = CGRectMake(0.0f, DEV_FULLSCREEN_FRAME.size.height-20, width, height);
 	self.m_dateView.frame = rect;
     [UIView commitAnimations];
 }
@@ -155,9 +156,9 @@
 {
     [UIView beginAnimations:@"ResizeForKeyboard" context:nil];
 	[UIView setAnimationDuration:0.3f];
-	float width = self.view.frame.size.width;
-	float height = self.view.frame.size.height;
-	CGRect rect = CGRectMake(0.0f, 460.0f, width, height);
+	float width = self.m_dateView.frame.size.width;
+	float height = self.m_dateView.frame.size.height;
+	CGRect rect = CGRectMake(0.0f, DEV_FULLSCREEN_FRAME.size.height-20, width, height);
 	self.m_dateView.frame = rect;
     [UIView commitAnimations];
     
@@ -218,9 +219,11 @@
 	[UIView setAnimationDuration:0.3f];
 	float width = m_dateView.frame.size.width;
 	float height = m_dateView.frame.size.height;
-	CGRect rect = CGRectMake(0.0f, 115.0, width, height);
+	CGRect rect = CGRectMake(0.0f, DEV_FULLSCREEN_FRAME.size.height-20-height, width, height);
 	m_dateView.frame = rect;
 	[UIView commitAnimations];
+
+    
 }
 
 - (IBAction)valueChangerTime:(id)sender 
@@ -318,11 +321,11 @@
 
 - (IBAction)closeIme:(id)sender 
 {
-    if (self.m_scrollView.frame.size.height <= 460-44-246) {
+    if (self.m_scrollView.frame.size.height <= DEV_FULLSCREEN_FRAME.size.height-20-44-246) {
         
     [UIView animateWithDuration:0.3 animations:^{
 
-        self.m_scrollView.frame = CGRectMake(0, 44, 320, 460-44);
+        self.m_scrollView.frame = CGRectMake(0, 44, 320, DEV_FULLSCREEN_FRAME.size.height-20-44);
         [self.m_scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
         } completion:^(BOOL finished) {
        

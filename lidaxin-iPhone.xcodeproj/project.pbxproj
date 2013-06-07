@@ -539,6 +539,7 @@
 		18FB9EF116638D560011CD57 /* ZhanWeiProTableObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FB9EF016638D560011CD57 /* ZhanWeiProTableObj.m */; };
 		18FB9EF416638D9F0011CD57 /* ZhanWeiInfoTableObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FB9EF316638D9F0011CD57 /* ZhanWeiInfoTableObj.m */; };
 		18FD83DF165F20E600D18820 /* CanZhanTableObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FD83DE165F20E600D18820 /* CanZhanTableObj.m */; };
+		18FE911D17623DC90008EED6 /* YuYueViewController5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18FE911B17623DC80008EED6 /* YuYueViewController5.xib */; };
 		555AD816168C950900B7C71E /* 边框1.png in Resources */ = {isa = PBXBuildFile; fileRef = 555AD814168C950900B7C71E /* 边框1.png */; };
 		555AD817168C950900B7C71E /* 边框2.png in Resources */ = {isa = PBXBuildFile; fileRef = 555AD815168C950900B7C71E /* 边框2.png */; };
 		55A215DC1647EC840099E5F3 /* ZhanWeiDetaiViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55A215DA1647EC830099E5F3 /* ZhanWeiDetaiViewController.mm */; };
@@ -1183,6 +1184,7 @@
 		18FB9EF316638D9F0011CD57 /* ZhanWeiInfoTableObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZhanWeiInfoTableObj.m; sourceTree = "<group>"; };
 		18FD83DD165F20E600D18820 /* CanZhanTableObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CanZhanTableObj.h; sourceTree = "<group>"; };
 		18FD83DE165F20E600D18820 /* CanZhanTableObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CanZhanTableObj.m; sourceTree = "<group>"; };
+		18FE911C17623DC90008EED6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/YuYueViewController5.xib; sourceTree = "<group>"; };
 		555AD814168C950900B7C71E /* 边框1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "边框1.png"; path = "Image/边框1.png"; sourceTree = SOURCE_ROOT; };
 		555AD815168C950900B7C71E /* 边框2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "边框2.png"; path = "Image/边框2.png"; sourceTree = SOURCE_ROOT; };
 		55A215D91647EC830099E5F3 /* ZhanWeiDetaiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZhanWeiDetaiViewController.h; sourceTree = "<group>"; };
@@ -1993,6 +1995,7 @@
 				1819D5001757AB0700A0998C /* ZhanPinDetailViewController.xib */,
 				189584871645177D00A6151F /* YuYueViewController.h */,
 				189584881645177D00A6151F /* YuYueViewController.mm */,
+				18FE911B17623DC80008EED6 /* YuYueViewController5.xib */,
 				1819D4FD1757AB0100A0998C /* YuYueViewController.xib */,
 				55A215D91647EC830099E5F3 /* ZhanWeiDetaiViewController.h */,
 				55A215DA1647EC830099E5F3 /* ZhanWeiDetaiViewController.mm */,
@@ -2767,6 +2770,7 @@
 				1891B2EB175B9B7000295DF4 /* InfoPlist.strings in Resources */,
 				189E22C1175E2C5A0000DC3A /* Localizable.strings in Resources */,
 				18608CFF176166FA009B0CE7 /* ViewController5.xib in Resources */,
+				18FE911D17623DC90008EED6 /* YuYueViewController5.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2978,6 +2982,14 @@
 				18F36F10163153E400EA6DF6 /* en */,
 			);
 			name = ViewController.xib;
+			sourceTree = "<group>";
+		};
+		18FE911B17623DC80008EED6 /* YuYueViewController5.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				18FE911C17623DC90008EED6 /* en */,
+			);
+			name = YuYueViewController5.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
