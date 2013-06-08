@@ -177,7 +177,7 @@
 					</object>
 					<object class="IBUIScrollView" id="205551297">
 						<reference key="NSNextResponder" ref="210459603"/>
-						<int key="NSvFlags">268</int>
+						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{20, 57}, {280, 180}}</string>
 						<reference key="NSSuperview" ref="210459603"/>
 						<reference key="NSWindow"/>
@@ -188,7 +188,7 @@
 					</object>
 					<object class="IBUIPageControl" id="115705809">
 						<reference key="NSNextResponder" ref="210459603"/>
-						<int key="NSvFlags">1316</int>
+						<int key="NSvFlags">1282</int>
 						<object class="NSPSMatrix" key="NSFrameMatrix"/>
 						<string key="NSFrame">{{20, 205}, {280, 36}}</string>
 						<reference key="NSSuperview" ref="210459603"/>
@@ -233,7 +233,6 @@
 						<string key="NSFrame">{{10, 245}, {300, 303}}</string>
 						<reference key="NSSuperview" ref="210459603"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MSAxIDEgMAA</bytes>

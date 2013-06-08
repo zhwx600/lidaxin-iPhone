@@ -43,7 +43,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    [self.m_bigScrollView setFrame:CGRectMake(0, 120, 320, DEV_FULLSCREEN_FRAME.size.height-44-20)];
+    [self.m_bigScrollView setFrame:CGRectMake(0, 44+20, 320, DEV_FULLSCREEN_FRAME.size.height-44-20)];
     
 }
 
