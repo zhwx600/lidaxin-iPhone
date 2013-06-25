@@ -102,12 +102,22 @@
 {
     
     if (0 != [self.m_type compare:@"展品"]) {
-        m_allProObj = [[NSMutableArray alloc] initWithArray:[DataBase getSomeCanZhanReleaseTableObjByType:self.m_type]];
+        
+        NSArray* array = [DataBase getSomeCanZhanReleaseTableObjByType:self.m_type];
+        
+        m_allProObj = [[NSMutableArray alloc] initWithArray:[array sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+            
+            NSComparisonResult result = [@(((CanZhanReleaseTableObj*)obj1).m_order) compare:@(((CanZhanReleaseTableObj*)obj2).m_order)];
+            return result == NSOrderedDescending; // 升序
+            //return result == NSOrderedAscending;  // 降序
+        }]];
         
         if (m_allProObj && m_allProObj.count<=0) {
             m_typeDataArray = nil;
             return;
         }
+        
+
         
         if (m_typeDataArray) {
             [m_typeDataArray release];
@@ -151,7 +161,14 @@
         //展品 
     }else{
     
-        m_allProObj = [[NSMutableArray alloc] initWithArray:[DataBase getSomeZhanWeiProTableInfoZWId:self.m_proObj.m_canzhanId]];
+        NSArray* array = [DataBase getSomeZhanWeiProTableInfoZWId:self.m_proObj.m_canzhanId];
+        m_allProObj = [[NSMutableArray alloc] initWithArray:[array sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+            
+            NSComparisonResult result = [@(((CanZhanReleaseTableObj*)obj1).m_order) compare:@(((CanZhanReleaseTableObj*)obj2).m_order)];
+            return result == NSOrderedDescending; // 升序
+            //return result == NSOrderedAscending;  // 降序
+        }]];
+        //m_allProObj = [[NSMutableArray alloc] initWithArray:[DataBase getSomeZhanWeiProTableInfoZWId:self.m_proObj.m_canzhanId]];
         
         if (m_allProObj && m_allProObj.count<=0) {
             m_typeDataArray = nil;

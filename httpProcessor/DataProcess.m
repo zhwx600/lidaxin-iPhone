@@ -150,7 +150,7 @@ NSString* g_sperateStr = @"/iphone/";
 //        return docpath;
 //    }
 //    return  nil;
-    return [DataProcess getMainPath];
+    return [DataProcess getDocumentsPath];
 
 }
 

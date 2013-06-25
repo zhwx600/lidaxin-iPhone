@@ -9,7 +9,7 @@
 #import "CanZhanReleaseTableObj.h"
 
 @implementation CanZhanReleaseTableObj
-@synthesize m_flag,m_versionId,m_imageId,m_productId,m_productCls,m_changjingDescription;
+@synthesize m_flag,m_versionId,m_imageId,m_productId,m_productCls,m_changjingDescription,m_order;
 
 -(id) init
 {
@@ -20,6 +20,7 @@
         self.m_imageId = nil;
         self.m_productId = nil;
         self.m_changjingDescription = nil;
+        self.m_order = 0;
     }
     return self;
 }

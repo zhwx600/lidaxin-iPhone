@@ -9,7 +9,7 @@
 #import "CanZhanTableObj.h"
 
 @implementation CanZhanTableObj
-@synthesize m_flag,m_canzhanId,m_versionId,m_canzhanName,m_zhanhuiDescription,m_typeCanZhanArray,m_bIsOpen;
+@synthesize m_flag,m_canzhanId,m_versionId,m_canzhanName,m_zhanhuiDescription,m_typeCanZhanArray,m_bIsOpen,m_order;
 
 -(id) init
 {
@@ -18,6 +18,7 @@
         self.m_canzhanId = nil;
         self.m_zhanhuiDescription = nil;
         self.m_canzhanName = nil;
+        self.m_order = 0;
         self.m_flag = 2;
         self.m_bIsOpen = NO;
         self.m_typeCanZhanArray = nil;

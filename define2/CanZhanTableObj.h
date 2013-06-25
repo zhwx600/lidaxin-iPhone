@@ -13,6 +13,7 @@
 @property (nonatomic,retain) NSString* m_canzhanId;//替换坐标id
 @property (nonatomic,retain) NSString* m_canzhanName;//热点坐标 id
 @property (nonatomic,retain) NSString* m_zhanhuiDescription;//热点坐标 id
+@property (nonatomic,assign) int m_order;//排序用
 @property (nonatomic,retain) NSString* m_versionId;
 @property (nonatomic)int m_flag;//下在数据时 标记操作 类型 -1 删除，0修改，1添加
 

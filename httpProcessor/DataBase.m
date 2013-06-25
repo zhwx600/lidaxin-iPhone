@@ -46,7 +46,7 @@ static NSString* dbFileName = @"data.sqlite3";
         //参展请求返回
         static bool bCreateCanZhan = false;
         if (!bCreateCanZhan) {
-             sql = [NSString stringWithFormat:@"create table if not exists canzhantable(showid text,showname text,showmemo text,versionid text,primary key (showid))"];
+             sql = [NSString stringWithFormat:@"create table if not exists canzhantable(showid text,showname text,showmemo text,orby text,versionid text,primary key (showid))"];
             // @"create table if not exists statversion(row integer primary key,db_statversion text);";
             
             if (sqlite3_exec(database, [sql UTF8String],nil, nil, &message) != SQLITE_OK) {
@@ -62,7 +62,7 @@ static NSString* dbFileName = @"data.sqlite3";
         static bool bCreateProRelease = false;
         if (!bCreateProRelease) {
             
-            sql = [NSString stringWithFormat:@"create table if not exists chanpinfabutable(productid text,productcls text,imageid text,cjmemo text,versionid text,primary key (productid))"];
+            sql = [NSString stringWithFormat:@"create table if not exists chanpinfabutable(productid text,productcls text,imageid text,cjmemo text,orby text,versionid text,primary key (productid))"];
             if (sqlite3_exec(database, [sql UTF8String],nil, nil, &message) != SQLITE_OK) {
                 sqlite3_close(database);
                 NSAssert1(0,@"创建chanpinfabutable表失败：%s",message);
@@ -232,7 +232,7 @@ static NSString* dbFileName = @"data.sqlite3";
         
         NSString* desStr = [showobj.m_zhanhuiDescription stringByReplacingOccurrencesOfString:@"'" withString:@"''"];
         
-        NSString* updateSql =[[NSString alloc] initWithFormat:@"insert or replace into canzhantable values('%@','%@','%@','%@');",showobj.m_canzhanId,showobj.m_canzhanName,desStr,showobj.m_versionId];
+        NSString* updateSql =[[NSString alloc] initWithFormat:@"insert or replace into canzhantable values('%@','%@','%@','%d','%@');",showobj.m_canzhanId,showobj.m_canzhanName,desStr,showobj.m_order,showobj.m_versionId];
         if (sqlite3_exec(database, [updateSql UTF8String],nil, nil, &message) != SQLITE_OK) {
             sqlite3_close(database);
             NSAssert1(0,@"addImagaddCanZhanTableObj:(CanZhanTableObj*)showobj表失败：%s",message);
@@ -286,7 +286,7 @@ static NSString* dbFileName = @"data.sqlite3";
         database = [DataBase createDB];
         char* message;
         NSString* desStr = [showobj.m_zhanhuiDescription stringByReplacingOccurrencesOfString:@"'" withString:@"''"];
-        NSString* updateSql =[[NSString alloc] initWithFormat:@"insert or replace into canzhantable values('%@','%@','%@','%@');",showobj.m_canzhanId,showobj.m_canzhanName,desStr,showobj.m_versionId];
+        NSString* updateSql =[[NSString alloc] initWithFormat:@"insert or replace into canzhantable values('%@','%@','%@','%d','%@');",showobj.m_canzhanId,showobj.m_canzhanName,desStr,showobj.m_order,showobj.m_versionId];
         if (sqlite3_exec(database, [updateSql UTF8String],nil, nil, &message) != SQLITE_OK) {
             sqlite3_close(database);
             NSAssert1(0,@"addImagaddCanZhanTableObj:(CanZhanTableObj*)showobj表失败：%s",message);
@@ -325,12 +325,14 @@ static NSString* dbFileName = @"data.sqlite3";
                 char* data1 = (char*)sqlite3_column_text(statement, 1);
                 char* data2 = (char*)sqlite3_column_text(statement, 2);
                 char* data3 = (char*)sqlite3_column_text(statement, 3);
+                char* data4 = (char*)sqlite3_column_text(statement, 4);
                 CanZhanTableObj* line = [[CanZhanTableObj alloc] init];
                 
                 line.m_canzhanId = [[NSString alloc] initWithUTF8String:data0];
                 line.m_canzhanName = [[NSString alloc] initWithUTF8String:data1];
                 line.m_zhanhuiDescription = [[NSString alloc] initWithUTF8String:data2];
-                line.m_versionId = [[NSString alloc] initWithUTF8String:data3];
+                line.m_order = [[[NSString alloc] initWithUTF8String:data3] integerValue];
+                line.m_versionId = [[NSString alloc] initWithUTF8String:data4];
                 
                 [dataArry addObject:line];
                 [line release];
@@ -372,11 +374,13 @@ static NSString* dbFileName = @"data.sqlite3";
                 char* data1 = (char*)sqlite3_column_text(statement, 1);
                 char* data2 = (char*)sqlite3_column_text(statement, 2);
                 char* data3 = (char*)sqlite3_column_text(statement, 3);
+                char* data4 = (char*)sqlite3_column_text(statement, 4);
                 
                 line.m_canzhanId= [[NSString alloc] initWithUTF8String:data0];
                 line.m_canzhanName = [[NSString alloc] initWithUTF8String:data1];
                 line.m_zhanhuiDescription = [[NSString alloc] initWithUTF8String:data2];
-                line.m_versionId = [[NSString alloc] initWithUTF8String:data3];
+                line.m_order = [[[NSString alloc] initWithUTF8String:data3] integerValue];
+                line.m_versionId = [[NSString alloc] initWithUTF8String:data4];
                 break;
                 
             }
@@ -407,7 +411,7 @@ static NSString* dbFileName = @"data.sqlite3";
         database = [DataBase createDB];
         char* message;
         NSString* desStr = [releaseobj.m_changjingDescription stringByReplacingOccurrencesOfString:@"'" withString:@"''"];
-        NSString* updateSql =[[NSString alloc] initWithFormat:@"insert or replace into chanpinfabutable values('%@','%@','%@','%@','%@');",releaseobj.m_productId,releaseobj.m_productCls,releaseobj.m_imageId,desStr,releaseobj.m_versionId];
+        NSString* updateSql =[[NSString alloc] initWithFormat:@"insert or replace into chanpinfabutable values('%@','%@','%@','%@','%d','%@');",releaseobj.m_productId,releaseobj.m_productCls,releaseobj.m_imageId,desStr,releaseobj.m_order,releaseobj.m_versionId];
         if (sqlite3_exec(database, [updateSql UTF8String],nil, nil, &message) != SQLITE_OK) {
             sqlite3_close(database);
             NSAssert1(0,@"ddCanZhanReleaseTableObj:(CanZhanRe 表失败：%s",message);
@@ -460,7 +464,7 @@ static NSString* dbFileName = @"data.sqlite3";
         database = [DataBase createDB];
         char* message;
         NSString* desStr = [releaseobj.m_changjingDescription stringByReplacingOccurrencesOfString:@"'" withString:@"''"];
-        NSString* updateSql =[[NSString alloc] initWithFormat:@"insert or replace into chanpinfabutable values('%@','%@','%@','%@','%@');",releaseobj.m_productId,releaseobj.m_productCls,releaseobj.m_imageId,desStr,releaseobj.m_versionId];
+        NSString* updateSql =[[NSString alloc] initWithFormat:@"insert or replace into chanpinfabutable values('%@','%@','%@','%@','%d','%@');",releaseobj.m_productId,releaseobj.m_productCls,releaseobj.m_imageId,desStr,releaseobj.m_order,releaseobj.m_versionId];
         if (sqlite3_exec(database, [updateSql UTF8String],nil, nil, &message) != SQLITE_OK) {
             sqlite3_close(database);
             NSAssert1(0,@"ddCanZhanReleaseTableObj:(CanZhanRe 表失败：%s",message);
@@ -500,13 +504,15 @@ static NSString* dbFileName = @"data.sqlite3";
                 char* data2 = (char*)sqlite3_column_text(statement, 2);
                 char* data3 = (char*)sqlite3_column_text(statement, 3);
                 char* data4 = (char*)sqlite3_column_text(statement, 4);
+                char* data5 = (char*)sqlite3_column_text(statement, 5);
                 CanZhanReleaseTableObj* line = [[CanZhanReleaseTableObj alloc] init];
                 
                 line.m_productId = [[NSString alloc] initWithUTF8String:data0];
                 line.m_productCls = [[NSString alloc] initWithUTF8String:data1];
                 line.m_imageId = [[NSString alloc] initWithUTF8String:data2];
                 line.m_changjingDescription = [[NSString alloc] initWithUTF8String:data3];
-                line.m_versionId = [[NSString alloc] initWithUTF8String:data4];
+                line.m_order = [[[NSString alloc] initWithUTF8String:data4] integerValue];
+                line.m_versionId = [[NSString alloc] initWithUTF8String:data5];
                 
                 [dataArry addObject:line];
                 [line release];
@@ -549,13 +555,15 @@ static NSString* dbFileName = @"data.sqlite3";
                 char* data2 = (char*)sqlite3_column_text(statement, 2);
                 char* data3 = (char*)sqlite3_column_text(statement, 3);
                 char* data4 = (char*)sqlite3_column_text(statement, 4);
+                char* data5 = (char*)sqlite3_column_text(statement, 5);
                 CanZhanReleaseTableObj* line = [[CanZhanReleaseTableObj alloc] init];
                 
                 line.m_productId = [[NSString alloc] initWithUTF8String:data0];
                 line.m_productCls = [[NSString alloc] initWithUTF8String:data1];
                 line.m_imageId = [[NSString alloc] initWithUTF8String:data2];
                 line.m_changjingDescription = [[NSString alloc] initWithUTF8String:data3];
-                line.m_versionId = [[NSString alloc] initWithUTF8String:data4];
+                line.m_order = [[[NSString alloc] initWithUTF8String:data4] integerValue];
+                line.m_versionId = [[NSString alloc] initWithUTF8String:data5];
                 
                 [dataArry addObject:line];
                 [line release];
@@ -597,12 +605,14 @@ static NSString* dbFileName = @"data.sqlite3";
                 char* data2 = (char*)sqlite3_column_text(statement, 2);
                 char* data3 = (char*)sqlite3_column_text(statement, 3);
                 char* data4 = (char*)sqlite3_column_text(statement, 4);
+                char* data5 = (char*)sqlite3_column_text(statement, 5);
                 
                 line.m_productId= [[NSString alloc] initWithUTF8String:data0];
                 line.m_productCls = [[NSString alloc] initWithUTF8String:data1];
                 line.m_imageId = [[NSString alloc] initWithUTF8String:data2];
                 line.m_changjingDescription = [[NSString alloc] initWithUTF8String:data3];
-                line.m_versionId = [[NSString alloc] initWithUTF8String:data4];
+                line.m_order = [[[NSString alloc] initWithUTF8String:data4] integerValue];
+                line.m_versionId = [[NSString alloc] initWithUTF8String:data5];
                 break;
                 
             }
