@@ -39,7 +39,8 @@
 +(NSString*) getImageFilePathByUrl:(NSString*) url;//获取下载图片文件的 绝对路径
 
 //下载图片的 路径
-+(NSString*) getImageFilePath;
++(NSString*) getDownImageFilePath;
++(NSString*) getMainImageFilePath;
 
 +(BOOL) downAndWriteImgeforUrl:(NSString*) urlStr;
 

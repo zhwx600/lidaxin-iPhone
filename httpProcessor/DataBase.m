@@ -103,7 +103,7 @@ static NSString* dbFileName = @"data.sqlite3";
         static bool bCreateDiaochanRequest = false;
         if (!bCreateDiaochanRequest) {
             
-            sql = [NSString stringWithFormat:@"create table if not exists diaochanrequesttable(diaochaid text,diaochaname text,versionid text,primary key (diaochaid))"];
+            sql = [NSString stringWithFormat:@"create table if not exists diaochanrequesttable(diaochaid text,diaochaname text,orby text,versionid text,primary key (diaochaid))"];
             if (sqlite3_exec(database, [sql UTF8String],nil, nil, &message) != SQLITE_OK) {
                 sqlite3_close(database);
                 NSAssert1(0,@"创建diaochanrequesttable表失败：%s",message);
@@ -145,7 +145,7 @@ static NSString* dbFileName = @"data.sqlite3";
         static bool bCreateZhanweiPro = false;
         if (!bCreateZhanweiPro) {
             
-            sql = [NSString stringWithFormat:@"create table if not exists zhanweiprotable(showproid text,showid text,showproimageid text,showpromemo text,versionid text,primary key (showproid))"];
+            sql = [NSString stringWithFormat:@"create table if not exists zhanweiprotable(showproid text,showid text,showproimageid text,showpromemo text,orby text,versionid text,primary key (showproid))"];
             if (sqlite3_exec(database, [sql UTF8String],nil, nil, &message) != SQLITE_OK) {
                 sqlite3_close(database);
                 NSAssert1(0,@"创建zhanweiprotable表失败：%s",message);
@@ -319,7 +319,9 @@ static NSString* dbFileName = @"data.sqlite3";
         sqlite3_stmt *statement;
         if (sqlite3_prepare_v2(database, [sql UTF8String], -1, &statement, nil) == SQLITE_OK) {
             
-            NSMutableArray* dataArry = [[NSMutableArray alloc] init];
+            NSMutableArray* temArr = [NSMutableArray array];
+            
+           
             while (sqlite3_step(statement) == SQLITE_ROW) {
                 char* data0 = (char*)sqlite3_column_text(statement, 0);
                 char* data1 = (char*)sqlite3_column_text(statement, 1);
@@ -334,13 +336,21 @@ static NSString* dbFileName = @"data.sqlite3";
                 line.m_order = [[[NSString alloc] initWithUTF8String:data3] integerValue];
                 line.m_versionId = [[NSString alloc] initWithUTF8String:data4];
                 
-                [dataArry addObject:line];
+                [temArr addObject:line];
                 [line release];
                 
             }
             sqlite3_finalize(statement);
             sqlite3_close(database);
-            [dataArry autorelease];		
+            
+            NSMutableArray* dataArry = [[[NSMutableArray alloc] initWithArray:
+                                         [temArr sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+                
+                NSComparisonResult result = [@(((CanZhanTableObj*)obj1).m_order) compare:@(((CanZhanTableObj*)obj2).m_order)];
+                return result == NSOrderedDescending; // 升序
+                //return result == NSOrderedAscending;  // 降序
+            }]] autorelease];
+
             return dataArry;
         }
         sqlite3_close(database);
@@ -497,7 +507,7 @@ static NSString* dbFileName = @"data.sqlite3";
         sqlite3_stmt *statement;
         if (sqlite3_prepare_v2(database, [sql UTF8String], -1, &statement, nil) == SQLITE_OK) {
             
-            NSMutableArray* dataArry = [[NSMutableArray alloc] init];
+            NSMutableArray* temArr = [NSMutableArray array];
             while (sqlite3_step(statement) == SQLITE_ROW) {
                 char* data0 = (char*)sqlite3_column_text(statement, 0);
                 char* data1 = (char*)sqlite3_column_text(statement, 1);
@@ -514,13 +524,20 @@ static NSString* dbFileName = @"data.sqlite3";
                 line.m_order = [[[NSString alloc] initWithUTF8String:data4] integerValue];
                 line.m_versionId = [[NSString alloc] initWithUTF8String:data5];
                 
-                [dataArry addObject:line];
+                [temArr addObject:line];
                 [line release];
                 
             }
             sqlite3_finalize(statement);
             sqlite3_close(database);
-            [dataArry autorelease];		
+            
+            NSMutableArray* dataArry = [[[NSMutableArray alloc] initWithArray:
+                                         [temArr sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+                
+                NSComparisonResult result = [@(((CanZhanReleaseTableObj*)obj1).m_order) compare:@(((CanZhanReleaseTableObj*)obj2).m_order)];
+                return result == NSOrderedDescending; // 升序
+                //return result == NSOrderedAscending;  // 降序
+            }]] autorelease];
             return dataArry;
         }
         sqlite3_close(database);
@@ -548,7 +565,7 @@ static NSString* dbFileName = @"data.sqlite3";
         sqlite3_stmt *statement;
         if (sqlite3_prepare_v2(database, [sql UTF8String], -1, &statement, nil) == SQLITE_OK) {
             
-            NSMutableArray* dataArry = [[NSMutableArray alloc] init];
+            NSMutableArray* temArr = [NSMutableArray array];
             while (sqlite3_step(statement) == SQLITE_ROW) {
                 char* data0 = (char*)sqlite3_column_text(statement, 0);
                 char* data1 = (char*)sqlite3_column_text(statement, 1);
@@ -565,13 +582,21 @@ static NSString* dbFileName = @"data.sqlite3";
                 line.m_order = [[[NSString alloc] initWithUTF8String:data4] integerValue];
                 line.m_versionId = [[NSString alloc] initWithUTF8String:data5];
                 
-                [dataArry addObject:line];
+                [temArr addObject:line];
                 [line release];
                 
             }
             sqlite3_finalize(statement);
             sqlite3_close(database);
-            [dataArry autorelease];		
+            
+            NSMutableArray* dataArry = [[[NSMutableArray alloc] initWithArray:
+                                         [temArr sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+                
+                NSComparisonResult result = [@(((CanZhanReleaseTableObj*)obj1).m_order) compare:@(((CanZhanReleaseTableObj*)obj2).m_order)];
+                return result == NSOrderedDescending; // 升序
+                //return result == NSOrderedAscending;  // 降序
+            }]] autorelease];
+
             return dataArry;
         }
         sqlite3_close(database);
@@ -1021,7 +1046,7 @@ static NSString* dbFileName = @"data.sqlite3";
         //打开数据库
         database = [DataBase createDB];
         char* message;
-        NSString* updateSql =[[NSString alloc] initWithFormat:@"insert or replace into diaochanrequesttable values('%@','%@','%@');",diaochaobj.m_diaochaId,diaochaobj.m_diaochaName,diaochaobj.m_versionId];
+        NSString* updateSql =[[NSString alloc] initWithFormat:@"insert or replace into diaochanrequesttable values('%@','%@','%d','%@');",diaochaobj.m_diaochaId,diaochaobj.m_diaochaName,diaochaobj.m_order,diaochaobj.m_versionId];
         if (sqlite3_exec(database, [updateSql UTF8String],nil, nil, &message) != SQLITE_OK) {
             sqlite3_close(database);
             NSAssert1(0,@"addDiaoChaTableObj:(DiaoChaTableObj*) diaochaobj :diaochanrequesttable表失败：%s",message);
@@ -1073,7 +1098,7 @@ static NSString* dbFileName = @"data.sqlite3";
         //打开数据库
         database = [DataBase createDB];
         char* message;
-        NSString* updateSql =[[NSString alloc] initWithFormat:@"insert or replace into diaochanrequesttable values('%@','%@','%@');",diaochaobj.m_diaochaId,diaochaobj.m_diaochaName,diaochaobj.m_versionId];
+        NSString* updateSql =[[NSString alloc] initWithFormat:@"insert or replace into diaochanrequesttable values('%@','%@','%d','%@');",diaochaobj.m_diaochaId,diaochaobj.m_diaochaName,diaochaobj.m_order,diaochaobj.m_versionId];
         if (sqlite3_exec(database, [updateSql UTF8String],nil, nil, &message) != SQLITE_OK) {
             sqlite3_close(database);
             NSAssert1(0,@"addDiaoChaTableObj:(DiaoChaTableObj*) diaochaobj :diaochanrequesttable表失败：%s",message);
@@ -1105,24 +1130,34 @@ static NSString* dbFileName = @"data.sqlite3";
         sqlite3_stmt *statement;
         if (sqlite3_prepare_v2(database, [sql UTF8String], -1, &statement, nil) == SQLITE_OK) {
             
-            NSMutableArray* dataArry = [[NSMutableArray alloc] init];
+            NSMutableArray* temArr = [NSMutableArray array];
             while (sqlite3_step(statement) == SQLITE_ROW) {
                 char* data0 = (char*)sqlite3_column_text(statement, 0);
                 char* data1 = (char*)sqlite3_column_text(statement, 1);
                 char* data2 = (char*)sqlite3_column_text(statement, 2);
+                char* data3 = (char*)sqlite3_column_text(statement, 3);
                 DiaoChaTableObj* line = [[DiaoChaTableObj alloc] init];
                 
                 line.m_diaochaId = [[NSString alloc] initWithUTF8String:data0];
                 line.m_diaochaName = [[NSString alloc] initWithUTF8String:data1];
-                line.m_versionId = [[NSString alloc] initWithUTF8String:data2];
+                line.m_order = [[[NSString alloc] initWithUTF8String:data2] integerValue];
+                line.m_versionId = [[NSString alloc] initWithUTF8String:data3];
                 
-                [dataArry addObject:line];
+                [temArr addObject:line];
                 [line release];
                 
             }
             sqlite3_finalize(statement);
             sqlite3_close(database);
-            [dataArry autorelease];		
+            
+            NSMutableArray* dataArry = [[[NSMutableArray alloc] initWithArray:
+                                         [temArr sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+                
+                NSComparisonResult result = [@(((DiaoChaTableObj*)obj1).m_order) compare:@(((DiaoChaTableObj*)obj2).m_order)];
+                return result == NSOrderedDescending; // 升序
+                //return result == NSOrderedAscending;  // 降序
+            }]] autorelease];
+            
             return dataArry;
         }
         sqlite3_close(database);
@@ -1153,11 +1188,12 @@ static NSString* dbFileName = @"data.sqlite3";
                 char* data0 = (char*)sqlite3_column_text(statement, 0);
                 char* data1 = (char*)sqlite3_column_text(statement, 1);
                 char* data2 = (char*)sqlite3_column_text(statement, 2);
+                char* data3 = (char*)sqlite3_column_text(statement, 3);
                 
                 line.m_diaochaId = [[NSString alloc] initWithUTF8String:data0];
                 line.m_diaochaName = [[NSString alloc] initWithUTF8String:data1];
-                line.m_versionId = [[NSString alloc] initWithUTF8String:data2];
-
+                line.m_order = [[[NSString alloc] initWithUTF8String:data2] integerValue];
+                line.m_versionId = [[NSString alloc] initWithUTF8String:data3];
                 break;
                 
             }
@@ -1359,7 +1395,7 @@ static NSString* dbFileName = @"data.sqlite3";
         database = [DataBase createDB];
         char* message;
         NSString* desStr = [zhanweiproobj.m_changjingDescription stringByReplacingOccurrencesOfString:@"'" withString:@"''"];
-        NSString* updateSql =[[NSString alloc] initWithFormat:@"insert or replace into zhanweiprotable values('%@','%@','%@','%@','%@');",zhanweiproobj.m_showProId,zhanweiproobj.m_showId,zhanweiproobj.m_showProImageId,desStr,zhanweiproobj.m_versionId];
+        NSString* updateSql =[[NSString alloc] initWithFormat:@"insert or replace into zhanweiprotable values('%@','%@','%@','%@','%d','%@');",zhanweiproobj.m_showProId,zhanweiproobj.m_showId,zhanweiproobj.m_showProImageId,desStr,zhanweiproobj.m_order,zhanweiproobj.m_versionId];
         if (sqlite3_exec(database, [updateSql UTF8String],nil, nil, &message) != SQLITE_OK) {
             sqlite3_close(database);
             NSAssert1(0,@"addZhanWeiProTableObj: :zhanweiprotable表失败：%s",message);
@@ -1412,7 +1448,7 @@ static NSString* dbFileName = @"data.sqlite3";
         database = [DataBase createDB];
         char* message;
         NSString* desStr = [zhanweiproobj.m_changjingDescription stringByReplacingOccurrencesOfString:@"'" withString:@"''"];
-        NSString* updateSql =[[NSString alloc] initWithFormat:@"insert or replace into zhanweiprotable values('%@','%@','%@','%@','%@');",zhanweiproobj.m_showProId,zhanweiproobj.m_showId,zhanweiproobj.m_showProImageId,desStr,zhanweiproobj.m_versionId];
+        NSString* updateSql =[[NSString alloc] initWithFormat:@"insert or replace into zhanweiprotable values('%@','%@','%@','%@','%d','%@');",zhanweiproobj.m_showProId,zhanweiproobj.m_showId,zhanweiproobj.m_showProImageId,desStr,zhanweiproobj.m_order,zhanweiproobj.m_versionId];
         if (sqlite3_exec(database, [updateSql UTF8String],nil, nil, &message) != SQLITE_OK) {
             sqlite3_close(database);
             NSAssert1(0,@"alterZhanWeiProTableObj: :zhanweiprotable表失败：%s",message);
@@ -1445,28 +1481,36 @@ static NSString* dbFileName = @"data.sqlite3";
         sqlite3_stmt *statement;
         if (sqlite3_prepare_v2(database, [sql UTF8String], -1, &statement, nil) == SQLITE_OK) {
             
-            NSMutableArray* dataArry = [[NSMutableArray alloc] init];
+            NSMutableArray* temArr = [NSMutableArray array];
             while (sqlite3_step(statement) == SQLITE_ROW) {
                 char* data0 = (char*)sqlite3_column_text(statement, 0);
                 char* data1 = (char*)sqlite3_column_text(statement, 1);
                 char* data2 = (char*)sqlite3_column_text(statement, 2);
                 char* data3 = (char*)sqlite3_column_text(statement, 3);
                 char* data4 = (char*)sqlite3_column_text(statement, 4);
+                char* data5 = (char*)sqlite3_column_text(statement, 5);
                 ZhanWeiProTableObj* line = [[ZhanWeiProTableObj alloc] init];
                 
                 line.m_showProId = [[NSString alloc] initWithUTF8String:data0];
                 line.m_showId = [[NSString alloc] initWithUTF8String:data1];
                 line.m_showProImageId = [[NSString alloc] initWithUTF8String:data2];
                 line.m_changjingDescription = [[NSString alloc] initWithUTF8String:data3];
-                line.m_versionId = [[NSString alloc] initWithUTF8String:data4];
+                line.m_order = [[[NSString alloc] initWithUTF8String:data4] integerValue];
+                line.m_versionId = [[NSString alloc] initWithUTF8String:data5];
                 
-                [dataArry addObject:line];
+                [temArr addObject:line];
                 [line release];
                 
             }
             sqlite3_finalize(statement);
             sqlite3_close(database);
-            [dataArry autorelease];		
+            NSMutableArray* dataArry = [[[NSMutableArray alloc] initWithArray:
+                                         [temArr sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+                
+                NSComparisonResult result = [@(((ZhanWeiProTableObj*)obj1).m_order) compare:@(((ZhanWeiProTableObj*)obj2).m_order)];
+                return result == NSOrderedDescending; // 升序
+                //return result == NSOrderedAscending;  // 降序
+            }]] autorelease];
             return dataArry;
         }
         sqlite3_close(database);
@@ -1491,28 +1535,36 @@ static NSString* dbFileName = @"data.sqlite3";
         sqlite3_stmt *statement;
         if (sqlite3_prepare_v2(database, [sql UTF8String], -1, &statement, nil) == SQLITE_OK) {
             
-            NSMutableArray* dataArry = [[NSMutableArray alloc] init];
+            NSMutableArray* temArr = [NSMutableArray array];
             while (sqlite3_step(statement) == SQLITE_ROW) {
                 char* data0 = (char*)sqlite3_column_text(statement, 0);
                 char* data1 = (char*)sqlite3_column_text(statement, 1);
                 char* data2 = (char*)sqlite3_column_text(statement, 2);
                 char* data3 = (char*)sqlite3_column_text(statement, 3);
                 char* data4 = (char*)sqlite3_column_text(statement, 4);
+                char* data5 = (char*)sqlite3_column_text(statement, 5);
                 ZhanWeiProTableObj* line = [[ZhanWeiProTableObj alloc] init];
                 
                 line.m_showProId = [[NSString alloc] initWithUTF8String:data0];
                 line.m_showId = [[NSString alloc] initWithUTF8String:data1];
                 line.m_showProImageId = [[NSString alloc] initWithUTF8String:data2];
                 line.m_changjingDescription = [[NSString alloc] initWithUTF8String:data3];
-                line.m_versionId = [[NSString alloc] initWithUTF8String:data4];
+                line.m_order = [[[NSString alloc] initWithUTF8String:data4] integerValue];
+                line.m_versionId = [[NSString alloc] initWithUTF8String:data5];
                 
-                [dataArry addObject:line];
+                [temArr addObject:line];
                 [line release];
                 
             }
             sqlite3_finalize(statement);
             sqlite3_close(database);
-            [dataArry autorelease];		
+            NSMutableArray* dataArry = [[[NSMutableArray alloc] initWithArray:
+                                         [temArr sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+                
+                NSComparisonResult result = [@(((ZhanWeiProTableObj*)obj1).m_order) compare:@(((ZhanWeiProTableObj*)obj2).m_order)];
+                return result == NSOrderedDescending; // 升序
+                //return result == NSOrderedAscending;  // 降序
+            }]] autorelease];
             return dataArry;
         }
         sqlite3_close(database);
@@ -1545,12 +1597,14 @@ static NSString* dbFileName = @"data.sqlite3";
                 char* data2 = (char*)sqlite3_column_text(statement, 2);
                 char* data3 = (char*)sqlite3_column_text(statement, 3);
                 char* data4 = (char*)sqlite3_column_text(statement, 4);
+                char* data5 = (char*)sqlite3_column_text(statement, 5);
                 
                 line.m_showProId = [[NSString alloc] initWithUTF8String:data0];
                 line.m_showId = [[NSString alloc] initWithUTF8String:data1];
                 line.m_showProImageId = [[NSString alloc] initWithUTF8String:data2];
                 line.m_changjingDescription = [[NSString alloc] initWithUTF8String:data3];
-                line.m_versionId = [[NSString alloc] initWithUTF8String:data4];
+                line.m_order = [[[NSString alloc] initWithUTF8String:data4] integerValue];
+                line.m_versionId = [[NSString alloc] initWithUTF8String:data5];
                 break;
                 
             }

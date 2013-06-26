@@ -20,6 +20,7 @@
         self.m_showProId = nil;
         self.m_showProImageId = nil;
         self.m_changjingDescription = nil;
+        self.m_order = 0;
     }
     return self;
 }

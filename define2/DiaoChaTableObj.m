@@ -17,6 +17,7 @@
         self.m_versionId = nil;
         self.m_flag = 2;
         self.m_diaochaId = nil;
+        self.m_order = 0;
         self.m_diaochaName = nil;
     }
     return self;

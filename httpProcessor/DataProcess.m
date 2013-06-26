@@ -111,7 +111,7 @@ NSString* g_sperateStr = @"/iphone/";
 //删除文件
 +(BOOL) removeFileByName:(NSString*) fileName
 {
-    NSString* filePath = [[DataProcess getImageFilePath] stringByAppendingPathComponent:fileName];
+    NSString* filePath = [[DataProcess getDownImageFilePath] stringByAppendingPathComponent:fileName];
     NSError* error = nil;
     return [[NSFileManager defaultManager] removeItemAtPath:filePath error:&error];
 }
@@ -128,13 +128,22 @@ NSString* g_sperateStr = @"/iphone/";
 //获取下载图片文件的 绝对路径
 +(NSString*) getImageFilePathByUrl:(NSString*) url
 {
-    NSString* path = [[DataProcess getImageFilePath] stringByAppendingPathComponent:[DataProcess getImageFileNameByUrl:url]];
-    return path;
+    NSString* path = [[DataProcess getDownImageFilePath] stringByAppendingPathComponent:[DataProcess getImageFileNameByUrl:url]];
+    
+    NSString* path2 = [[DataProcess getMainImageFilePath] stringByAppendingPathComponent:[DataProcess getImageFileNameByUrl:url]];
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
+        return path;
+    }else if([[NSFileManager defaultManager] fileExistsAtPath:path2]){
+        return path2;
+    }
+    
+    return nil;
 
 }
 
 
-+(NSString*) getImageFilePath
++(NSString*) getDownImageFilePath
 {
 //    NSArray* path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 //	NSString* str = [path objectAtIndex:0];
@@ -152,6 +161,11 @@ NSString* g_sperateStr = @"/iphone/";
 //    return  nil;
     return [DataProcess getDocumentsPath];
 
+}
+
++(NSString*) getMainImageFilePath
+{
+    return [DataProcess getMainPath];
 }
 
 

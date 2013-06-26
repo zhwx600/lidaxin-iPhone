@@ -1146,6 +1146,8 @@ bool xmlparser::Decode(const char *xml,S_Data *sData)
                     lmtKey = lmtKey->NextSiblingElement("lookname");
                     imageObj.m_diaochaName= [[NSString alloc] initWithCString:lmtKey->GetText() encoding:NSUTF8StringEncoding];
                     
+                    lmtKey = lmtKey->NextSiblingElement("orby");
+                    imageObj.m_order= [[[NSString alloc] initWithCString:lmtKey->GetText() encoding:NSUTF8StringEncoding] integerValue];
                     
                     lmtKey = lmtKey->NextSiblingElement("ver");
                     imageObj.m_versionId = [[NSString alloc] initWithCString:lmtKey->GetText() encoding:NSUTF8StringEncoding];
@@ -1175,6 +1177,8 @@ bool xmlparser::Decode(const char *xml,S_Data *sData)
                     lmtKey = lmtKey->NextSiblingElement("lookname");
                     imageObj.m_diaochaName= [[NSString alloc] initWithCString:lmtKey->GetText() encoding:NSUTF8StringEncoding];
                     
+                    lmtKey = lmtKey->NextSiblingElement("orby");
+                    imageObj.m_order= [[[NSString alloc] initWithCString:lmtKey->GetText() encoding:NSUTF8StringEncoding] integerValue];
                     
                     lmtKey = lmtKey->NextSiblingElement("ver");
                     imageObj.m_versionId = [[NSString alloc] initWithCString:lmtKey->GetText() encoding:NSUTF8StringEncoding];
@@ -1452,6 +1456,9 @@ bool xmlparser::Decode(const char *xml,S_Data *sData)
                         imageObj.m_changjingDescription = [[NSString alloc] initWithCString:lmtKey->GetText() encoding:NSUTF8StringEncoding];
                     }
                     
+                    lmtKey = lmtKey->NextSiblingElement("orby");
+                    imageObj.m_order= [[[NSString alloc] initWithCString:lmtKey->GetText() encoding:NSUTF8StringEncoding] integerValue];
+                    
                     lmtKey = lmtKey->NextSiblingElement("ver");
                     imageObj.m_versionId = [[NSString alloc] initWithCString:lmtKey->GetText() encoding:NSUTF8StringEncoding];
                     
@@ -1487,6 +1494,9 @@ bool xmlparser::Decode(const char *xml,S_Data *sData)
                     if (lmtKey) {
                         imageObj.m_changjingDescription = [[NSString alloc] initWithCString:lmtKey->GetText() encoding:NSUTF8StringEncoding];
                     }
+                    
+                    lmtKey = lmtKey->NextSiblingElement("orby");
+                    imageObj.m_order= [[[NSString alloc] initWithCString:lmtKey->GetText() encoding:NSUTF8StringEncoding] integerValue];
                     
                     lmtKey = lmtKey->NextSiblingElement("ver");
                     imageObj.m_versionId = [[NSString alloc] initWithCString:lmtKey->GetText() encoding:NSUTF8StringEncoding];

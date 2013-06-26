@@ -11,6 +11,7 @@
 @interface DiaoChaTableObj : NSObject
 @property (nonatomic,retain) NSString* m_diaochaId;
 @property (nonatomic,retain) NSString* m_diaochaName;
+@property (nonatomic,assign) int m_order;
 @property (nonatomic,retain) NSString* m_versionId;
 @property (nonatomic)int m_flag;//下在数据时 标记操作 类型 -1 删除，0修改，1添
 @end
