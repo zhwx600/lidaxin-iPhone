@@ -181,7 +181,7 @@ NSString* g_sperateStr = @"/iphone/";
         if (!data) {
             return NO;
         }
-        NSString* path = [[DataProcess getImageFilePath] stringByAppendingPathComponent:[DataProcess getImageFileNameByUrl:urlStr]];
+        NSString* path = [[DataProcess getDownImageFilePath] stringByAppendingPathComponent:[DataProcess getImageFileNameByUrl:urlStr]];
         NSLog(@"SString* path = [[ = %@",path);
         return [DataProcess writeData:data FileNameAndPath:path];
         
@@ -236,7 +236,7 @@ NSString* g_sperateStr = @"/iphone/";
 
 +(BOOL) copyDatabaseSqliteFileToDownImage
 {
-    NSString* filepath1 = [[DataProcess getImageFilePath] stringByAppendingPathComponent:@"data.sqlite3"];
+    NSString* filepath1 = [[DataProcess getDownImageFilePath] stringByAppendingPathComponent:@"data.sqlite3"];
     NSString* filepath2 = [[DataProcess getMainPath] stringByAppendingPathComponent:@"data.sqlite3"];
     
     NSData* data = [NSData dataWithContentsOfFile:filepath2];

@@ -40,6 +40,7 @@
     // Do any additional setup after loading the view from its nib.
     
     CGRect bounds = DEV_HAVE_NAV_VIEW_FRAME;
+    bounds.origin.y += 44;
     m_tableView = [[UITableView alloc] initWithFrame:bounds];
     m_tableView.dataSource = self;
     m_tableView.delegate = self;
